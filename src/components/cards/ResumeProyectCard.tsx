@@ -27,8 +27,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
   return (
     <Box alignItems="center">
       <Box
-        maxW="80"
-        minW="80"
+        width={"95%"}
         rounded="lg"
         overflow="hidden"
         borderColor="coolGray.200"
@@ -82,7 +81,6 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
               fontWeight: "700",
               fontSize: "xs",
             }}
-            position="fixed"
             bottom="0"
             px="3"
             py="1.5"

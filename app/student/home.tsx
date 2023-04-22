@@ -16,7 +16,7 @@ export default function home() {
             return (
               <>
                 <Text>
-                  <Box my={2}>
+                  <Box my={"2%"}>
                     <ResumeProyectCard
                       proyectName={proyect.proyectName}
                       proyectDescription={proyect.proyectDescription}

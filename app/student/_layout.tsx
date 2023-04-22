@@ -11,6 +11,7 @@ export default () => {
         screenOptions={{
           tabBarActiveBackgroundColor: "#f3f3f3",
           headerShadowVisible: false,
+          tabBarShowLabel: false,
         }}
       >
         <Tabs.Screen
@@ -19,7 +20,7 @@ export default () => {
             tabBarIcon: () => {
               return <Feather name="home" size={24} color="black" />;
             },
-            headerTitle: "WhiteHorn",
+            headerTitle: "Alicorn",
             headerTitleAlign: "left",
           }}
         />

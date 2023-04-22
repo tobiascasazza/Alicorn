@@ -1,0 +1,116 @@
+[
+  {
+    "proyectName": "Server Administration",
+    "proyectDescription": "Create servers and mantain it for 4 month",
+    "participants": [
+      {
+        "name": "Richard Nelson",
+        "punctuation": 4.5
+      },
+      {
+        "name": "Leila Rodman",
+        "punctuation": 4.9
+      },
+      {
+        "name": "Tobias Casazza",
+        "punctuation": 5
+      }
+    ],
+    "proyectType": "Work Project"
+  },
+  {
+    "proyectName": "Restaurant App",
+    "proyectDescription": "Collage proyect of restaurant with React",
+    "participants": [
+      {
+        "name": "Richard Nelson",
+        "punctuation": 4.5
+      },
+      {
+        "name": "Leila Rodman",
+        "punctuation": 4.9
+      },
+      {
+        "name": "Tobias Casazza",
+        "punctuation": 5
+      }
+    ],
+    "proyectType": "Work Project"
+  },
+  {
+    "proyectName": "Tech StartUp",
+    "proyectDescription": "Billionaire Start Up in a few month",
+    "participants": [
+      {
+        "name": "Richard Nelson",
+        "punctuation": 4.5
+      },
+      {
+        "name": "Leila Rodman",
+        "punctuation": 4.9
+      },
+      {
+        "name": "Tobias Casazza",
+        "punctuation": 5
+      }
+    ],
+    "proyectType": "Entrepreneurship"
+  },
+  {
+    "proyectName": "Hamburgers System",
+    "proyectDescription": "System for makes hamburgers in record time",
+    "participants": [
+      {
+        "name": "Richard Nelson",
+        "punctuation": 4.5
+      },
+      {
+        "name": "Leila Rodman",
+        "punctuation": 4.9
+      },
+      {
+        "name": "Tobias Casazza",
+        "punctuation": 5
+      }
+    ],
+    "proyectType": "Entrepreneurship"
+  },
+  {
+    "proyectName": "IOT proyect",
+    "proyectDescription": "Collage investigation proyect of IoT",
+    "participants": [
+      {
+        "name": "Richard Nelson",
+        "punctuation": 4.5
+      },
+      {
+        "name": "Leila Rodman",
+        "punctuation": 4.9
+      },
+      {
+        "name": "Tobias Casazza",
+        "punctuation": 5
+      }
+    ],
+    "proyectType": "Work Project"
+  },
+  {
+    "proyectName": "Investigation Work",
+    "proyectDescription": "Collage investigation of whatever thing",
+    "participants": [
+      {
+        "name": "Richard Nelson",
+        "punctuation": 4.5
+      },
+      {
+        "name": "Leila Rodman",
+        "punctuation": 4.9
+      },
+      {
+        "name": "Tobias Casazza",
+        "punctuation": 5
+      }
+    ],
+    "proyectType": "Work Project"
+  }
+]

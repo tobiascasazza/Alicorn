@@ -11,7 +11,7 @@ export default function home() {
   return (
     <NativeBaseProvider>
       <ScrollView>
-        <Box py={5} alignItems={"center"}>
+        <Box py={2} alignItems={"center"}>
           {list.map((proyect) => {
             return (
               <>

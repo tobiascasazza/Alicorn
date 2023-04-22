@@ -71,7 +71,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
             })}
           </Text>
         </Stack>
-        <Box alignItems={"end"}>
+        <Box alignSelf={"flex-end"}>
           <Center
             bg={`${proyectColor()}.500`}
             _dark={{
@@ -82,7 +82,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
               fontWeight: "700",
               fontSize: "xs",
             }}
-            position="absolute"
+            position="fixed"
             bottom="0"
             px="3"
             py="1.5"

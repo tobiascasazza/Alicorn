@@ -5,7 +5,7 @@ import { NativeBaseProvider } from "native-base";
 export default function Page() {
   return (
     <NativeBaseProvider>
-      <Redirect href={"/student"} />;
+      <Redirect href={"/student"} />
     </NativeBaseProvider>
   );
 }

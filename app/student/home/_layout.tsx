@@ -15,7 +15,6 @@ export default () => {
         />
         <Stack.Screen name="notifications" options={{}} />
       </Stack>
-      ;
     </>
   );
 };

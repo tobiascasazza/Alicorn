@@ -25,9 +25,9 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
     }
   };
   return (
-    <Box alignItems="center">
+    <Box>
       <Box
-        width={"95%"}
+        width={"100%"}
         rounded="lg"
         overflow="hidden"
         borderColor="coolGray.200"

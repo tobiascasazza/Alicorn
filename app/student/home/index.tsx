@@ -1,14 +1,16 @@
-import { View, Text, ScrollView, StyleSheet } from "react-native";
-import { Tabs } from "expo-router";
 import React from "react";
-import ResumeProyectCard from "../../src/components/cards/ResumeProyectCard";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { Link, Tabs, useRouter } from "expo-router";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ResumeProyectCard from "../../../src/components/cards/ResumeProyectCard";
 import { Box, NativeBaseProvider, Icon } from "native-base";
-import proyects from "../../exampleData/proyectsExample.json";
+import proyects from "../../../exampleData/proyectsExample.json";
 import { Feather } from "@expo/vector-icons";
 
 export default function home() {
-  const list = proyects;
+  const router = useRouter();
 
+  const list = proyects;
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -23,15 +25,17 @@ export default function home() {
                   }}
                 >
                   <NativeBaseProvider>
-                    <Icon
-                      as={
-                        <Feather
-                          name="heart"
-                          color="black"
-                          style={style.heartIcon}
-                        />
-                      }
-                    />
+                    <Link href="student/home/notifications">
+                      <Icon
+                        as={
+                          <Feather
+                            name="heart"
+                            color="black"
+                            style={style.heartIcon}
+                          />
+                        }
+                      />
+                    </Link>
                   </NativeBaseProvider>
                 </View>
               );

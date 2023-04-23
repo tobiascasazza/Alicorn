@@ -1,8 +1,6 @@
 import React from "react";
 import { Tabs } from "expo-router";
 import { Feather, AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import { Input, NativeBaseProvider, Icon, Box } from "native-base";
-import { EvilIcons } from "@expo/vector-icons";
 
 export default () => {
   return (
@@ -20,8 +18,7 @@ export default () => {
             tabBarIcon: () => {
               return <Feather name="home" size={24} color="black" />;
             },
-            headerTitle: "Alicorn",
-            headerTitleAlign: "left",
+            headerShown: false,
           }}
         />
         <Tabs.Screen

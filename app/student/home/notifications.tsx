@@ -1,12 +1,15 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React from "react";
-import Notifications from "../../../src/pages/Notifications";
+import NotificationsPage from "../../../src/pages/NotificationsPage";
+import { NativeBaseProvider } from "native-base";
 
 const notifications = () => {
   return (
-    <View>
-      <Notifications />
-    </View>
+    <ScrollView>
+      <NativeBaseProvider>
+        <NotificationsPage />
+      </NativeBaseProvider>
+    </ScrollView>
   );
 };
 

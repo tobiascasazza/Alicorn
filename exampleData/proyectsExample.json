@@ -4,16 +4,22 @@
     "proyectDescription": "Create servers and mantain it for 4 month",
     "participants": [
       {
-        "name": "Richard Nelson",
-        "punctuation": 4.5
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 4.5,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
-        "name": "Leila Rodman",
-        "punctuation": 4.9
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.2,
+        "photo": "https://example.com/maria-perez.jpg"
       },
       {
-        "name": "Tobias Casazza",
-        "punctuation": 5
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
     "proyectType": "Work Project"
@@ -23,16 +29,22 @@
     "proyectDescription": "Collage proyect of restaurant with React",
     "participants": [
       {
-        "name": "Richard Nelson",
-        "punctuation": 4.5
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 4.5,
+        "photo": "https://example.com/juan-gonzalez.jpg"
       },
       {
-        "name": "Leila Rodman",
-        "punctuation": 4.9
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.2,
+        "photo": "https://example.com/maria-perez.jpg"
       },
       {
-        "name": "Tobias Casazza",
-        "punctuation": 5
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
     "proyectType": "Work Project"
@@ -42,16 +54,22 @@
     "proyectDescription": "Billionaire Start Up in a few month",
     "participants": [
       {
-        "name": "Richard Nelson",
-        "punctuation": 4.5
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 4.5,
+        "photo": "https://example.com/juan-gonzalez.jpg"
       },
       {
-        "name": "Leila Rodman",
-        "punctuation": 4.9
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.2,
+        "photo": "https://example.com/maria-perez.jpg"
       },
       {
-        "name": "Tobias Casazza",
-        "punctuation": 5
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
     "proyectType": "Entrepreneurship"
@@ -61,16 +79,22 @@
     "proyectDescription": "System for makes hamburgers in record time",
     "participants": [
       {
-        "name": "Richard Nelson",
-        "punctuation": 4.5
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 4.5,
+        "photo": "https://example.com/juan-gonzalez.jpg"
       },
       {
-        "name": "Leila Rodman",
-        "punctuation": 4.9
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.2,
+        "photo": "https://example.com/maria-perez.jpg"
       },
       {
-        "name": "Tobias Casazza",
-        "punctuation": 5
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
     "proyectType": "Entrepreneurship"
@@ -80,16 +104,22 @@
     "proyectDescription": "Collage investigation proyect of IoT",
     "participants": [
       {
-        "name": "Richard Nelson",
-        "punctuation": 4.5
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 4.5,
+        "photo": "https://example.com/juan-gonzalez.jpg"
       },
       {
-        "name": "Leila Rodman",
-        "punctuation": 4.9
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.2,
+        "photo": "https://example.com/maria-perez.jpg"
       },
       {
-        "name": "Tobias Casazza",
-        "punctuation": 5
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
     "proyectType": "Work Project"
@@ -99,16 +129,22 @@
     "proyectDescription": "Collage investigation of whatever thing",
     "participants": [
       {
-        "name": "Richard Nelson",
-        "punctuation": 4.5
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 4.5,
+        "photo": "https://example.com/juan-gonzalez.jpg"
       },
       {
-        "name": "Leila Rodman",
-        "punctuation": 4.9
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.2,
+        "photo": "https://example.com/maria-perez.jpg"
       },
       {
-        "name": "Tobias Casazza",
-        "punctuation": 5
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
     "proyectType": "Work Project"

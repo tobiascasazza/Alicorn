@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Dimensions } from "react-native";
 import React from "react";
 import { notificationStatus } from "../../../models/helpers/enums";
 import { HStack, Button } from "native-base";
@@ -8,6 +8,8 @@ type InvitationButtonProps = {
 };
 
 const InvitationButtons = (props: InvitationButtonProps) => {
+  const { width } = Dimensions.get("window");
+
   const buttonSwitch = () => {
     switch (props.buttonType) {
       case notificationStatus.noInv:
@@ -16,7 +18,12 @@ const InvitationButtons = (props: InvitationButtonProps) => {
         return (
           <>
             <HStack>
-              <Button size={"xs"} colorScheme={"blue"} height={"30px"}>
+              <Button
+                size={"xs"}
+                colorScheme={"blue"}
+                height={"30px"}
+                width={width * 0.15}
+              >
                 Acept
               </Button>
               <Button
@@ -25,6 +32,7 @@ const InvitationButtons = (props: InvitationButtonProps) => {
                 colorScheme={"blue"}
                 variant={"outline"}
                 height={"30px"}
+                width={width * 0.15}
               >
                 Cancel
               </Button>
@@ -34,11 +42,11 @@ const InvitationButtons = (props: InvitationButtonProps) => {
       case notificationStatus.invAccepted:
         return (
           <>
-            <HStack alignSelf={"center"}>
+            <HStack>
               <Button
                 colorScheme={"blue"}
                 height={"30px"}
-                width={"90px"}
+                width={width * 0.3}
                 variant={"outline"}
               >
                 Cancel
@@ -48,7 +56,7 @@ const InvitationButtons = (props: InvitationButtonProps) => {
         );
     }
   };
-  return <View>{buttonSwitch()}</View>;
+  return <React.Fragment>{buttonSwitch()}</React.Fragment>;
 };
 
 export default InvitationButtons;

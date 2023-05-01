@@ -1,14 +1,15 @@
 import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView, StyleSheet } from "react-native";
 import { Link, Tabs, useRouter } from "expo-router";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ResumeProyectCard from "../../../src/components/cards/molecules/ResumeProyectCard";
-import { Box, NativeBaseProvider, Icon } from "native-base";
+import { Box, NativeBaseProvider, Icon, Badge, Text } from "native-base";
 import proyects from "../../../exampleData/proyectsExample.json";
 import { Feather } from "@expo/vector-icons";
 
 export default function home() {
-  const router = useRouter();
+  const notificationsCount = 5;
 
   const list = proyects;
   return (
@@ -26,15 +27,28 @@ export default function home() {
                 >
                   <NativeBaseProvider>
                     <Link href="student/home/notifications">
-                      <Icon
-                        as={
-                          <Feather
-                            name="heart"
-                            color="black"
-                            style={style.heartIcon}
-                          />
-                        }
-                      />
+                      <Box position="relative">
+                        <Icon
+                          as={
+                            <Feather
+                              name="heart"
+                              color="black"
+                              style={style.heartIcon}
+                            />
+                          }
+                        />
+                        {notificationsCount > 0 && (
+                          <Badge
+                            position="absolute"
+                            top={4}
+                            right={2}
+                            bg="pink.500"
+                            borderRadius={15}
+                          >
+                            <Text color="white">3</Text>
+                          </Badge>
+                        )}
+                      </Box>
                     </Link>
                   </NativeBaseProvider>
                 </View>
@@ -47,17 +61,15 @@ export default function home() {
             list.map((proyect) => {
               return (
                 <React.Fragment key={proyect.proyectName + Math.random()}>
-                  <Text>
-                    <Box my={"2"}>
-                      <ResumeProyectCard
-                        proyectName={proyect.proyectName}
-                        proyectDescription={proyect.proyectDescription}
-                        participants={proyect.participants}
-                        proyectType={proyect.proyectType}
-                        key={proyect.proyectName + Math.random()}
-                      />
-                    </Box>
-                  </Text>
+                  <Box my={"2"}>
+                    <ResumeProyectCard
+                      proyectName={proyect.proyectName}
+                      proyectDescription={proyect.proyectDescription}
+                      participants={proyect.participants}
+                      proyectType={proyect.proyectType}
+                      key={proyect.proyectName + Math.random()}
+                    />
+                  </Box>
                 </React.Fragment>
               );
             })

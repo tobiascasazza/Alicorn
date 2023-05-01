@@ -1,19 +1,20 @@
-import { View, Image, StyleSheet } from "react-native";
+import { StyleSheet, Text as TextNative, Dimensions } from "react-native";
 import React from "react";
 import { Box, Center, HStack, Heading, Stack, Text } from "native-base";
-type Participants = {
-  name: string;
-  punctuation: number;
-};
+import { User } from "../../../models/objects/User";
+import { Rating, AirbnbRating } from "react-native-ratings";
+import { transparentize } from "native-base/lib/typescript/theme/tools";
 
 type ResumeProyectCardProps = {
   proyectName: string;
   proyectDescription: string;
-  participants: Array<Participants>;
+  participants: Array<User>;
   proyectType: string;
 };
 
 const ResumeProyectCard = (props: ResumeProyectCardProps) => {
+  const { width } = Dimensions.get("window");
+
   const proyectColor = () => {
     switch (props.proyectType) {
       case "Work Project":
@@ -25,69 +26,85 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
     }
   };
   return (
-    <Box>
-      <Box
-        width={"100%"}
-        rounded="lg"
-        overflow="hidden"
-        borderColor="coolGray.200"
-        borderWidth="1"
-        _dark={{
-          borderColor: "coolGray.600",
-          backgroundColor: "gray.700",
-        }}
-        _web={{
-          shadow: 2,
-          borderWidth: 0,
-        }}
-        _light={{
-          backgroundColor: "gray.50",
-        }}
-      >
-        <Stack p="4" space={3}>
-          <Stack space={2}>
-            <Heading size="md" ml="-1">
-              {props.proyectName}
-            </Heading>
-            <Text
-              fontSize="xs"
-              _light={{
-                color: `${proyectColor()}.500`,
-              }}
-              _dark={{
-                color: `${proyectColor()}.400`,
-              }}
-              fontWeight="500"
-              ml="-0.5"
-              mt="-1"
-            >
-              {props.proyectDescription}
-            </Text>
-          </Stack>
-          <Text fontWeight="400">
-            {props.participants.map((participant) => {
-              return `${participant.name} (${participant.punctuation}), `;
-            })}
+    <Box
+      style={{ width: width * 0.9 }}
+      rounded="lg"
+      overflow="hidden"
+      borderColor="coolGray.200"
+      borderWidth="1"
+      _dark={{
+        borderColor: "coolGray.600",
+        backgroundColor: "gray.700",
+      }}
+      _web={{
+        shadow: 2,
+        borderWidth: 0,
+      }}
+      _light={{
+        backgroundColor: "gray.50",
+      }}
+    >
+      <Stack p="4" space={3}>
+        <Stack space={2}>
+          <Heading size="md" ml="-1">
+            {props.proyectName}
+          </Heading>
+          <Text
+            fontSize="xs"
+            _light={{
+              color: `${proyectColor()}.500`,
+            }}
+            _dark={{
+              color: `${proyectColor()}.400`,
+            }}
+            fontWeight="500"
+            ml="-0.5"
+            mt="-1"
+          >
+            {props.proyectDescription}
           </Text>
         </Stack>
-        <Box alignSelf={"flex-end"}>
-          <Center
-            bg={`${proyectColor()}.500`}
-            _dark={{
-              bg: `${proyectColor()}.400`,
-            }}
-            _text={{
-              color: "warmGray.50",
-              fontWeight: "700",
-              fontSize: "xs",
-            }}
-            bottom="0"
-            px="3"
-            py="1.5"
-          >
-            {props.proyectType}
-          </Center>
+        <Box fontWeight="400">
+          {props.participants.map((participant) => {
+            return (
+              <React.Fragment key={participant.name + Math.random()}>
+                <HStack justifyContent={"space-between"}>
+                  <TextNative>
+                    {participant.name} {participant.lastName}
+                  </TextNative>
+                  <HStack textAlign={"end"} justifyContent={"space-between"}>
+                    <AirbnbRating
+                      count={5}
+                      defaultRating={participant.punctuation}
+                      size={20}
+                      isDisabled
+                      showRating={false}
+                    />
+                    <Text width="30px">({participant.punctuation})</Text>
+                  </HStack>
+                </HStack>
+              </React.Fragment>
+            );
+          })}
         </Box>
+      </Stack>
+      <Box alignSelf={"flex-end"}>
+        <Center
+          bg={`${proyectColor()}.500`}
+          _dark={{
+            bg: `${proyectColor()}.400`,
+          }}
+          _text={{
+            color: "warmGray.50",
+            fontWeight: "700",
+            fontSize: "xs",
+          }}
+          bottom="0"
+          px="3"
+          py="1.5"
+        >
+          {props.proyectType}
+        </Center>
       </Box>
     </Box>
   );

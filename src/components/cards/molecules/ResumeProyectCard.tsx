@@ -80,7 +80,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
                       isDisabled
                       showRating={false}
                     />
-                    <Text width="30px">({participant.punctuation})</Text>
+                    <Text width="30px">({participant.votes})</Text>
                   </HStack>
                 </HStack>
               </React.Fragment>

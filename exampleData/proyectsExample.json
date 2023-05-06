@@ -6,19 +6,22 @@
       {
         "name": "Juan",
         "lastName": "González",
-        "punctuation": 4.5,
+        "punctuation": 5,
+        "votes": 10,
         "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
         "name": "María",
         "lastName": "Pérez",
         "punctuation": 3.2,
+        "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
       },
       {
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
+        "votes": 0,
         "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
@@ -31,19 +34,22 @@
       {
         "name": "Juan",
         "lastName": "González",
-        "punctuation": 4.5,
-        "photo": "https://example.com/juan-gonzalez.jpg"
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
         "name": "María",
         "lastName": "Pérez",
         "punctuation": 3.2,
+        "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
       },
       {
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
+        "votes": 0,
         "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
@@ -56,19 +62,22 @@
       {
         "name": "Juan",
         "lastName": "González",
-        "punctuation": 4.5,
-        "photo": "https://example.com/juan-gonzalez.jpg"
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
         "name": "María",
         "lastName": "Pérez",
         "punctuation": 3.2,
+        "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
       },
       {
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
+        "votes": 0,
         "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
@@ -81,19 +90,22 @@
       {
         "name": "Juan",
         "lastName": "González",
-        "punctuation": 4.5,
-        "photo": "https://example.com/juan-gonzalez.jpg"
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
         "name": "María",
         "lastName": "Pérez",
         "punctuation": 3.2,
+        "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
       },
       {
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
+        "votes": 0,
         "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
@@ -106,19 +118,22 @@
       {
         "name": "Juan",
         "lastName": "González",
-        "punctuation": 4.5,
-        "photo": "https://example.com/juan-gonzalez.jpg"
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
         "name": "María",
         "lastName": "Pérez",
         "punctuation": 3.2,
+        "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
       },
       {
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
+        "votes": 0,
         "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
@@ -131,19 +146,22 @@
       {
         "name": "Juan",
         "lastName": "González",
-        "punctuation": 4.5,
-        "photo": "https://example.com/juan-gonzalez.jpg"
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
         "name": "María",
         "lastName": "Pérez",
         "punctuation": 3.2,
+        "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
       },
       {
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
+        "votes": 0,
         "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],

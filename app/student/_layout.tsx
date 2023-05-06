@@ -35,7 +35,8 @@ export default () => {
             tabBarIcon: () => {
               return <AntDesign name="profile" size={24} color="black" />;
             },
-            headerTitle: "Work Proyect",
+            headerTitle: "Work Proyects",
+            headerShown: false,
           }}
         />
         <Tabs.Screen
@@ -46,7 +47,7 @@ export default () => {
                 <MaterialCommunityIcons
                   name="unicorn-variant"
                   size={24}
-                  color="black"
+                  color="#ec4899"
                 />
               );
             },

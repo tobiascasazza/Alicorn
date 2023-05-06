@@ -5,7 +5,7 @@ import {
   notificationStatus,
   notificationType,
 } from "../../../models/helpers/enums";
-import InvitationButtons from "../atoms/InvitationButtons";
+import InvitationButtons from "../atoms/buttons/InvitationButtons";
 import { Notification } from "../../../models/objects/Notification";
 import { Rating } from "react-native-ratings";
 import NotificationItem from "../atoms/NotificationItem";

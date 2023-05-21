@@ -3,7 +3,7 @@ import { HStack, Text } from "native-base";
 import React from "react";
 import { Notification } from "../../../models/objects/Notification";
 import { notificationType } from "../../../models/helpers/enums";
-import { AirbnbRating, Rating } from "react-native-ratings";
+import StarsRatingView from "./StarsRatingView";
 type NotificationItemProps = {
   notificationType: notificationType;
   item: string;
@@ -26,13 +26,7 @@ const NotificationItem = (props: NotificationItemProps) => {
         </Text>
       ) : (
         <HStack>
-          <AirbnbRating
-            count={5}
-            defaultRating={Number(props.item)}
-            size={20}
-            isDisabled
-            showRating={false}
-          />
+          <StarsRatingView value={Number(props.item)} />
           <Text
             fontSize={"md"}
             color="coolGray.800"

@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "proyectName": "Server Administration",
     "proyectDescription": "Create servers and mantain it for 4 month",
     "participants": [
@@ -13,7 +14,7 @@
       {
         "name": "María",
         "lastName": "Pérez",
-        "punctuation": 3.2,
+        "punctuation": 3.5,
         "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
       },
@@ -28,6 +29,7 @@
     "proyectType": "Work Project"
   },
   {
+    "id": 2,
     "proyectName": "Restaurant App",
     "proyectDescription": "Collage proyect of restaurant with React",
     "participants": [
@@ -56,6 +58,7 @@
     "proyectType": "Work Project"
   },
   {
+    "id": 3,
     "proyectName": "Tech StartUp",
     "proyectDescription": "Billionaire Start Up in a few month",
     "participants": [
@@ -84,6 +87,7 @@
     "proyectType": "Entrepreneurship"
   },
   {
+    "id": 4,
     "proyectName": "Hamburgers System",
     "proyectDescription": "System for makes hamburgers in record time",
     "participants": [
@@ -112,6 +116,7 @@
     "proyectType": "Entrepreneurship"
   },
   {
+    "id": 5,
     "proyectName": "IOT proyect",
     "proyectDescription": "Collage investigation proyect of IoT",
     "participants": [
@@ -140,6 +145,7 @@
     "proyectType": "Work Project"
   },
   {
+    "id": 6,
     "proyectName": "Investigation Work",
     "proyectDescription": "Collage investigation of whatever thing",
     "participants": [

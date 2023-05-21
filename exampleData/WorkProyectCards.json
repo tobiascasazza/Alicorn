@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "title": "Project X",
+    "subtitle": "Developing a new website",
+    "features": [
+      { "title": "Materia", "description": "Web Development" },
+      { "title": "Theme", "description": "E-commerce" },
+      { "title": "Participants", "description": "3" },
+      { "title": "State", "description": "In progress" },
+      { "title": "Start date", "description": "2022-01-01" },
+      { "title": "Deadline", "description": "2022-06-30" }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "link": "https://example.com/project-x"
+  },
+  {
+    "id": 2,
+    "title": "Project Y",
+    "subtitle": "Building a mobile app",
+    "features": [
+      {
+        "title": "Materia",
+        "description": "Mobile Development"
+      },
+      {
+        "title": "Theme",
+        "description": "Social Networking"
+      },
+      {
+        "title": "Participants",
+        "description": "2"
+      },
+      {
+        "title": "State",
+        "description": "Completed"
+      },
+      {
+        "title": "Start date",
+        "description": "2021-10-01"
+      },
+      {
+        "title": "Deadline",
+        "description": "2022-03-31"
+      }
+    ],
+    "description": "Nullam malesuada aliquam erat eu rhoncus.",
+    "link": "https://example.com/project-y"
+  },
+  {
+    "id": 3,
+    "title": "Project Z",
+    "subtitle": "Designing a logo",
+    "features": [
+      {
+        "title": "Materia",
+        "description": "Graphic Design"
+      },
+      {
+        "title": "Theme",
+        "description": "Corporate Identity"
+      },
+      {
+        "title": "Participants",
+        "description": "1"
+      },
+      {
+        "title": "State",
+        "description": "completed"
+      },
+      {
+        "title": "Start date",
+        "description": "2023-06-01"
+      },
+      {
+        "title": "Deadline",
+        "description": "2023-06-30"
+      }
+    ],
+    "description": "Vestibulum tincidunt velit sed mi dignissim consectetur.",
+    "link": "https://example.com/project-z"
+  }
+]

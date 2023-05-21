@@ -1,9 +1,8 @@
 import { StyleSheet, Text as TextNative, Dimensions } from "react-native";
 import React from "react";
 import { Box, Center, HStack, Heading, Stack, Text } from "native-base";
-import { User } from "../../../models/objects/User";
-import { Rating, AirbnbRating } from "react-native-ratings";
-import { transparentize } from "native-base/lib/typescript/theme/tools";
+import { User } from "../../../../models/objects/User";
+import StarsRatingView from "../../atoms/StarsRatingView";
 
 type ResumeProyectCardProps = {
   proyectName: string;
@@ -73,13 +72,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
                     {participant.name} {participant.lastName}
                   </TextNative>
                   <HStack textAlign={"end"} justifyContent={"space-between"}>
-                    <AirbnbRating
-                      count={5}
-                      defaultRating={participant.punctuation}
-                      size={20}
-                      isDisabled
-                      showRating={false}
-                    />
+                    <StarsRatingView value={participant.punctuation} />
                     <Text width="30px">({participant.votes})</Text>
                   </HStack>
                 </HStack>
@@ -115,6 +108,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     padding: 24,
+  },
+  filledStar: {
+    borderColor: "transparent",
   },
 });
 export default ResumeProyectCard;

@@ -1,51 +1,58 @@
 import { StyleSheet, Text as TextNative, Dimensions } from "react-native";
 import React from "react";
-import { Box, HStack, Text } from "native-base";
+import { Box, HStack, Input, Text } from "native-base";
 import { Feature } from "../../../../models/objects/Features";
 
 type FeaturesCardProps = {
   features: Feature[];
+  edit?: boolean;
 };
 
 const FeaturesCard = (props: FeaturesCardProps) => {
   const { width } = Dimensions.get("window");
 
   return (
-    <Box style={{ width: width * 0.35 }} rounded="lg" overflow="hidden">
-      <Box borderBottomColor={"grey"} borderBottomWidth={"1"}>
-        <Text
-          fontSize="md"
-          _light={{
-            color: "black",
-          }}
-          _dark={{
-            color: "black",
-          }}
-          ml="-0.5"
-          mt="1"
-          bold={true}
-          padding={2}
-        >
-          Features
-        </Text>
-      </Box>
-
+    <Box rounded="lg" overflow="hidden">
       {props.features.map((feature) => {
         return (
-          <HStack justifyContent={"space-between"} pl={2} pr={2} pt={2}>
+          <HStack
+            justifyContent={"space-between"}
+            pt={2}
+            key={feature.title + Math.random()}
+          >
             <Text
+              alignSelf="center"
               bold={true}
               color={feature.title === "Materia" ? "blue.500" : "black"}
               fontSize={"xs"}
             >
               {feature.title}:
             </Text>
-            <Text
-              color={feature.title === "Materia" ? "blue.500" : "black"}
-              fontSize={"xs"}
-            >
-              {feature.description}
-            </Text>
+            {feature.editable && props.edit ? (
+              <Input
+                multiline={true}
+                defaultValue={feature.description}
+                w={"60%"}
+                m="1"
+                fontSize="xs"
+                _light={{
+                  color: "black",
+                }}
+                _dark={{
+                  color: "black",
+                }}
+                backgroundColor={"blue"}
+              />
+            ) : (
+              <Text
+                color={feature.title === "Materia" ? "blue.500" : "black"}
+                fontSize={"xs"}
+                pl={1}
+                numberOfLines={3}
+              >
+                {feature.description}
+              </Text>
+            )}
           </HStack>
         );
       })}

@@ -3,7 +3,7 @@ import { View, ScrollView, StyleSheet } from "react-native";
 import { Link, Tabs, useRouter } from "expo-router";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ResumeProyectCard from "../../../src/components/cards/molecules/ResumeProyectCard";
+import ResumeProyectCard from "../../../src/components/cards/molecules/cards/ResumeProyectCard";
 import { Box, NativeBaseProvider, Icon, Badge, Text } from "native-base";
 import proyects from "../../../exampleData/proyectsExample.json";
 import { Feather } from "@expo/vector-icons";

@@ -1,9 +1,9 @@
 import { Text, ScrollView } from "react-native";
 import React from "react";
-import WorkProyectCard from "../../../src/components/cards/molecules/cards/WorkProyectCard";
+import WorkProyectCard from "../../../src/components/molecules/cards/WorkProyectCard";
 import { Box, Container, Fab, Icon, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
-import { Feature } from "../../../src/models/objects/Features";
+import { Feature } from "../../../src/models/objects/Feature";
 import WorkProyectCards from "../../../exampleData/WorkProyectCards.json";
 import { Link } from "expo-router";
 

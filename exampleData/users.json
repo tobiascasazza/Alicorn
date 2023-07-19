@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Juan",
+    "lastName": "González",
+    "punctuation": 5,
+    "votes": 10,
+    "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+    "features": [
+      {
+        "title": "Carrer",
+        "description": "Computer Science"
+      },
+      {
+        "title": "Year",
+        "description": "5"
+      },
+      {
+        "title": "Link",
+        "description": "https://example.com/juan-gonzalez"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "María",
+    "lastName": "Pérez",
+    "punctuation": 3.5,
+    "votes": 12,
+    "photo": "https://example.com/maria-perez.jpg",
+    "features": [
+      {
+        "title": "Carrer",
+        "description": "Electrical Engineering"
+      },
+      {
+        "title": "Year",
+        "description": "4"
+      },
+      {
+        "title": "Link",
+        "description": "https://example.com/maria-perez"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Pedro",
+    "lastName": "Sánchez",
+    "punctuation": 0,
+    "votes": 0,
+    "photo": "https://example.com/pedro-sanchez.jpg",
+    "features": [
+      {
+        "title": "Carrer",
+        "description": "Mechanical Engineering"
+      },
+      {
+        "title": "Year",
+        "description": "2"
+      },
+      {
+        "title": "Link",
+        "description": "https://example.com/pedro-sanchez"
+      }
+    ]
+  }
+]

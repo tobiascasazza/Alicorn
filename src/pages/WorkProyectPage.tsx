@@ -5,7 +5,7 @@ import {
   ScrollView,
   Animated,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   HStack,
@@ -20,24 +20,30 @@ import {
   TextArea,
   Input,
   Button,
+  Icon,
 } from "native-base";
 import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import FeaturesCard from "../components/cards/atoms/cards/FeaturesCard";
-import StudentCard from "../components/cards/molecules/cards/StudentCard";
+import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
+import StudentCard from "../components/molecules/cards/StudentCard";
+import { WorkProyect } from "../models/objects/WorkProyect";
+import { Feature } from "../models/objects/Feature";
+import users from "../../exampleData/users.json";
+import { User } from "../models/objects/User";
 
 const WorkProyectPage = () => {
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
-  const [showAlert, setShowAlert] = React.useState<boolean>(false);
+  const [showAlert, setShowAlert] = useState<boolean>(false);
   const [fadeAnim] = React.useState(new Animated.Value(0));
-  const [editMode, setEditMode] = React.useState(false);
+  const [editMode, setEditMode] = useState(false);
+  const [usersProtyect, setUsersProtyect] = useState<User[]>(users);
 
   const animatedStyle = {
     opacity: fadeAnim,
   };
 
-  const proyectFeatures = [
+  const proyectFeatures: Feature[] = [
     { title: "Materia", description: "Web Development" },
     { title: "Theme", description: "E-commerce", editable: true },
     { title: "Participants", description: "3" },
@@ -49,6 +55,17 @@ const WorkProyectPage = () => {
       description: "professor@gmail.com.ar",
     },
   ];
+
+  const WorkProyect: WorkProyect = {
+    id: 1,
+    title: "ProyectTitle",
+    subtitle: "ProyectSubTitle",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem sed, laudantium neque a impedit qui optio quo nesciunt, corrupti repellat consectetur corporis, enim perspiciatis? Sint ipsum beatae sapiente nulla consequatur?",
+    features: proyectFeatures,
+    students: usersProtyect,
+    link: "https://www.example.com",
+  };
 
   const handleCopyLink = () => {
     onCopy("");
@@ -74,6 +91,9 @@ const WorkProyectPage = () => {
     setEditMode(!editMode);
   };
 
+  useEffect(() => {
+    console.log(usersProtyect);
+  }, [usersProtyect]);
   return (
     <ScrollView>
       <Stack p="4" space={3}>
@@ -97,8 +117,12 @@ const WorkProyectPage = () => {
             SubTitle Proyect
           </Text>
           <HStack justifyContent={"space-between"}>
-            <VStack style={{ width: width * 0.45 }}>
-              <Box borderBottomColor={"grey"} borderBottomWidth={"1"}>
+            <VStack>
+              <Box
+                borderBottomColor={"grey"}
+                borderBottomWidth={"1"}
+                style={{ width: width * 0.9 }}
+              >
                 <Text
                   fontSize="md"
                   _light={{
@@ -107,74 +131,69 @@ const WorkProyectPage = () => {
                   _dark={{
                     color: "black",
                   }}
-                  ml="-0.5"
-                  mt="1"
                   bold={true}
-                  padding={2}
                 >
                   Features
                 </Text>
               </Box>
               <FeaturesCard features={proyectFeatures} edit={editMode} />
             </VStack>
-
-            <Box style={{ width: width * 0.45 }} rounded="lg" overflow="hidden">
-              <Box borderBottomColor={"grey"} borderBottomWidth={"1"}>
-                <Text
-                  fontSize="md"
-                  _light={{
-                    color: "black",
-                  }}
-                  _dark={{
-                    color: "black",
-                  }}
-                  ml="-0.5"
-                  mt="1"
-                  bold={true}
-                  padding={2}
-                >
-                  Description
-                </Text>
-              </Box>
-              {!editMode ? (
-                <Text
-                  fontSize="xs"
-                  _light={{
-                    color: "black",
-                  }}
-                  _dark={{
-                    color: "black",
-                  }}
-                  ml="-0.5"
-                  padding={2}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Autem sed, laudantium neque a impedit qui optio quo nesciunt,
-                  corrupti repellat consectetur corporis, enim perspiciatis?
-                  Sint ipsum beatae sapiente nulla consequatur?
-                </Text>
-              ) : (
-                <Input
-                  multiline={true}
-                  h={"80%"}
-                  m="1"
-                  fontSize="xs"
-                  _light={{
-                    color: "black",
-                  }}
-                  _dark={{
-                    color: "black",
-                  }}
-                  backgroundColor={"blue"}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Autem sed, laudantium neque a impedit qui optio quo nesciunt,
-                  corrupti repellat consectetur corporis, enim perspiciatis?
-                  Sint ipsum beatae sapiente nulla consequatur?
-                </Input>
-              )}
-            </Box>
           </HStack>
+          <Box style={{ width: width * 0.9 }} rounded="lg" overflow="hidden">
+            <Box borderBottomColor={"grey"} borderBottomWidth={"1"}>
+              <Text
+                fontSize="md"
+                _light={{
+                  color: "black",
+                }}
+                _dark={{
+                  color: "black",
+                }}
+                ml="-0.5"
+                mt="1"
+                bold={true}
+                pl={1}
+              >
+                Description
+              </Text>
+            </Box>
+            {!editMode ? (
+              <Text
+                fontSize="xs"
+                _light={{
+                  color: "black",
+                }}
+                _dark={{
+                  color: "black",
+                }}
+                ml="-0.5"
+                padding={2}
+              >
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
+                sed, laudantium neque a impedit qui optio quo nesciunt, corrupti
+                repellat consectetur corporis, enim perspiciatis? Sint ipsum
+                beatae sapiente nulla consequatur?
+              </Text>
+            ) : (
+              <Input
+                multiline={true}
+                m="1"
+                fontSize="xs"
+                _light={{
+                  color: "black",
+                }}
+                _dark={{
+                  color: "black",
+                }}
+                backgroundColor={"blue"}
+              >
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
+                sed, laudantium neque a impedit qui optio quo nesciunt, corrupti
+                repellat consectetur corporis, enim perspiciatis? Sint ipsum
+                beatae sapiente nulla consequatur?
+              </Input>
+            )}
+          </Box>
           <Box
             pl={2}
             pr={2}
@@ -256,19 +275,21 @@ const WorkProyectPage = () => {
         </Stack>
       </Stack>
       <Box mb={20}>
-        <Box ml={2} mr={2} mb={2}>
-          <StudentCard />
-          {editMode === true && (
-            <Button
-              backgroundColor={"red.500"}
-              textAlign="center"
-              bottom={2}
-              borderTopRadius={0}
-            >
-              <AntDesign name="delete" size={24} color="white" />
-            </Button>
-          )}
-        </Box>
+        {usersProtyect.map((user, index) => (
+          <Box ml={2} mr={2} mb={2} key={user.name + index}>
+            <StudentCard student={user} />
+            {editMode === true && (
+              <Button
+                backgroundColor={"red.500"}
+                textAlign="center"
+                bottom={2}
+                borderTopRadius={0}
+              >
+                <AntDesign name="delete" size={24} color="white" />
+              </Button>
+            )}
+          </Box>
+        ))}
       </Box>
 
       {editMode === true ? (
@@ -280,8 +301,10 @@ const WorkProyectPage = () => {
                 position="absolute"
                 mr={16}
                 bg="red.500"
-                icon={<Entypo name="cross" size={24} color="white" />}
-                size={8}
+                w={9}
+                h={9}
+                textAlign={"center"}
+                icon={<Icon as={Entypo} name="cross" size="md" color="white" />}
               />
               <Fab
                 onPressOut={() => changePageMode()}

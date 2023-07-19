@@ -1,16 +1,11 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Box, HStack, Text, VStack } from "native-base";
-import StarsRatingView from "../../atoms/StarsRatingView";
-import FeaturesCard from "../../atoms/cards/FeaturesCard";
+import StarsRatingView from "../../atoms/stars/StarsRatingView";
+import FeaturesCard from "../../atoms/smallCards/FeaturesCard";
+import { User } from "../../../models/objects/User";
 
-const studentFeatures = [
-  { title: "Carrer", description: "Software Engeneering" },
-  { title: "Year", description: "2" },
-  { title: "Link", description: "https://www.instagram.com/?hl=en" },
-];
-
-const StudentCard = () => {
+const StudentCard = (props: { student: User }) => {
   return (
     <View>
       <Box
@@ -35,14 +30,14 @@ const StudentCard = () => {
         <VStack pt="2" pb="2">
           <HStack justifyContent={"space-between"} pb="2">
             <Text fontSize={"md"} bold>
-              Johnathan Shelby
+              {props.student.name} {props.student.lastName}
             </Text>
             <HStack textAlign={"end"} justifyContent={"space-between"}>
-              <StarsRatingView value={3.7} />
-              <Text width="30px">({23})</Text>
+              <StarsRatingView value={props.student.punctuation} />
+              <Text width="30px">({props.student.votes})</Text>
             </HStack>
           </HStack>
-          <FeaturesCard features={studentFeatures} />
+          <FeaturesCard features={props.student.features} />
         </VStack>
       </Box>
     </View>

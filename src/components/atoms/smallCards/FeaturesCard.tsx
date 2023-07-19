@@ -1,7 +1,12 @@
-import { StyleSheet, Text as TextNative, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text as TextNative,
+  Dimensions,
+  ScrollView,
+} from "react-native";
 import React from "react";
-import { Box, HStack, Input, Text } from "native-base";
-import { Feature } from "../../../../models/objects/Features";
+import { Box, Flex, HStack, Input, SimpleGrid, Text } from "native-base";
+import { Feature } from "../../../models/objects/Feature";
 
 type FeaturesCardProps = {
   features: Feature[];
@@ -48,7 +53,6 @@ const FeaturesCard = (props: FeaturesCardProps) => {
                 color={feature.title === "Materia" ? "blue.500" : "black"}
                 fontSize={"xs"}
                 pl={1}
-                numberOfLines={3}
               >
                 {feature.description}
               </Text>

@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { Box } from "native-base";
-import NotificationComponent from "../components/cards/molecules/NotificationComponent";
+import NotificationComponent from "../components/molecules/notifications/NotificationComponent";
 import notificationsExample from "../../exampleData/notificationExample.json";
 import { Notification } from "../models/objects/Notification";
 
@@ -11,7 +11,7 @@ export default function NotificationsPage() {
   );
 
   React.useEffect(() => {
-    setNotifications(notificationsExample);
+    setNotifications(notificationsExample as unknown as Notification[]);
   }, []);
 
   return (
@@ -27,6 +27,7 @@ export default function NotificationsPage() {
                     name: notification.user.name,
                     lastName: notification.user.lastName,
                     photo: notification.user.photo,
+                    features: notification.user.features,
                   }}
                   notificationDateTime={notification.notificationDateTime}
                   notificationStatus={notification.notificationStatus}

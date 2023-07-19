@@ -3,7 +3,7 @@ import { HStack, Text } from "native-base";
 import React from "react";
 import { Notification } from "../../../models/objects/Notification";
 import { notificationType } from "../../../models/helpers/enums";
-import StarsRatingView from "./StarsRatingView";
+import StarsRatingView from "../stars/StarsRatingView";
 type NotificationItemProps = {
   notificationType: notificationType;
   item: string;

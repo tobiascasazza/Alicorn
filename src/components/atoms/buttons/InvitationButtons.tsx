@@ -1,6 +1,6 @@
 import { View, Text, Dimensions } from "react-native";
 import React from "react";
-import { notificationStatus } from "../../../../models/helpers/enums";
+import { notificationStatus } from "../../../models/helpers/enums";
 import { HStack, Button } from "native-base";
 
 type InvitationButtonProps = {
@@ -44,6 +44,7 @@ const InvitationButtons = (props: InvitationButtonProps) => {
           <>
             <HStack>
               <Button
+                size={"s"}
                 colorScheme={"blue"}
                 height={"30px"}
                 width={width * 0.3}

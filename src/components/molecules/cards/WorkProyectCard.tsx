@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions, Animated } from "react-native";
 import React from "react";
 import { Box, HStack, Heading, Stack, Text, Alert } from "native-base";
-import FeaturesCard from "../../atoms/cards/FeaturesCard";
+import FeaturesCard from "../../atoms/smallCards/FeaturesCard";
 import { Feature } from "../../../../models/objects/Features";
 import { AntDesign } from "@expo/vector-icons";
 import { useClipboard } from "native-base";

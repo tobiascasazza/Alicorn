@@ -2,9 +2,9 @@ import { Dimensions, StyleSheet, View } from "react-native";
 import React from "react";
 import { Avatar, Box, HStack, VStack, Text, Pressable } from "native-base";
 import { notificationType } from "../../../models/helpers/enums";
-import NotificationItem from "../atoms/NotificationItem";
+import NotificationItem from "../../atoms/items/NotificationItem";
 import { Notification } from "../../../models/objects/Notification";
-import InvitationButtons from "../atoms/buttons/InvitationButtons";
+import InvitationButtons from "../../atoms/buttons/InvitationButtons";
 
 const NotificationComponent = (props: Notification) => {
   const { width } = Dimensions.get("window");

@@ -1,4 +1,4 @@
-import { Feature } from "../objects/Features";
+import { Feature } from "../objects/Feature";
 
 export type WorkProyectCardProps = {
   id: number;

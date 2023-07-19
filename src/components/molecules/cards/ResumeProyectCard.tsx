@@ -2,7 +2,7 @@ import { StyleSheet, Text as TextNative, Dimensions } from "react-native";
 import React from "react";
 import { Box, Center, HStack, Heading, Stack, Text } from "native-base";
 import { User } from "../../../../models/objects/User";
-import StarsRatingView from "../../atoms/StarsRatingView";
+import StarsRatingView from "../../atoms/stars/StarsRatingView";
 
 type ResumeProyectCardProps = {
   proyectName: string;

@@ -6,13 +6,13 @@ import {
   Animated,
 } from "react-native";
 import React, { useEffect, useState } from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   Box,
   HStack,
   Heading,
   Stack,
   Text,
-  Alert,
   useClipboard,
   VStack,
   Container,
@@ -22,6 +22,12 @@ import {
   Button,
   Icon,
 } from "native-base";
+import {
+  ALERT_TYPE,
+  Dialog,
+  AlertNotificationRoot,
+  Toast,
+} from "react-native-alert-notification";
 import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
@@ -30,14 +36,18 @@ import { WorkProyect } from "../models/objects/WorkProyect";
 import { Feature } from "../models/objects/Feature";
 import users from "../../exampleData/users.json";
 import { User } from "../models/objects/User";
+import ConfirmWorkProyectDialogProps from "../components/molecules/dialogs/ConfirmDialog";
+import ConfirmDialog from "../components/molecules/dialogs/ConfirmDialog";
+import AddPunctuationDialog from "../components/molecules/dialogs/AddPunctuationDialog";
 
 const WorkProyectPage = () => {
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
-  const [showAlert, setShowAlert] = useState<boolean>(false);
   const [fadeAnim] = React.useState(new Animated.Value(0));
   const [editMode, setEditMode] = useState(false);
+  const [isFinishDialogOpen, setIsFinishDialogOpen] = useState(false);
   const [usersProtyect, setUsersProtyect] = useState<User[]>(users);
+  const [punctuationCard, setPunctuationCard] = useState<boolean>(false);
 
   const animatedStyle = {
     opacity: fadeAnim,
@@ -58,8 +68,8 @@ const WorkProyectPage = () => {
 
   const WorkProyect: WorkProyect = {
     id: 1,
-    title: "ProyectTitle",
-    subtitle: "ProyectSubTitle",
+    title: "Prueba",
+    subtitle: "Sub Title Proyect",
     description:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem sed, laudantium neque a impedit qui optio quo nesciunt, corrupti repellat consectetur corporis, enim perspiciatis? Sint ipsum beatae sapiente nulla consequatur?",
     features: proyectFeatures,
@@ -68,39 +78,41 @@ const WorkProyectPage = () => {
   };
 
   const handleCopyLink = () => {
-    onCopy("");
-    setShowAlert(true);
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
-    setTimeout(() => {
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
-    }, 1000);
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 1500);
+    onCopy(WorkProyect.link ? WorkProyect.link : "");
+    Toast.show({
+      type: ALERT_TYPE.SUCCESS,
+      title: "Success",
+      textBody: "The link has was copied",
+      autoClose: 1000,
+    });
   };
 
   const changePageMode = () => {
     setEditMode(!editMode);
   };
 
-  useEffect(() => {
-    console.log(usersProtyect);
-  }, [usersProtyect]);
+  const dialogFinishProyect = () => {
+    setIsFinishDialogOpen(true);
+  };
+
+  const finishProyect = () => {
+    setIsFinishDialogOpen(false);
+    Dialog.show({
+      type: ALERT_TYPE.SUCCESS,
+      title: "Success",
+      textBody: "Congrats! Your proyecs was sended",
+      button: "close",
+    });
+    setPunctuationCard(true);
+  };
+
   return (
     <ScrollView>
       <Stack p="4" space={3}>
         <Stack space={2}>
           <HStack justifyContent={"space-between"}>
             <Heading size="md" ml="-1">
-              <Text>Prueba</Text>
+              <Text>{WorkProyect.title}</Text>
             </Heading>
           </HStack>
           <Text
@@ -114,7 +126,7 @@ const WorkProyectPage = () => {
             mt="-1"
             bold={true}
           >
-            SubTitle Proyect
+            {WorkProyect.subtitle}
           </Text>
           <HStack justifyContent={"space-between"}>
             <VStack>
@@ -136,7 +148,7 @@ const WorkProyectPage = () => {
                   Features
                 </Text>
               </Box>
-              <FeaturesCard features={proyectFeatures} edit={editMode} />
+              <FeaturesCard features={WorkProyect.features} edit={editMode} />
             </VStack>
           </HStack>
           <Box style={{ width: width * 0.9 }} rounded="lg" overflow="hidden">
@@ -169,10 +181,7 @@ const WorkProyectPage = () => {
                 ml="-0.5"
                 padding={2}
               >
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
-                sed, laudantium neque a impedit qui optio quo nesciunt, corrupti
-                repellat consectetur corporis, enim perspiciatis? Sint ipsum
-                beatae sapiente nulla consequatur?
+                {WorkProyect.description}
               </Text>
             ) : (
               <Input
@@ -187,10 +196,7 @@ const WorkProyectPage = () => {
                 }}
                 backgroundColor={"blue"}
               >
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
-                sed, laudantium neque a impedit qui optio quo nesciunt, corrupti
-                repellat consectetur corporis, enim perspiciatis? Sint ipsum
-                beatae sapiente nulla consequatur?
+                {WorkProyect.description}
               </Input>
             )}
           </Box>
@@ -224,12 +230,14 @@ const WorkProyectPage = () => {
                     marginRight={2}
                   >
                     <Link
-                      href="http://localhost:19000/student/workProyect/proyect/1"
+                      href={
+                        WorkProyect.link?.toString() !== undefined
+                          ? WorkProyect.link?.toString()
+                          : ""
+                      }
                       style={{ color: "black" }}
                     >
-                      <Text>
-                        http://localhost:19000/student/workProyect/proyect/1
-                      </Text>
+                      <Text>{WorkProyect.link}</Text>
                     </Link>
                   </Text>
                 </HStack>
@@ -262,16 +270,6 @@ const WorkProyectPage = () => {
               </HStack>
             )}
           </Box>
-          <View style={[styles.alertContainer]}>
-            <Animated.View style={animatedStyle}>
-              {showAlert && (
-                <Alert w="100%" status="success">
-                  <Alert.Icon />
-                  Link copied to clipboard
-                </Alert>
-              )}
-            </Animated.View>
-          </View>
         </Stack>
       </Stack>
       <Box mb={20}>
@@ -291,7 +289,6 @@ const WorkProyectPage = () => {
           </Box>
         ))}
       </Box>
-
       {editMode === true ? (
         <React.Fragment>
           <Container style={{ flex: 2 }}>
@@ -316,15 +313,66 @@ const WorkProyectPage = () => {
           </Container>
         </React.Fragment>
       ) : (
-        <Container style={{ flex: 1 }}>
-          <Fab
-            onPressOut={() => changePageMode()}
-            position="absolute"
-            bg="blue.500"
-            icon={<Ionicons name="ios-pencil" size={24} color="white" />}
-          />
-        </Container>
+        <React.Fragment>
+          <Container style={{ flex: 2 }}>
+            <HStack justifyContent="space-between">
+              <Fab
+                onPressOut={() => changePageMode()}
+                position="absolute"
+                mr={16}
+                bg="blue.500"
+                w={9}
+                h={9}
+                textAlign={"center"}
+                icon={
+                  <Icon
+                    as={Ionicons}
+                    name="ios-pencil"
+                    size="md"
+                    color="white"
+                  />
+                }
+              />
+              <Fab
+                onPressOut={() => dialogFinishProyect()}
+                position="absolute"
+                bg="green.600"
+                icon={
+                  <Icon
+                    as={MaterialCommunityIcons}
+                    name="file-certificate"
+                    size="lg"
+                    color="white"
+                  />
+                }
+              />
+            </HStack>
+          </Container>
+        </React.Fragment>
       )}
+      <ConfirmDialog
+        isOpen={isFinishDialogOpen}
+        setIsOpen={setIsFinishDialogOpen}
+        confirmAction={finishProyect}
+        title={"Send Work Proyect Confirm"}
+        description={
+          "This will confirm and send all data relating to " +
+          WorkProyect.title +
+          " and will send it to the mail " +
+          proyectFeatures.filter(
+            (feature) => feature.title === "Professor Mail"
+          )[0].description +
+          ". This action cannot be reversed."
+        }
+      />
+      {usersProtyect.map((user, index) => (
+        <AddPunctuationDialog
+          isOpen={punctuationCard}
+          setIsOpen={setPunctuationCard}
+          student={user}
+          key={index}
+        />
+      ))}
     </ScrollView>
   );
 };
@@ -336,7 +384,7 @@ const styles = StyleSheet.create({
   },
   alertContainer: {
     position: "absolute",
-    bottom: 0,
+    top: 0,
     width: "100%",
     zIndex: 99,
   },

@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
-import WorkProyectPage from "../../../../src/pages/WorkProyectPage";
+import WorkProyectPage from "../../../../src/pages/WorkProyectDetailsPage";
 import { Container, Fab, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 

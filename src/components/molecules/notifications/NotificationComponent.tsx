@@ -89,7 +89,7 @@ const NotificationComponent = (props: Notification) => {
                     _dark={{
                       color: "warmGray.200",
                     }}
-                    alignSelf={"left"}
+                    alignSelf={"flex-start"}
                     pl="2"
                     width={width * 0.5}
                     textAlign={"left"}

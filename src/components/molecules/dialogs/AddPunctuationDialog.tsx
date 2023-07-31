@@ -14,7 +14,9 @@ const AddPunctuationDialog = (props: addPunctuationDialogProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const onClose = () => setDialogOpen(false);
   const [dialogCenter, setDialogCenter] = useState<boolean>(true);
+  const [ratingPunctuation, setRatingPunctuation] = useState<number>(0);
 
+  useEffect(() => {}, [ratingPunctuation]);
   const confirmAction = () => {
     setDialogOpen(false);
   };
@@ -50,8 +52,9 @@ const AddPunctuationDialog = (props: addPunctuationDialogProps) => {
             showRating
             startingValue={0}
             ratingTextColor="grey"
+            onFinishRating={(e: number) => setRatingPunctuation(e)}
           />
-          <CardPunctuationList />
+          <CardPunctuationList punctuationType={ratingPunctuation} />
           <Input
             multiline={true}
             m="2"

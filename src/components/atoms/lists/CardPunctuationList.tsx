@@ -2,19 +2,25 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Container, Card, Text, Button } from "native-base";
 
-const CardPunctuationList = () => {
+interface CardPunctuationListProps {
+  punctuationType: number;
+}
+const CardPunctuationList = (props: CardPunctuationListProps) => {
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
 
   interface cardData {
     id: number;
     title: string;
+    type: string;
   }
 
   const cardData: cardData[] = [
-    { id: 1, title: "Buen Compañero" },
-    { id: 2, title: "Atento" },
-    { id: 3, title: "Responsable" },
-    // Agrega más opciones según sea necesario
+    { id: 1, title: "Good Partner", type: "good" },
+    { id: 2, title: "Attentive", type: "good" },
+    { id: 3, title: "Responsible", type: "good" },
+    { id: 4, title: "Moody", type: "bad" },
+    { id: 5, title: "Irresponsible", type: "bad" },
+    { id: 6, title: "Superb", type: "bad" },
   ];
 
   const toggleItemSelection = (itemId: number) => {
@@ -27,40 +33,49 @@ const CardPunctuationList = () => {
 
   return (
     <Container style={styles.cardsContainer}>
-      {cardData.map((item) => (
-        <Button
-          key={item.id}
-          onPress={() => toggleItemSelection(item.id)}
-          style={
-            selectedItems.includes(item.id)
-              ? styles.selectedCard
-              : styles.unselectedCard
-          }
-        >
-          <Text
+      {cardData
+        .filter((card) =>
+          props.punctuationType <= 2
+            ? card.type === "bad"
+            : props.punctuationType >= 3.9
+            ? card.type === "good"
+            : card.type === "good" || card.type === "bad"
+        )
+        .map((item) => (
+          <Button
+            key={item.id}
+            onPress={() => toggleItemSelection(item.id)}
             style={
               selectedItems.includes(item.id)
-                ? { color: "white" }
-                : { color: "black" }
+                ? styles.selectedCard
+                : styles.unselectedCard
             }
-            fontSize={10}
-            fontWeight={"bold"}
           >
-            {item.title}
-          </Text>
-        </Button>
-      ))}
+            <Text
+              style={
+                selectedItems.includes(item.id)
+                  ? { color: "white" }
+                  : { color: "black" }
+              }
+              fontSize={10}
+              fontWeight={"bold"}
+            >
+              {item.title}
+            </Text>
+          </Button>
+        ))}
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
   cardsContainer: {
-    width: "80%",
+    width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",
-    padding: 15,
     fontSize: 10,
+    alignSelf: "center",
+    marginTop: 5,
   },
   selectedCard: {
     backgroundColor: "grey",

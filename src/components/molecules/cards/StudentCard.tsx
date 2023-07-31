@@ -24,7 +24,7 @@ const StudentCard = (props: { student: User }) => {
           borderWidth: 0,
         }}
         _light={{
-          backgroundColor: "gray.50",
+          backgroundColor: "white",
         }}
       >
         <VStack pt="2" pb="2">

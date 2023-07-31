@@ -1,22 +1,22 @@
 import { StyleSheet, Dimensions, Animated } from "react-native";
 import React from "react";
-import { Box, HStack, Heading, Stack, Text, Alert } from "native-base";
+import { Box, HStack, Heading, Stack, Text, Alert, Avatar } from "native-base";
 import FeaturesCard from "../../atoms/smallCards/FeaturesCard";
 import { Feature } from "../../../../models/objects/Features";
 import { AntDesign } from "@expo/vector-icons";
 import { useClipboard } from "native-base";
 import { Link } from "expo-router";
 
-interface WorkProyectCardProps {
+interface CompanyCardProps {
   id: number;
+  logo: String;
   title: String;
-  subtitle: String;
   features: Feature[];
   description: String;
   link: String;
 }
 
-const WorkProyectCard = (props: WorkProyectCardProps) => {
+const CompanyCard = (props: CompanyCardProps) => {
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
   const [showAlert, setShowAlert] = React.useState<boolean>(false);
@@ -47,28 +47,21 @@ const WorkProyectCard = (props: WorkProyectCardProps) => {
         <Stack p="4" space={3}>
           <Stack space={2}>
             <HStack justifyContent={"space-between"}>
+              <Avatar
+                marginRight={0}
+                source={{
+                  uri: props.logo?.toString(),
+                }}
+              />
               <Heading size="md" ml="-1">
                 {props.title}
               </Heading>
               <Link href={`student/workProyect/proyect/${props.id}`}>
-                <Text color="blue.500" underline>
+                <Text color="pink.500" underline>
                   view detail
                 </Text>
               </Link>
             </HStack>
-            <Text
-              _light={{
-                color: "grey",
-              }}
-              _dark={{
-                color: "black",
-              }}
-              ml="-0.5"
-              mt="-1"
-              bold={true}
-            >
-              {props.subtitle}
-            </Text>
             <FeaturesCard features={props.features} />
             <Box
               pl={2}
@@ -107,4 +100,4 @@ const styles = StyleSheet.create({
     bottom: 50,
   },
 });
-export default WorkProyectCard;
+export default CompanyCard;

@@ -2,11 +2,13 @@ import React from "react";
 import { Tabs } from "expo-router";
 import { Feather, AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import { AlertNotificationRoot } from "react-native-alert-notification";
+import { useColorScheme } from "react-native";
 
 export default () => {
   return (
     <>
       <AlertNotificationRoot
+        key={"RootAlertComponent"}
         theme="light"
         colors={[
           {
@@ -17,7 +19,14 @@ export default () => {
             warning: "#FFC107",
             success: "#28A745",
           },
-          { card: "black" },
+          {
+            card: "black",
+            label: "white",
+            overlay: "black",
+            danger: "#DC3545",
+            warning: "#FFC107",
+            success: "#28A745",
+          },
         ]}
       >
         <Tabs

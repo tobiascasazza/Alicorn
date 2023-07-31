@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "Company X",
+    "logo": "https://wl-genial.cf.tsp.li/resize/728x/jpg/8ca/ed5/9bd5ed5bc5924526f483781b60.jpg",
+    "features": [
+      {
+        "title": "Industry",
+        "description": "Social Media"
+      },
+      {
+        "title": "Main Product",
+        "description": "Social Media App"
+      },
+      {
+        "title": "Business model",
+        "description": "B2C"
+      },
+      {
+        "title": "Owners",
+        "description": "2"
+      },
+      {
+        "title": "Employees",
+        "description": "4"
+      },
+      {
+        "title": "Entrepreneurship status",
+        "description": "Looking for Investment"
+      }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "link": "https://example.com/project-x"
+  },
+  {
+    "id": 2,
+    "title": "Company Y",
+    "logo": "https://img.freepik.com/free-icon/mac-os_318-10374.jpg",
+    "features": [
+      {
+        "title": "Industry",
+        "description": "Fintech"
+      },
+      {
+        "title": "Main Product",
+        "description": "Fintech App"
+      },
+      {
+        "title": "Business model",
+        "description": "B2C"
+      },
+      {
+        "title": "Owners",
+        "description": "1"
+      },
+      {
+        "title": "Employees",
+        "description": "0"
+      },
+      {
+        "title": "Entrepreneurship status",
+        "description": "developing"
+      }
+    ],
+    "description": "Nullam malesuada aliquam erat eu rhoncus.",
+    "link": "https://example.com/project-y"
+  },
+  {
+    "id": 3,
+    "title": "Company Z",
+    "logo": "https://static.vecteezy.com/ti/vettori-gratis/t2/10994412-nike-logo-nero-con-nome-abiti-design-icona-astratto-calcio-vettore-illustrazione-con-bianca-sfondo-gratuito-vettoriale.jpg",
+    "features": [
+      {
+        "title": "Industry",
+        "description": "Graphic Design"
+      },
+      {
+        "title": "Main Product",
+        "description": "Design Services"
+      },
+      {
+        "title": "Business model",
+        "description": "B2B"
+      },
+      {
+        "title": "Owners",
+        "description": "1"
+      },
+      {
+        "title": "Employees",
+        "description": "3"
+      },
+      {
+        "title": "Entrepreneurship status",
+        "description": "developing"
+      }
+    ],
+    "description": "Vestibulum tincidunt velit sed mi dignissim consectetur.",
+    "link": "https://example.com/project-z"
+  }
+]

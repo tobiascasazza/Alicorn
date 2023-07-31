@@ -22,12 +22,7 @@ import {
   Button,
   Icon,
 } from "native-base";
-import {
-  ALERT_TYPE,
-  Dialog,
-  AlertNotificationRoot,
-  Toast,
-} from "react-native-alert-notification";
+import { ALERT_TYPE, Dialog, Toast } from "react-native-alert-notification";
 import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
@@ -272,7 +267,7 @@ const WorkProyectPage = () => {
           </Box>
         </Stack>
       </Stack>
-      <Box mb={20}>
+      <Box mb={editMode === true ? 0 : 20}>
         {usersProtyect.map((user, index) => (
           <Box ml={2} mr={2} mb={2} key={user.name + index}>
             <StudentCard student={user} />
@@ -289,6 +284,21 @@ const WorkProyectPage = () => {
           </Box>
         ))}
       </Box>
+      {editMode === true && (
+        <Box mb={20}>
+          <Button
+            backgroundColor={"blue.500"}
+            marginLeft={"5%"}
+            marginRight={"5%"}
+            borderRadius={"20px"}
+          >
+            <Text color={"white"} fontWeight={"bold"}>
+              Add new User
+            </Text>
+          </Button>
+        </Box>
+      )}
+
       {editMode === true ? (
         <React.Fragment>
           <Container style={{ flex: 2 }}>

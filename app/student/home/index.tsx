@@ -40,12 +40,12 @@ export default function home() {
                         {notificationsCount > 0 && (
                           <Badge
                             position="absolute"
-                            top={4}
-                            right={2}
+                            top={3}
+                            right={3}
                             bg="pink.500"
                             borderRadius={15}
                           >
-                            <Text color="white">3</Text>
+                            <Text color="white">{notificationsCount}</Text>
                           </Badge>
                         )}
                       </Box>
@@ -62,13 +62,21 @@ export default function home() {
               return (
                 <React.Fragment key={proyect.proyectName + Math.random()}>
                   <Box my={"2"}>
-                    <ResumeProyectCard
-                      proyectName={proyect.proyectName}
-                      proyectDescription={proyect.proyectDescription}
-                      participants={proyect.participants}
-                      proyectType={proyect.proyectType}
-                      key={proyect.proyectName + Math.random()}
-                    />
+                    <Link
+                      href={
+                        proyect.proyectType === "Work Project"
+                          ? "student/workProyect"
+                          : ""
+                      }
+                    >
+                      <ResumeProyectCard
+                        proyectName={proyect.proyectName}
+                        proyectDescription={proyect.proyectDescription}
+                        participants={proyect.participants}
+                        proyectType={proyect.proyectType}
+                        key={proyect.proyectName + Math.random()}
+                      />
+                    </Link>
                   </Box>
                 </React.Fragment>
               );

@@ -76,6 +76,7 @@ export default () => {
                 );
               },
               headerTitle: "Entrepreneurship",
+              headerShown: false,
             }}
           />
           <Tabs.Screen

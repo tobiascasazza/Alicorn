@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions, Animated } from "react-native";
 import React from "react";
 import { Box, HStack, Heading, Stack, Text, Alert } from "native-base";
 import FeaturesCard from "../../atoms/smallCards/FeaturesCard";
-import { Feature } from "../../../../models/objects/Features";
+import { Feature } from "../../../models/objects/FeatureModel";
 import { AntDesign } from "@expo/vector-icons";
 import { useClipboard } from "native-base";
 import { Link } from "expo-router";
@@ -18,7 +18,6 @@ interface WorkProyectCardProps {
 
 const WorkProyectCard = (props: WorkProyectCardProps) => {
   const { width } = Dimensions.get("window");
-  const { onCopy } = useClipboard();
   const [showAlert, setShowAlert] = React.useState<boolean>(false);
   const [fadeAnim] = React.useState(new Animated.Value(0));
 

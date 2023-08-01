@@ -1,8 +1,9 @@
 [
   {
     "id": 1,
-    "title": "Company X",
-    "logo": "https://wl-genial.cf.tsp.li/resize/728x/jpg/8ca/ed5/9bd5ed5bc5924526f483781b60.jpg",
+    "title": "Facebook",
+    "slogan": "It's quick and easy",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUL13Lip3_Vs7L-Ktd0jFfMY1Qac67zIDLRw&usqp=CAU",
     "features": [
       {
         "title": "Industry",
@@ -34,16 +35,17 @@
   },
   {
     "id": 2,
-    "title": "Company Y",
+    "title": "Apple",
+    "slogan": "Think different",
     "logo": "https://img.freepik.com/free-icon/mac-os_318-10374.jpg",
     "features": [
       {
         "title": "Industry",
-        "description": "Fintech"
+        "description": "Hardware"
       },
       {
         "title": "Main Product",
-        "description": "Fintech App"
+        "description": "Iphone"
       },
       {
         "title": "Business model",
@@ -51,7 +53,7 @@
       },
       {
         "title": "Owners",
-        "description": "1"
+        "description": "2"
       },
       {
         "title": "Employees",
@@ -67,24 +69,25 @@
   },
   {
     "id": 3,
-    "title": "Company Z",
+    "title": "Nike",
+    "slogan": "Just Do It",
     "logo": "https://static.vecteezy.com/ti/vettori-gratis/t2/10994412-nike-logo-nero-con-nome-abiti-design-icona-astratto-calcio-vettore-illustrazione-con-bianca-sfondo-gratuito-vettoriale.jpg",
     "features": [
       {
         "title": "Industry",
-        "description": "Graphic Design"
+        "description": "Sport Indumentary"
       },
       {
         "title": "Main Product",
-        "description": "Design Services"
+        "description": "Air Jordan"
       },
       {
         "title": "Business model",
-        "description": "B2B"
+        "description": "B2C"
       },
       {
         "title": "Owners",
-        "description": "1"
+        "description": "2"
       },
       {
         "title": "Employees",

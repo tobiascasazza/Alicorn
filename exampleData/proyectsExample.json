@@ -59,65 +59,51 @@
   },
   {
     "id": 3,
-    "proyectName": "Tech StartUp",
-    "proyectDescription": "Billionaire Start Up in a few month",
+    "proyectName": "Facebook",
+    "proyectDescription": "It's quick and easy",
     "participants": [
       {
-        "name": "Juan",
-        "lastName": "González",
-        "punctuation": 5,
+        "name": "Mark",
+        "lastName": "Zuckerberg",
+        "punctuation": 4.2,
         "votes": 10,
         "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
-        "name": "María",
-        "lastName": "Pérez",
-        "punctuation": 3.2,
+        "name": "Edwardo",
+        "lastName": "Savering",
+        "punctuation": 5,
         "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
-      },
-      {
-        "name": "Pedro",
-        "lastName": "Sánchez",
-        "punctuation": 0,
-        "votes": 0,
-        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
     "proyectType": "Entrepreneurship"
   },
   {
     "id": 4,
-    "proyectName": "Hamburgers System",
-    "proyectDescription": "System for makes hamburgers in record time",
+    "proyectName": "Apple",
+    "proyectDescription": "Think Diferent",
     "participants": [
       {
-        "name": "Juan",
-        "lastName": "González",
-        "punctuation": 5,
-        "votes": 10,
+        "name": "Steve",
+        "lastName": "Jobs",
+        "punctuation": 3.5,
+        "votes": 32,
         "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
-        "name": "María",
-        "lastName": "Pérez",
-        "punctuation": 3.2,
+        "name": "Steve",
+        "lastName": "Wozniak",
+        "punctuation": 5,
         "votes": 12,
         "photo": "https://example.com/maria-perez.jpg"
-      },
-      {
-        "name": "Pedro",
-        "lastName": "Sánchez",
-        "punctuation": 0,
-        "votes": 0,
-        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
     "proyectType": "Entrepreneurship"
   },
   {
     "id": 5,
-    "proyectName": "IOT proyect",
+    "proyectName": "IoT proyect",
     "proyectDescription": "Collage investigation proyect of IoT",
     "participants": [
       {
@@ -146,31 +132,24 @@
   },
   {
     "id": 6,
-    "proyectName": "Investigation Work",
-    "proyectDescription": "Collage investigation of whatever thing",
+    "proyectName": "Nike",
+    "proyectDescription": "Just Do It",
     "participants": [
       {
-        "name": "Juan",
-        "lastName": "González",
+        "name": "Phil",
+        "lastName": "Knight",
         "punctuation": 5,
-        "votes": 10,
+        "votes": 43,
         "photo": "https://randomuser.me/api/portraits/men/2.jpg"
       },
       {
-        "name": "María",
-        "lastName": "Pérez",
-        "punctuation": 3.2,
-        "votes": 12,
+        "name": "Bill",
+        "lastName": "Bowerman",
+        "punctuation": 4.5,
+        "votes": 93,
         "photo": "https://example.com/maria-perez.jpg"
-      },
-      {
-        "name": "Pedro",
-        "lastName": "Sánchez",
-        "punctuation": 0,
-        "votes": 0,
-        "photo": "https://example.com/pedro-sanchez.jpg"
       }
     ],
-    "proyectType": "Work Project"
+    "proyectType": "Entrepreneurship"
   }
 ]

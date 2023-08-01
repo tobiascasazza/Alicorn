@@ -1,8 +1,17 @@
 import { StyleSheet, Dimensions, Animated } from "react-native";
 import React from "react";
-import { Box, HStack, Heading, Stack, Text, Alert, Avatar } from "native-base";
+import {
+  Box,
+  HStack,
+  Heading,
+  Stack,
+  Text,
+  Alert,
+  Avatar,
+  VStack,
+} from "native-base";
 import FeaturesCard from "../../atoms/smallCards/FeaturesCard";
-import { Feature } from "../../../../models/objects/Features";
+import { Feature } from "../../../models/objects/FeatureModel";
 import { AntDesign } from "@expo/vector-icons";
 import { useClipboard } from "native-base";
 import { Link } from "expo-router";
@@ -11,6 +20,7 @@ interface CompanyCardProps {
   id: number;
   logo: String;
   title: String;
+  slogan: String;
   features: Feature[];
   description: String;
   link: String;
@@ -47,15 +57,29 @@ const CompanyCard = (props: CompanyCardProps) => {
         <Stack p="4" space={3}>
           <Stack space={2}>
             <HStack justifyContent={"space-between"}>
-              <Avatar
-                marginRight={0}
-                source={{
-                  uri: props.logo?.toString(),
-                }}
-              />
-              <Heading size="md" ml="-1">
-                {props.title}
-              </Heading>
+              <HStack>
+                <Avatar
+                  marginRight={0}
+                  source={{
+                    uri: props.logo?.toString(),
+                  }}
+                />
+                <VStack ml={2}>
+                  <Heading size="md">{props.title}</Heading>
+                  <Text
+                    _light={{
+                      color: "grey",
+                    }}
+                    _dark={{
+                      color: "black",
+                    }}
+                    mt="-1"
+                    bold={true}
+                  >
+                    {props.slogan}
+                  </Text>
+                </VStack>
+              </HStack>
               <Link href={`student/workProyect/proyect/${props.id}`}>
                 <Text color="pink.500" underline>
                   view detail

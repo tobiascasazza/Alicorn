@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Box, Flex, HStack, Input, SimpleGrid, Text } from "native-base";
-import { Feature } from "../../../models/objects/Feature";
+import { Feature } from "../../../models/objects/FeatureModel";
 
 type FeaturesCardProps = {
   features: Feature[];
@@ -18,44 +18,17 @@ const FeaturesCard = (props: FeaturesCardProps) => {
 
   return (
     <Box rounded="lg" overflow="hidden">
-      {props.features.map((feature) => {
-        return (
-          <HStack
-            justifyContent={"space-between"}
-            pt={2}
-            key={feature.title + Math.random()}
-          >
-            <Text
-              alignSelf="center"
-              bold={true}
-              color={
-                feature.title === "Materia"
-                  ? "blue.500"
-                  : feature.title === "Industry"
-                  ? "pink.500"
-                  : "black"
-              }
-              fontSize={"xs"}
+      {props.features &&
+        props.features.map((feature) => {
+          return (
+            <HStack
+              justifyContent={"space-between"}
+              pt={2}
+              key={feature.title + Math.random()}
             >
-              {feature.title}:
-            </Text>
-            {feature.editable && props.edit ? (
-              <Input
-                multiline={true}
-                defaultValue={feature.description}
-                w={"60%"}
-                m="1"
-                fontSize="xs"
-                _light={{
-                  color: "black",
-                }}
-                _dark={{
-                  color: "black",
-                }}
-                backgroundColor={"blue"}
-              />
-            ) : (
               <Text
+                alignSelf="center"
+                bold={true}
                 color={
                   feature.title === "Materia"
                     ? "blue.500"
@@ -64,14 +37,42 @@ const FeaturesCard = (props: FeaturesCardProps) => {
                     : "black"
                 }
                 fontSize={"xs"}
-                pl={1}
               >
-                {feature.description}
+                {feature.title}:
               </Text>
-            )}
-          </HStack>
-        );
-      })}
+              {feature.editable && props.edit ? (
+                <Input
+                  multiline={true}
+                  defaultValue={feature.description}
+                  w={"60%"}
+                  m="1"
+                  fontSize="xs"
+                  _light={{
+                    color: "black",
+                  }}
+                  _dark={{
+                    color: "black",
+                  }}
+                  backgroundColor={"blue"}
+                />
+              ) : (
+                <Text
+                  color={
+                    feature.title === "Materia"
+                      ? "blue.500"
+                      : feature.title === "Industry"
+                      ? "pink.500"
+                      : "black"
+                  }
+                  fontSize={"xs"}
+                  pl={1}
+                >
+                  {feature.description}
+                </Text>
+              )}
+            </HStack>
+          );
+        })}
     </Box>
   );
 };

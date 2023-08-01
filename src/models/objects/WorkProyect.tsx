@@ -1,4 +1,4 @@
-import { Feature } from "./Feature";
+import { Feature } from "./FeatureModel";
 import { User } from "./User";
 
 export interface WorkProyect {

@@ -2,7 +2,7 @@ import { Text, ScrollView } from "react-native";
 import React from "react";
 import { Box, Container, Fab, Icon, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
-import { Feature } from "../../../src/models/objects/Feature";
+import { Feature } from "../../../src/models/objects/FeatureModel";
 import CompanyCards from "../../../exampleData/CompanyCards.json";
 import { Link } from "expo-router";
 import CompanyCard from "../../../src/components/molecules/cards/CompanyCard";
@@ -25,6 +25,7 @@ export default function workProyect() {
                     id={CompanyCards.id}
                     features={CompanyCards.features}
                     title={CompanyCards.title}
+                    slogan={CompanyCards.slogan}
                     logo={CompanyCards.logo}
                     description={CompanyCards.description}
                     link={CompanyCards.link}

@@ -1,4 +1,4 @@
-import { Feature } from "./Feature";
+import { Feature } from "./FeatureModel";
 
 export interface User {
   id: number;

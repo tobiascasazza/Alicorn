@@ -1,23 +1,92 @@
 [
   {
     "id": 1,
-    "title": "Project X",
-    "subtitle": "Developing a new website",
+    "title": "Server Administration",
+    "subtitle": "Create servers and mantain it for 4 month",
     "features": [
-      { "title": "Materia", "description": "Web Development" },
-      { "title": "Theme", "description": "E-commerce" },
+      { "title": "Materia", "description": "Infraestructure II" },
+      { "title": "Theme", "description": "Server Mantain" },
       { "title": "Participants", "description": "3" },
       { "title": "State", "description": "In progress" },
       { "title": "Start date", "description": "2022-01-01" },
-      { "title": "Deadline", "description": "2022-06-30" }
+      { "title": "Deadline", "description": "2022-06-30" },
+      { "title": "Professor mail", "description": "professor@gmail.com" }
     ],
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "link": "https://example.com/project-x"
+    "link": "https://example.com/project-x",
+    "students": [
+      {
+        "id": 1,
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "votes": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 2,
-    "title": "Project Y",
-    "subtitle": "Building a mobile app",
+    "title": "Restaurant App",
+    "subtitle": "Collage proyect of restaurant with React",
     "features": [
       {
         "title": "Materia",
@@ -25,15 +94,15 @@
       },
       {
         "title": "Theme",
-        "description": "Social Networking"
+        "description": "Administration"
       },
       {
         "title": "Participants",
-        "description": "2"
+        "description": "3"
       },
       {
         "title": "State",
-        "description": "Completed"
+        "description": "In progress"
       },
       {
         "title": "Start date",
@@ -42,27 +111,96 @@
       {
         "title": "Deadline",
         "description": "2022-03-31"
-      }
+      },
+      { "title": "Professor mail", "description": "professor@gmail.com" }
     ],
     "description": "Nullam malesuada aliquam erat eu rhoncus.",
-    "link": "https://example.com/project-y"
+    "link": "https://example.com/project-y",
+    "students": [
+      {
+        "id": 1,
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "votes": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 3,
-    "title": "Project Z",
-    "subtitle": "Designing a logo",
+    "title": "IoT proyect",
+    "subtitle": "Collage investigation proyect of IoT",
     "features": [
       {
         "title": "Materia",
-        "description": "Graphic Design"
+        "description": "Hardware/Software"
       },
       {
         "title": "Theme",
-        "description": "Corporate Identity"
+        "description": "IoT"
       },
       {
         "title": "Participants",
-        "description": "1"
+        "description": "3"
       },
       {
         "title": "State",
@@ -75,9 +213,78 @@
       {
         "title": "Deadline",
         "description": "2023-06-30"
-      }
+      },
+      { "title": "Professor mail", "description": "professor@gmail.com" }
     ],
     "description": "Vestibulum tincidunt velit sed mi dignissim consectetur.",
-    "link": "https://example.com/project-z"
+    "link": "https://example.com/project-z",
+    "students": [
+      {
+        "id": 1,
+        "name": "Juan",
+        "lastName": "González",
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "votes": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
+      }
+    ]
   }
 ]

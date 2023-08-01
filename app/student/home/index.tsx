@@ -66,7 +66,7 @@ export default function home() {
                       href={
                         proyect.proyectType === "Work Project"
                           ? "student/workProyect"
-                          : ""
+                          : "student/entrepreneurship"
                       }
                     >
                       <ResumeProyectCard

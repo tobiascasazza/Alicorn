@@ -100,7 +100,6 @@ const WorkProyectPage = () => {
   };
 
   useEffect(() => {
-    console.log(route.params?.proyectId);
     const newCurrentWorkProyect = WorkProyectData.filter(
       (proyect) => proyect.id == route.params?.proyectId
     )[0];

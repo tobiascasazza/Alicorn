@@ -7,15 +7,18 @@
     "features": [
       {
         "title": "Industry",
-        "description": "Social Media"
+        "description": "Social Media",
+        "editable": true
       },
       {
         "title": "Main Product",
-        "description": "Social Media App"
+        "description": "Social Media App",
+        "editable": true
       },
       {
         "title": "Business model",
-        "description": "B2C"
+        "description": "B2C",
+        "editable": true
       },
       {
         "title": "Owners",
@@ -27,11 +30,69 @@
       },
       {
         "title": "Entrepreneurship status",
-        "description": "Looking for Investment"
+        "description": "Looking for Investment",
+        "editable": true
       }
     ],
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "link": "https://example.com/project-x"
+    "link": "https://example.com/project-x",
+    "owners": [
+      {
+        "id": 132,
+        "name": "Mark",
+        "lastName": "Zuckerberg",
+        "punctuation": 4.2,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          },
+          {
+            "title": "Equity",
+            "description": "70%",
+            "editable": true
+          }
+        ]
+      },
+      {
+        "id": 112,
+        "name": "Edwardo",
+        "lastName": "Savering",
+        "punctuation": 5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Finance"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          },
+          {
+            "title": "Equity",
+            "description": "30%",
+            "editable": true
+          }
+        ]
+      }
+    ],
+    "employees": []
   },
   {
     "id": 2,
@@ -41,15 +102,18 @@
     "features": [
       {
         "title": "Industry",
-        "description": "Hardware"
+        "description": "Hardware",
+        "editable": true
       },
       {
         "title": "Main Product",
-        "description": "Iphone"
+        "description": "Iphone",
+        "editable": true
       },
       {
         "title": "Business model",
-        "description": "B2C"
+        "description": "B2C",
+        "editable": true
       },
       {
         "title": "Owners",
@@ -61,11 +125,69 @@
       },
       {
         "title": "Entrepreneurship status",
-        "description": "developing"
+        "description": "developing",
+        "editable": true
       }
     ],
     "description": "Nullam malesuada aliquam erat eu rhoncus.",
-    "link": "https://example.com/project-y"
+    "link": "https://example.com/project-y",
+    "owners": [
+      {
+        "id": 32,
+        "name": "Steve",
+        "lastName": "Jobs",
+        "punctuation": 3.5,
+        "votes": 32,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "1"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          },
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "name": "Steve",
+        "lastName": "Wozniak",
+        "punctuation": 5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          },
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          }
+        ]
+      }
+    ],
+    "employees": []
   },
   {
     "id": 3,
@@ -75,15 +197,18 @@
     "features": [
       {
         "title": "Industry",
-        "description": "Sport Indumentary"
+        "description": "Sport Indumentary",
+        "editable": true
       },
       {
         "title": "Main Product",
-        "description": "Air Jordan"
+        "description": "Air Jordan",
+        "editable": true
       },
       {
         "title": "Business model",
-        "description": "B2C"
+        "description": "B2C",
+        "editable": true
       },
       {
         "title": "Owners",
@@ -95,10 +220,68 @@
       },
       {
         "title": "Entrepreneurship status",
-        "description": "developing"
+        "description": "developing",
+        "editable": true
       }
     ],
     "description": "Vestibulum tincidunt velit sed mi dignissim consectetur.",
-    "link": "https://example.com/project-z"
+    "link": "https://example.com/project-z",
+    "owners": [
+      {
+        "id": 56,
+        "name": "Phil",
+        "lastName": "Knight",
+        "punctuation": 5,
+        "votes": 43,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Administration"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          },
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Bill",
+        "lastName": "Bowerman",
+        "punctuation": 4.5,
+        "votes": 93,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Physical Trainer"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          },
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          }
+        ]
+      }
+    ],
+    "employees": []
   }
 ]

@@ -22,48 +22,46 @@ import {
   Button,
   Icon,
   Spinner,
+  Avatar,
 } from "native-base";
 import { ALERT_TYPE, Dialog, Toast } from "react-native-alert-notification";
 import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
 import StudentCard from "../components/molecules/cards/StudentCard";
-import { WorkProyect } from "../models/objects/WorkProyect";
 import { Feature } from "../models/objects/FeatureModel";
-import users from "../../exampleData/users.json";
 import { User } from "../models/objects/User";
-import ConfirmWorkProyectDialogProps from "../components/molecules/dialogs/ConfirmDialog";
+import ConfirmCompanyDialogProps from "../components/molecules/dialogs/ConfirmDialog";
 import ConfirmDialog from "../components/molecules/dialogs/ConfirmDialog";
 import AddPunctuationDialog from "../components/molecules/dialogs/AddPunctuationDialog";
-import WorkProyectData from "../../exampleData/WorkProyectCards.json";
+import CompanyData from "../../exampleData/CompanyCards.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
-
-type WorkProyectPageRouteParamList = {
-  WorkProyectPage: {
-    proyectId: number;
+import { Company } from "../models/objects/Company";
+type CompanyPageRouteParamList = {
+  CompanyPage: {
+    companyId: number;
   };
 };
 
-const WorkProyectDetailsPage = () => {
+const CompanyDetailsPage = () => {
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
-  const route =
-    useRoute<RouteProp<WorkProyectPageRouteParamList, "WorkProyectPage">>();
+  const route = useRoute<RouteProp<CompanyPageRouteParamList, "CompanyPage">>();
   const [fadeAnim] = React.useState(new Animated.Value(0));
   const [editMode, setEditMode] = useState(false);
   const [isFinishDialogOpen, setIsFinishDialogOpen] = useState(false);
-  const [usersProtyect, setUsersProtyect] = useState<User[]>(users);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [currentWorkProyect, setCurrentWorkProyect] = useState<WorkProyect>({
+  const [currentCompany, setCurrentCompany] = useState<Company>({
     id: 1,
     title: "",
-    subtitle: "",
+    slogan: "",
+    logo: "",
     description: "",
     features: [],
-    students: [],
+    owners: [],
+    employees: [],
     link: "",
   });
-  const [professorMail, setProfessorMail] = useState();
   const [punctuationCard, setPunctuationCard] = useState<boolean>(false);
 
   const animatedStyle = {
@@ -71,7 +69,7 @@ const WorkProyectDetailsPage = () => {
   };
 
   const handleCopyLink = () => {
-    onCopy(currentWorkProyect.link ? currentWorkProyect.link : "");
+    onCopy(currentCompany.link ? currentCompany.link : "");
     Toast.show({
       type: ALERT_TYPE.SUCCESS,
       title: "Success",
@@ -100,15 +98,16 @@ const WorkProyectDetailsPage = () => {
   };
 
   useEffect(() => {
-    const newCurrentWorkProyect = WorkProyectData.filter(
-      (proyect) => proyect.id == route.params?.proyectId
+    const newCurrentCompany = CompanyData.filter(
+      (company) => company.id == route.params?.companyId
     )[0];
-    setCurrentWorkProyect(newCurrentWorkProyect);
+    setCurrentCompany(newCurrentCompany);
   }, []);
 
   useEffect(() => {
-    currentWorkProyect.title != "" ? setIsLoading(false) : setIsLoading(true);
-  }, [currentWorkProyect]);
+    if (currentCompany.title)
+      currentCompany.title != "" ? setIsLoading(false) : setIsLoading(true);
+  }, [currentCompany]);
   return (
     <ScrollView>
       {isLoading ? (
@@ -122,24 +121,35 @@ const WorkProyectDetailsPage = () => {
         <>
           <Stack p="4" space={3}>
             <Stack space={2}>
-              <HStack justifyContent={"space-between"}>
-                <Heading size="md" ml="-1">
-                  <Text>{currentWorkProyect.title}</Text>
-                </Heading>
+              <HStack>
+                <Avatar
+                  marginRight={0}
+                  source={{
+                    uri: currentCompany.logo?.toString(),
+                  }}
+                />
+                <VStack ml={3}>
+                  <HStack justifyContent={"space-between"}>
+                    <Heading size="md" ml="-1">
+                      <Text>{currentCompany.title}</Text>
+                    </Heading>
+                  </HStack>
+                  <Text
+                    _light={{
+                      color: "grey",
+                    }}
+                    _dark={{
+                      color: "black",
+                    }}
+                    ml="-0.5"
+                    mt="-1"
+                    bold={true}
+                  >
+                    {currentCompany.slogan}
+                  </Text>
+                </VStack>
               </HStack>
-              <Text
-                _light={{
-                  color: "grey",
-                }}
-                _dark={{
-                  color: "black",
-                }}
-                ml="-0.5"
-                mt="-1"
-                bold={true}
-              >
-                {currentWorkProyect.subtitle}
-              </Text>
+
               <HStack justifyContent={"space-between"}>
                 <VStack>
                   <Box
@@ -162,9 +172,7 @@ const WorkProyectDetailsPage = () => {
                   </Box>
                   <FeaturesCard
                     features={
-                      currentWorkProyect.features
-                        ? currentWorkProyect.features
-                        : []
+                      currentCompany.features ? currentCompany.features : []
                     }
                     edit={editMode}
                   />
@@ -204,7 +212,7 @@ const WorkProyectDetailsPage = () => {
                     ml="-0.5"
                     padding={2}
                   >
-                    {currentWorkProyect.description}
+                    {currentCompany.description}
                   </Text>
                 ) : (
                   <Input
@@ -219,7 +227,7 @@ const WorkProyectDetailsPage = () => {
                     }}
                     backgroundColor={"blue"}
                   >
-                    {currentWorkProyect.description}
+                    {currentCompany.description}
                   </Input>
                 )}
               </Box>
@@ -254,13 +262,13 @@ const WorkProyectDetailsPage = () => {
                       >
                         <Link
                           href={
-                            currentWorkProyect.link?.toString() !== undefined
-                              ? currentWorkProyect.link?.toString()
+                            currentCompany.link?.toString() !== undefined
+                              ? currentCompany.link?.toString()
                               : ""
                           }
                           style={{ color: "black" }}
                         >
-                          <Text>{currentWorkProyect.link}</Text>
+                          <Text>{currentCompany.link}</Text>
                         </Link>
                       </Text>
                     </HStack>
@@ -278,7 +286,7 @@ const WorkProyectDetailsPage = () => {
                       Link:{" "}
                     </Text>
                     <Input
-                      defaultValue="http://localhost:19000/student/workProyect/proyect/1"
+                      defaultValue="http://localhost:19000/student/entrepreneurship/company/1"
                       w={"90%"}
                       m="1"
                       fontSize="xs"
@@ -296,8 +304,8 @@ const WorkProyectDetailsPage = () => {
             </Stack>
           </Stack>
           <Box mb={editMode === true ? 0 : 20}>
-            {usersProtyect.length > 0 &&
-              usersProtyect.map((user, index) => (
+            {currentCompany.owners.length > 0 &&
+              currentCompany.owners.map((user, index) => (
                 <Box ml={2} mr={2} mb={2} key={user.name + index}>
                   <StudentCard student={user} />
                   {editMode === true && (
@@ -398,42 +406,13 @@ const WorkProyectDetailsPage = () => {
             title={"Send Work Proyect Confirm"}
             description={
               "This will confirm and send all data relating to " +
-              currentWorkProyect.title +
-              " and will send it to the professor mail " +
-              (currentWorkProyect.features
-                ? currentWorkProyect.features.filter(
-                    (feature) => feature.title === "Professor mail"
-                  )[0].description
-                : "") +
               ". This action cannot be reversed."
             }
           />
-          {usersProtyect.length > 0 &&
-            usersProtyect.map((user, index) => (
-              <AddPunctuationDialog
-                isOpen={punctuationCard}
-                setIsOpen={setPunctuationCard}
-                student={user}
-                key={index}
-              />
-            ))}
         </>
       )}
     </ScrollView>
   );
 };
-const styles = StyleSheet.create({
-  cardContainer: {
-    flex: 1,
-    alignItems: "center",
-    padding: 24,
-  },
-  alertContainer: {
-    position: "absolute",
-    top: 0,
-    width: "100%",
-    zIndex: 99,
-  },
-});
 
-export default WorkProyectDetailsPage;
+export default CompanyDetailsPage;

@@ -5,11 +5,11 @@
     "subtitle": "Create servers and mantain it for 4 month",
     "features": [
       { "title": "Materia", "description": "Infraestructure II" },
-      { "title": "Theme", "description": "Server Mantain" },
+      { "title": "Theme", "description": "Server Mantain", "editable": true },
       { "title": "Participants", "description": "3" },
-      { "title": "State", "description": "In progress" },
-      { "title": "Start date", "description": "2022-01-01" },
-      { "title": "Deadline", "description": "2022-06-30" },
+      { "title": "State", "description": "In progress", "editable": true },
+      { "title": "Start date", "description": "2022-01-01", "editable": true },
+      { "title": "Deadline", "description": "2022-06-30", "editable": true },
       { "title": "Professor mail", "description": "professor@gmail.com" }
     ],
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -94,7 +94,8 @@
       },
       {
         "title": "Theme",
-        "description": "Administration"
+        "description": "Administration",
+        "editable": true
       },
       {
         "title": "Participants",
@@ -102,15 +103,18 @@
       },
       {
         "title": "State",
-        "description": "In progress"
+        "description": "In progress",
+        "editable": true
       },
       {
         "title": "Start date",
-        "description": "2021-10-01"
+        "description": "2021-10-01",
+        "editable": true
       },
       {
         "title": "Deadline",
-        "description": "2022-03-31"
+        "description": "2022-03-31",
+        "editable": true
       },
       { "title": "Professor mail", "description": "professor@gmail.com" }
     ],
@@ -196,7 +200,8 @@
       },
       {
         "title": "Theme",
-        "description": "IoT"
+        "description": "IoT",
+        "editable": true
       },
       {
         "title": "Participants",
@@ -204,15 +209,18 @@
       },
       {
         "title": "State",
-        "description": "completed"
+        "description": "completed",
+        "editable": true
       },
       {
         "title": "Start date",
-        "description": "2023-06-01"
+        "description": "2023-06-01",
+        "editable": true
       },
       {
         "title": "Deadline",
-        "description": "2023-06-30"
+        "description": "2023-06-30",
+        "editable": true
       },
       { "title": "Professor mail", "description": "professor@gmail.com" }
     ],

@@ -13,22 +13,22 @@ export default function workProyect() {
     <NativeBaseProvider>
       <ScrollView>
         {companyData.length > 0 ? (
-          companyData.map((CompanyCards) => {
+          companyData.map((companyCard) => {
             return (
-              <React.Fragment key={CompanyCards.id + Math.random()}>
+              <React.Fragment key={companyCard.id + Math.random()}>
                 <Box
                   py={2}
                   alignItems={"center"}
-                  key={CompanyCards.id + Math.random()}
+                  key={companyCard.id + Math.random()}
                 >
                   <CompanyCard
-                    id={CompanyCards.id}
-                    features={CompanyCards.features}
-                    title={CompanyCards.title}
-                    slogan={CompanyCards.slogan}
-                    logo={CompanyCards.logo}
-                    description={CompanyCards.description}
-                    link={CompanyCards.link}
+                    id={companyCard.id}
+                    features={companyCard.features}
+                    title={companyCard.title}
+                    slogan={companyCard.slogan}
+                    logo={companyCard.logo}
+                    description={companyCard.description}
+                    link={companyCard.link}
                   />
                 </Box>
               </React.Fragment>

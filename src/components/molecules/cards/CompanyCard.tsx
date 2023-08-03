@@ -80,7 +80,7 @@ const CompanyCard = (props: CompanyCardProps) => {
                   </Text>
                 </VStack>
               </HStack>
-              <Link href={`student/workProyect/proyect/${props.id}`}>
+              <Link href={`student/entrepreneurship/company/${props.id}`}>
                 <Text color="pink.500" underline>
                   view detail
                 </Text>

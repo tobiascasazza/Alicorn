@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Container, Fab, Icon, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { Feature } from "../../../src/models/objects/FeatureModel";
-import CompanyCards from "../../../exampleData/CompanyCards.json";
+import CompanyCards from "../../../data/CompanyCards.json";
 import { Link } from "expo-router";
 import CompanyCard from "../../../src/components/molecules/cards/CompanyCard";
 

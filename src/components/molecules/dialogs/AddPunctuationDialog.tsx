@@ -41,7 +41,7 @@ const AddPunctuationDialog = (props: addPunctuationDialogProps) => {
         <AlertDialog.Header alignItems={"center"} backgroundColor={"white"}>
           {"How was working with "}
           <Text fontSize={"lg"} fontWeight={"bold"}>
-            {props.student.name + " " + props.student.lastName}
+            {`${props.student.name}  ${props.student.lastName}`}
           </Text>
         </AlertDialog.Header>
         <AlertDialog.Body backgroundColor={"white"}>

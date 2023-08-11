@@ -34,9 +34,10 @@ import { User } from "../models/objects/User";
 import ConfirmCompanyDialogProps from "../components/molecules/dialogs/ConfirmDialog";
 import ConfirmDialog from "../components/molecules/dialogs/ConfirmDialog";
 import AddPunctuationDialog from "../components/molecules/dialogs/AddPunctuationDialog";
-import CompanyData from "../../exampleData/CompanyCards.json";
+import CompanyData from "../../data/CompanyCards.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { Company } from "../models/objects/Company";
+import Accordion from "react-native-collapsible/Accordion";
 type CompanyPageRouteParamList = {
   CompanyPage: {
     companyId: number;
@@ -303,24 +304,43 @@ const CompanyDetailsPage = () => {
               </Box>
             </Stack>
           </Stack>
-          <Box mb={editMode === true ? 0 : 20}>
-            {currentCompany.owners.length > 0 &&
-              currentCompany.owners.map((user, index) => (
-                <Box ml={2} mr={2} mb={2} key={user.name + index}>
-                  <StudentCard student={user} />
-                  {editMode === true && (
-                    <Button
-                      backgroundColor={"red.500"}
-                      textAlign="center"
-                      bottom={2}
-                      borderTopRadius={0}
-                    >
-                      <AntDesign name="delete" size={24} color="white" />
-                    </Button>
-                  )}
-                </Box>
-              ))}
-          </Box>
+          <Accordion
+            onChange={() => {}}
+            activeSections={[0]}
+            renderHeader={(section) => {
+              return (
+                <View>
+                  <Text>{section.title}</Text>
+                </View>
+              );
+            }}
+            renderContent={() => (
+              <Box mb={editMode === true ? 0 : 20}>
+                {currentCompany.owners.length > 0 &&
+                  currentCompany.owners.map((user, index) => (
+                    <Box ml={2} mr={2} mb={2} key={user.name + index}>
+                      <StudentCard student={user} />
+                      {editMode === true && (
+                        <Button
+                          backgroundColor={"red.500"}
+                          textAlign="center"
+                          bottom={2}
+                          borderTopRadius={0}
+                        >
+                          <AntDesign name="delete" size={24} color="white" />
+                        </Button>
+                      )}
+                    </Box>
+                  ))}
+              </Box>
+            )}
+            sections={[
+              {
+                title: "Owners",
+              },
+            ]}
+          ></Accordion>
+
           {editMode === true && (
             <Box mb={20}>
               <Button
@@ -404,10 +424,7 @@ const CompanyDetailsPage = () => {
             setIsOpen={setIsFinishDialogOpen}
             confirmAction={finishProyect}
             title={"Send Work Proyect Confirm"}
-            description={
-              "This will confirm and send all data relating to " +
-              ". This action cannot be reversed."
-            }
+            description={""}
           />
         </>
       )}

@@ -2,7 +2,7 @@ import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { Box } from "native-base";
 import NotificationComponent from "../components/molecules/notifications/NotificationComponent";
-import notificationsExample from "../../exampleData/notificationExample.json";
+import notificationsExample from "../../data/notificationExample.json";
 import { Notification } from "../models/objects/Notification";
 
 export default function NotificationsPage() {
@@ -24,6 +24,7 @@ export default function NotificationsPage() {
                 <NotificationComponent
                   notificationType={notification.notificationType}
                   user={{
+                    id: notification.user.id,
                     name: notification.user.name,
                     lastName: notification.user.lastName,
                     photo: notification.user.photo,

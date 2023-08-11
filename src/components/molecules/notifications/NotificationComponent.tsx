@@ -17,11 +17,11 @@ const NotificationComponent = (props: Notification) => {
 
     if (minutesFromNotif < 60) {
       notificationTime =
-        minutesFromNotif <= 0 ? "now" : minutesFromNotif + " min";
+        minutesFromNotif <= 0 ? "now" : `${minutesFromNotif} min`;
     } else if (minutesFromNotif > 60 && minutesFromNotif < 1440) {
-      notificationTime = minutesFromNotif + " h";
+      notificationTime = `${minutesFromNotif} h`;
     } else if (minutesFromNotif > 1440) {
-      notificationTime = minutesFromNotif + " y";
+      notificationTime = `${minutesFromNotif} y"`;
     }
     return notificationTime;
   };
@@ -95,11 +95,9 @@ const NotificationComponent = (props: Notification) => {
                     textAlign={"left"}
                   >
                     {props.notificationType !== notificationType.punctuation
-                      ? props.user.name +
-                        " " +
-                        props.user.lastName +
-                        " " +
-                        notificationText()
+                      ? `${props.user.name} ${
+                          props.user.lastName
+                        } ${notificationText()}`
                       : notificationText()}
                   </Text>
                   <Box pl={2} alignSelf={"center"} width={width * 0.2}>

@@ -34,6 +34,8 @@ const FeaturesCard = (props: FeaturesCardProps) => {
                     ? "blue.500"
                     : feature.title === "Industry"
                     ? "pink.500"
+                    : feature.description === "Finished"
+                    ? "green.500"
                     : "black"
                 }
                 fontSize={"xs"}
@@ -62,6 +64,8 @@ const FeaturesCard = (props: FeaturesCardProps) => {
                       ? "blue.500"
                       : feature.title === "Industry"
                       ? "pink.500"
+                      : feature.description === "Finished"
+                      ? "green.500"
                       : "black"
                   }
                   fontSize={"xs"}

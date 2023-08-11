@@ -29,14 +29,13 @@ import { Link } from "expo-router";
 import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
 import StudentCard from "../components/molecules/cards/StudentCard";
 import { WorkProyect } from "../models/objects/WorkProyect";
-import { Feature } from "../models/objects/FeatureModel";
-import users from "../../exampleData/users.json";
+import users from "../../data/users.json";
 import { User } from "../models/objects/User";
-import ConfirmWorkProyectDialogProps from "../components/molecules/dialogs/ConfirmDialog";
 import ConfirmDialog from "../components/molecules/dialogs/ConfirmDialog";
 import AddPunctuationDialog from "../components/molecules/dialogs/AddPunctuationDialog";
-import WorkProyectData from "../../exampleData/WorkProyectCards.json";
+import WorkProyectData from "../../data/WorkProyectCards.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
+import { Feature } from "../models/objects/FeatureModel";
 
 type WorkProyectPageRouteParamList = {
   WorkProyectPage: {
@@ -45,15 +44,25 @@ type WorkProyectPageRouteParamList = {
 };
 
 const WorkProyectDetailsPage = () => {
+  const empltyStudent: User = {
+    id: 0,
+    features: [],
+    name: "",
+    lastName: "",
+  };
+
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
   const route =
     useRoute<RouteProp<WorkProyectPageRouteParamList, "WorkProyectPage">>();
-  const [fadeAnim] = React.useState(new Animated.Value(0));
   const [editMode, setEditMode] = useState(false);
-  const [isFinishDialogOpen, setIsFinishDialogOpen] = useState(false);
   const [usersProtyect, setUsersProtyect] = useState<User[]>(users);
+  const [punctuationCard, setPunctuationCard] = useState<boolean>(false);
+  const [proyectState, setProyectState] = useState<string>("Finished");
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isFinishDialogOpen, setIsFinishDialogOpen] = useState(false);
+  const [isDeleteStudentDialog, setIsDeleteStudentDialog] = useState(false);
+  const [studentToDelete, setStudentToDelete] = useState<User>(empltyStudent);
   const [currentWorkProyect, setCurrentWorkProyect] = useState<WorkProyect>({
     id: 1,
     title: "",
@@ -63,12 +72,6 @@ const WorkProyectDetailsPage = () => {
     students: [],
     link: "",
   });
-  const [professorMail, setProfessorMail] = useState();
-  const [punctuationCard, setPunctuationCard] = useState<boolean>(false);
-
-  const animatedStyle = {
-    opacity: fadeAnim,
-  };
 
   const handleCopyLink = () => {
     onCopy(currentWorkProyect.link ? currentWorkProyect.link : "");
@@ -88,6 +91,26 @@ const WorkProyectDetailsPage = () => {
     setIsFinishDialogOpen(true);
   };
 
+  const dialogDeleteStudent = (student: User) => {
+    setStudentToDelete(student);
+    setIsDeleteStudentDialog(true);
+  };
+
+  const deleteStudent = () => {
+    setIsDeleteStudentDialog(false);
+    Dialog.show({
+      type: ALERT_TYPE.DANGER,
+      title: `${studentToDelete?.name} ${studentToDelete?.lastName} was deleted`,
+      textBody: `You are deleted ${studentToDelete?.name} ${studentToDelete?.lastName} of the proyect ${currentWorkProyect.title} `,
+      button: "close",
+    });
+    let newStudents: User[] = usersProtyect.filter(
+      (user) => user.id !== studentToDelete.id
+    );
+    setUsersProtyect(newStudents);
+    setStudentToDelete(empltyStudent);
+  };
+
   const finishProyect = () => {
     setIsFinishDialogOpen(false);
     Dialog.show({
@@ -96,8 +119,22 @@ const WorkProyectDetailsPage = () => {
       textBody: "Congrats! Your proyecs was sended",
       button: "close",
     });
+    let newFeature: Feature[] = currentWorkProyect.features;
+    newFeature.filter((feature) => feature.title === "State")[0].description =
+      "Finished";
+    setCurrentWorkProyect({ ...currentWorkProyect, features: newFeature });
+
     setPunctuationCard(true);
   };
+  useEffect(() => {
+    currentWorkProyect.title != "" ? setIsLoading(false) : setIsLoading(true);
+    currentWorkProyect.title != "" &&
+      setProyectState(
+        currentWorkProyect.features.filter(
+          (feature) => feature.title === "State"
+        )[0].description
+      );
+  }, [currentWorkProyect]);
 
   useEffect(() => {
     const newCurrentWorkProyect = WorkProyectData.filter(
@@ -106,9 +143,6 @@ const WorkProyectDetailsPage = () => {
     setCurrentWorkProyect(newCurrentWorkProyect);
   }, []);
 
-  useEffect(() => {
-    currentWorkProyect.title != "" ? setIsLoading(false) : setIsLoading(true);
-  }, [currentWorkProyect]);
   return (
     <ScrollView>
       {isLoading ? (
@@ -295,7 +329,7 @@ const WorkProyectDetailsPage = () => {
               </Box>
             </Stack>
           </Stack>
-          <Box mb={editMode === true ? 0 : 20}>
+          <Box mb={editMode === true || proyectState === "Finished" ? 0 : 20}>
             {usersProtyect.length > 0 &&
               usersProtyect.map((user, index) => (
                 <Box ml={2} mr={2} mb={2} key={user.name + index}>
@@ -306,6 +340,7 @@ const WorkProyectDetailsPage = () => {
                       textAlign="center"
                       bottom={2}
                       borderTopRadius={0}
+                      onPress={() => dialogDeleteStudent(user)}
                     >
                       <AntDesign name="delete" size={24} color="white" />
                     </Button>
@@ -354,59 +389,66 @@ const WorkProyectDetailsPage = () => {
               </Container>
             </React.Fragment>
           ) : (
-            <React.Fragment>
-              <Container style={{ flex: 2 }}>
-                <HStack justifyContent="space-between">
-                  <Fab
-                    onPressOut={() => changePageMode()}
-                    position="absolute"
-                    mr={16}
-                    bg="blue.500"
-                    w={9}
-                    h={9}
-                    textAlign={"center"}
-                    icon={
-                      <Icon
-                        as={Ionicons}
-                        name="ios-pencil"
-                        size="md"
-                        color="white"
-                      />
-                    }
-                  />
-                  <Fab
-                    onPressOut={() => dialogFinishProyect()}
-                    position="absolute"
-                    bg="green.600"
-                    icon={
-                      <Icon
-                        as={MaterialCommunityIcons}
-                        name="file-certificate"
-                        size="lg"
-                        color="white"
-                      />
-                    }
-                  />
-                </HStack>
-              </Container>
-            </React.Fragment>
+            proyectState !== "Finished" && (
+              <React.Fragment>
+                <Container style={{ flex: 2 }}>
+                  <HStack justifyContent="space-between">
+                    <Fab
+                      onPressOut={() => changePageMode()}
+                      position="absolute"
+                      mr={16}
+                      bg="blue.500"
+                      w={9}
+                      h={9}
+                      textAlign={"center"}
+                      icon={
+                        <Icon
+                          as={Ionicons}
+                          name="ios-pencil"
+                          size="md"
+                          color="white"
+                        />
+                      }
+                    />
+                    <Fab
+                      onPressOut={() => dialogFinishProyect()}
+                      position="absolute"
+                      bg="green.600"
+                      icon={
+                        <Icon
+                          as={MaterialCommunityIcons}
+                          name="file-certificate"
+                          size="lg"
+                          color="white"
+                        />
+                      }
+                    />
+                  </HStack>
+                </Container>
+              </React.Fragment>
+            )
           )}
           <ConfirmDialog
             isOpen={isFinishDialogOpen}
             setIsOpen={setIsFinishDialogOpen}
             confirmAction={finishProyect}
             title={"Send Work Proyect Confirm"}
-            description={
-              "This will confirm and send all data relating to " +
-              currentWorkProyect.title +
-              " and will send it to the professor mail " +
-              (currentWorkProyect.features
+            description={`This will confirm and send all data relating to ${
+              currentWorkProyect.title
+            } and will send it to the professor mail ${
+              currentWorkProyect.features
                 ? currentWorkProyect.features.filter(
                     (feature) => feature.title === "Professor mail"
                   )[0].description
-                : "") +
-              ". This action cannot be reversed."
-            }
+                : ""
+            }. This action cannot be reversed.`}
+          />
+          <ConfirmDialog
+            isOpen={isDeleteStudentDialog}
+            setIsOpen={setIsDeleteStudentDialog}
+            confirmAction={deleteStudent}
+            title={"Delete Student"}
+            description={`Are you sure that you want delete the next student of this proyect?: ${studentToDelete?.name} ${studentToDelete?.lastName}`}
           />
           {usersProtyect.length > 0 &&
             usersProtyect.map((user, index) => (

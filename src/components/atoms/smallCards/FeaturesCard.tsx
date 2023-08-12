@@ -30,7 +30,7 @@ const FeaturesCard = (props: FeaturesCardProps) => {
                 alignSelf="center"
                 bold={true}
                 color={
-                  feature.title === "Materia"
+                  feature.title === "Subject"
                     ? "blue.500"
                     : feature.title === "Industry"
                     ? "pink.500"
@@ -60,7 +60,7 @@ const FeaturesCard = (props: FeaturesCardProps) => {
               ) : (
                 <Text
                   color={
-                    feature.title === "Materia"
+                    feature.title === "Subject"
                       ? "blue.500"
                       : feature.title === "Industry"
                       ? "pink.500"

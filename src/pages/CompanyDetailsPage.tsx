@@ -6,7 +6,7 @@ import {
   Animated,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import {
   Box,
   HStack,
@@ -38,6 +38,8 @@ import CompanyData from "../../data/CompanyCards.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { Company } from "../models/objects/Company";
 import Accordion from "react-native-collapsible/Accordion";
+import Collapsible from "react-native-collapsible";
+import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
 type CompanyPageRouteParamList = {
   CompanyPage: {
     companyId: number;
@@ -304,42 +306,52 @@ const CompanyDetailsPage = () => {
               </Box>
             </Stack>
           </Stack>
-          <Accordion
-            onChange={() => {}}
-            activeSections={[0]}
-            renderHeader={(section) => {
-              return (
-                <View>
-                  <Text>{section.title}</Text>
-                </View>
-              );
-            }}
-            renderContent={() => (
-              <Box mb={editMode === true ? 0 : 20}>
-                {currentCompany.owners.length > 0 &&
-                  currentCompany.owners.map((user, index) => (
-                    <Box ml={2} mr={2} mb={2} key={user.name + index}>
-                      <StudentCard student={user} />
-                      {editMode === true && (
-                        <Button
-                          backgroundColor={"red.500"}
-                          textAlign="center"
-                          bottom={2}
-                          borderTopRadius={0}
-                        >
-                          <AntDesign name="delete" size={24} color="white" />
-                        </Button>
-                      )}
-                    </Box>
-                  ))}
-              </Box>
-            )}
-            sections={[
-              {
-                title: "Owners",
-              },
-            ]}
-          ></Accordion>
+          <Box mb={editMode === true ? 0 : 20}>
+            <Box mb={2}>
+              <AlicornCollapsible title={"Owners"}>
+                <Box>
+                  {currentCompany.owners.length > 0 &&
+                    currentCompany.owners.map((user, index) => (
+                      <Box ml={2} mr={2} mb={2} key={user.name + index}>
+                        <StudentCard student={user} />
+                        {editMode === true && (
+                          <Button
+                            backgroundColor={"red.500"}
+                            textAlign="center"
+                            bottom={2}
+                            borderTopRadius={0}
+                          >
+                            <AntDesign name="delete" size={24} color="white" />
+                          </Button>
+                        )}
+                      </Box>
+                    ))}
+                </Box>
+              </AlicornCollapsible>
+            </Box>
+            <Box mb={2}>
+              <AlicornCollapsible title={"Employees"}>
+                <Box>
+                  {currentCompany.employees.length > 0 &&
+                    currentCompany.employees.map((user, index) => (
+                      <Box ml={2} mr={2} mb={2} key={user.name + index}>
+                        <StudentCard student={user} />
+                        {editMode === true && (
+                          <Button
+                            backgroundColor={"red.500"}
+                            textAlign="center"
+                            bottom={2}
+                            borderTopRadius={0}
+                          >
+                            <AntDesign name="delete" size={24} color="white" />
+                          </Button>
+                        )}
+                      </Box>
+                    ))}
+                </Box>
+              </AlicornCollapsible>
+            </Box>
+          </Box>
 
           {editMode === true && (
             <Box mb={20}>

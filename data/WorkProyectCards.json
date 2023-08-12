@@ -4,7 +4,7 @@
     "title": "Server Administration",
     "subtitle": "Create servers and mantain it for 4 month",
     "features": [
-      { "title": "Materia", "description": "Infraestructure II" },
+      { "title": "Subject", "description": "Infraestructure II" },
       { "title": "Theme", "description": "Server Mantain", "editable": true },
       { "title": "Participants", "description": "3" },
       { "title": "State", "description": "In progress", "editable": true },
@@ -89,7 +89,7 @@
     "subtitle": "Collage proyect of restaurant with React",
     "features": [
       {
-        "title": "Materia",
+        "title": "Subject",
         "description": "Mobile Development"
       },
       {
@@ -195,7 +195,7 @@
     "subtitle": "Collage investigation proyect of IoT",
     "features": [
       {
-        "title": "Materia",
+        "title": "Subject",
         "description": "Hardware/Software"
       },
       {

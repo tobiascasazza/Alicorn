@@ -154,7 +154,7 @@ const WorkProyectDetailsPage = () => {
         </HStack>
       ) : (
         <>
-          <Stack p="4" space={3}>
+          <Stack p="4" space={3} w={width}>
             <Stack space={2}>
               <HStack justifyContent={"space-between"}>
                 <Heading size="md" ml="-1">
@@ -174,26 +174,25 @@ const WorkProyectDetailsPage = () => {
               >
                 {currentWorkProyect.subtitle}
               </Text>
-              <HStack justifyContent={"space-between"}>
-                <VStack>
-                  <Box
-                    borderBottomColor={"grey"}
-                    borderBottomWidth={"1"}
-                    style={{ width: width * 0.9 }}
+              <HStack
+                justifyContent={"space-between"}
+                backgroundColor={"white"}
+                p="2"
+                borderRadius={10}
+              >
+                <VStack w="100%">
+                  <Text
+                    fontSize="md"
+                    _light={{
+                      color: "black",
+                    }}
+                    _dark={{
+                      color: "black",
+                    }}
+                    bold={true}
                   >
-                    <Text
-                      fontSize="md"
-                      _light={{
-                        color: "black",
-                      }}
-                      _dark={{
-                        color: "black",
-                      }}
-                      bold={true}
-                    >
-                      Features
-                    </Text>
-                  </Box>
+                    Features
+                  </Text>
                   <FeaturesCard
                     features={
                       currentWorkProyect.features
@@ -205,27 +204,27 @@ const WorkProyectDetailsPage = () => {
                 </VStack>
               </HStack>
               <Box
-                style={{ width: width * 0.9 }}
                 rounded="lg"
                 overflow="hidden"
+                backgroundColor={"white"}
+                p="2"
+                borderRadius={10}
               >
-                <Box borderBottomColor={"grey"} borderBottomWidth={"1"}>
-                  <Text
-                    fontSize="md"
-                    _light={{
-                      color: "black",
-                    }}
-                    _dark={{
-                      color: "black",
-                    }}
-                    ml="-0.5"
-                    mt="1"
-                    bold={true}
-                    pl={1}
-                  >
-                    Description
-                  </Text>
-                </Box>
+                <Text
+                  fontSize="md"
+                  _light={{
+                    color: "black",
+                  }}
+                  _dark={{
+                    color: "black",
+                  }}
+                  ml="-0.5"
+                  mt="1"
+                  bold={true}
+                  pl={1}
+                >
+                  Description
+                </Text>
                 {!editMode ? (
                   <Text
                     fontSize="xs"
@@ -277,7 +276,7 @@ const WorkProyectDetailsPage = () => {
                 }}
               >
                 {!editMode ? (
-                  <HStack justifyContent={"space-between"}>
+                  <HStack justifyContent={"space-between"} m={2}>
                     <HStack flex={1}>
                       <Text bold={true}>Link: </Text>
                       <Text
@@ -327,27 +326,30 @@ const WorkProyectDetailsPage = () => {
                   </HStack>
                 )}
               </Box>
+
+              <Box
+                mb={editMode === true || proyectState === "Finished" ? 0 : 20}
+              >
+                {usersProtyect.length > 0 &&
+                  usersProtyect.map((user, index) => (
+                    <Box mb={2} key={user.name + index}>
+                      <StudentCard student={user} />
+                      {editMode === true && (
+                        <Button
+                          backgroundColor={"red.500"}
+                          textAlign="center"
+                          bottom={2}
+                          borderTopRadius={0}
+                          onPress={() => dialogDeleteStudent(user)}
+                        >
+                          <AntDesign name="delete" size={24} color="white" />
+                        </Button>
+                      )}
+                    </Box>
+                  ))}
+              </Box>
             </Stack>
           </Stack>
-          <Box mb={editMode === true || proyectState === "Finished" ? 0 : 20}>
-            {usersProtyect.length > 0 &&
-              usersProtyect.map((user, index) => (
-                <Box ml={2} mr={2} mb={2} key={user.name + index}>
-                  <StudentCard student={user} />
-                  {editMode === true && (
-                    <Button
-                      backgroundColor={"red.500"}
-                      textAlign="center"
-                      bottom={2}
-                      borderTopRadius={0}
-                      onPress={() => dialogDeleteStudent(user)}
-                    >
-                      <AntDesign name="delete" size={24} color="white" />
-                    </Button>
-                  )}
-                </Box>
-              ))}
-          </Box>
           {editMode === true && (
             <Box mb={20}>
               <Button

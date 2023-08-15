@@ -29,13 +29,13 @@ const NotificationComponent = (props: Notification) => {
   const notificationText = () => {
     switch (props.notificationType) {
       case notificationType.proReq:
-        return "te ha enviado una solicitud de proyecto juntos:";
+        return "has sent you a work project request together:";
       case notificationType.jobReq:
-        return "te ha enviado una solicitud de trabajo:";
+        return "has sent you a job application:";
       case notificationType.parRequ:
-        return "te ha enviado una solicitud de socios de emprendimiento";
+        return "has sent you a request for venture partners";
       case notificationType.punctuation:
-        return "Te han hecho una puntuacion";
+        return "They have given you a score";
     }
   };
 

@@ -7,7 +7,7 @@ import CompanyCards from "../../../data/CompanyCards.json";
 import { Link } from "expo-router";
 import CompanyCard from "../../../src/components/molecules/cards/CompanyCard";
 
-export default function workProyect() {
+export default function entrepreneurship() {
   const [companyData, setCompanyData] = React.useState(CompanyCards);
   return (
     <NativeBaseProvider>

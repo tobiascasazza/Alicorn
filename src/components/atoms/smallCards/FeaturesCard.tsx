@@ -27,6 +27,7 @@ const FeaturesCard = (props: FeaturesCardProps) => {
               key={feature.title + Math.random()}
             >
               <Text
+                w={"35%"}
                 alignSelf="center"
                 bold={true}
                 color={
@@ -70,6 +71,7 @@ const FeaturesCard = (props: FeaturesCardProps) => {
                   }
                   fontSize={"xs"}
                   pl={1}
+                  textAlign={"end"}
                 >
                   {feature.description}
                 </Text>

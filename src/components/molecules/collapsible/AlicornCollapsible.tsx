@@ -1,16 +1,44 @@
-import { View, Button } from "react-native";
+import { Dimensions, View } from "react-native";
 import React, { ReactNode, useState } from "react";
 import { Box, HStack, Icon, Text } from "native-base";
-import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
+import { SimpleLineIcons } from "@expo/vector-icons";
 import Collapsible from "react-native-collapsible";
 
 interface AlicornCollapsibleProps {
   title: String;
   children: ReactNode;
+  addToTitle?: ReactNode;
 }
 
 const AlicornCollapsible = (props: AlicornCollapsibleProps) => {
+  const { width, height } = Dimensions.get("window");
   const [collapsibleClosed, setCollapsibleClosed] = useState(true);
+  const [isInside, setIsInside] = useState(true);
+
+  const handleTouchStart = (event: any) => {
+    setIsInside(true);
+  };
+
+  const handleTouchMove = (event: any) => {
+    const moveX = event.nativeEvent.locationX;
+    const moveY = event.nativeEvent.locationY;
+    const widthOfYourComponent = height;
+    const heightOfYourComponent = width;
+    if (
+      moveX < 0 ||
+      moveY < 0 ||
+      moveX > widthOfYourComponent ||
+      moveY > heightOfYourComponent
+    ) {
+      setIsInside(false);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (isInside) {
+      setCollapsibleClosed(!collapsibleClosed);
+    }
+  };
 
   return (
     <View>
@@ -24,11 +52,16 @@ const AlicornCollapsible = (props: AlicornCollapsibleProps) => {
         p={2}
       >
         <HStack
-          onTouchEnd={() => setCollapsibleClosed(!collapsibleClosed)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
           justifyContent={"space-between"}
           p={2}
         >
-          <Text fontWeight={"bold"}>{props.title}</Text>
+          <HStack>
+            <Text fontWeight={"bold"}>{props.title}</Text>
+            {props.addToTitle}
+          </HStack>
           <Icon
             as={SimpleLineIcons}
             name={collapsibleClosed ? "arrow-down" : "arrow-up"}

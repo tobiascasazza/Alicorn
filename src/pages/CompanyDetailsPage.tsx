@@ -40,6 +40,7 @@ import { Company } from "../models/objects/Company";
 import Accordion from "react-native-collapsible/Accordion";
 import Collapsible from "react-native-collapsible";
 import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
+import StarsRatingView from "../components/atoms/stars/StarsRatingView";
 type CompanyPageRouteParamList = {
   CompanyPage: {
     companyId: number;
@@ -47,13 +48,24 @@ type CompanyPageRouteParamList = {
 };
 
 const CompanyDetailsPage = () => {
+  const empltyEmployee: User = {
+    id: 0,
+    features: [],
+    name: "",
+    lastName: "",
+  };
+
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
   const route = useRoute<RouteProp<CompanyPageRouteParamList, "CompanyPage">>();
   const [fadeAnim] = React.useState(new Animated.Value(0));
   const [editMode, setEditMode] = useState(false);
-  const [isFinishDialogOpen, setIsFinishDialogOpen] = useState(false);
+  const [ownersStarsAvg, setOwnersStarsAvg] = useState(0);
+  const [employeesStarsAvg, setEmployeesStarsAvg] = useState(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isDeleteEmployeeDialog, setIsDeleteEmployeeDialog] = useState(false);
+  const [employeeToDelete, setEmployeeToDelete] =
+    useState<User>(empltyEmployee);
   const [currentCompany, setCurrentCompany] = useState<Company>({
     id: 1,
     title: "",
@@ -65,11 +77,6 @@ const CompanyDetailsPage = () => {
     employees: [],
     link: "",
   });
-  const [punctuationCard, setPunctuationCard] = useState<boolean>(false);
-
-  const animatedStyle = {
-    opacity: fadeAnim,
-  };
 
   const handleCopyLink = () => {
     onCopy(currentCompany.link ? currentCompany.link : "");
@@ -85,19 +92,56 @@ const CompanyDetailsPage = () => {
     setEditMode(!editMode);
   };
 
-  const dialogFinishProyect = () => {
-    setIsFinishDialogOpen(true);
+  const dialogDeleteEmployee = (student: User) => {
+    setEmployeeToDelete(student);
+    setIsDeleteEmployeeDialog(true);
   };
 
-  const finishProyect = () => {
-    setIsFinishDialogOpen(false);
+  const deleteEmployee = () => {
+    setIsDeleteEmployeeDialog(false);
     Dialog.show({
-      type: ALERT_TYPE.SUCCESS,
-      title: "Success",
-      textBody: "Congrats! Your proyecs was sended",
+      type: ALERT_TYPE.DANGER,
+      title: `${employeeToDelete?.name} ${employeeToDelete?.lastName} was deleted`,
+      textBody: `You are deleted ${employeeToDelete?.name} ${employeeToDelete?.lastName} of the proyect ${currentCompany.title} `,
       button: "close",
     });
-    setPunctuationCard(true);
+    let newEmployees: User[] = currentCompany.employees.filter(
+      (user) => user.id !== employeeToDelete.id
+    );
+    setCurrentCompany({ ...currentCompany, employees: newEmployees });
+    setEmployeeToDelete(empltyEmployee);
+  };
+
+  const calculateStarsAvg = () => {
+    const ownersPunctuations: number[] =
+      currentCompany.owners.length > 0
+        ? currentCompany.owners.map((owner) =>
+            owner.punctuation ? owner.punctuation : 0
+          )
+        : [0];
+    const employeesPunctuations: number[] =
+      currentCompany.employees.length > 0
+        ? currentCompany.employees.map((employee) =>
+            employee.punctuation ? employee.punctuation : 0
+          )
+        : [0];
+
+    const ownersSum = ownersPunctuations.reduce(
+      (total, currentValue) => total + currentValue,
+      0
+    );
+    const employeesSum = employeesPunctuations.reduce(
+      (total, currentValue) => total + currentValue,
+      0
+    );
+
+    const ownersAvg = (ownersSum / ownersPunctuations.length).toFixed(2);
+    const employeesAvg = (employeesSum / employeesPunctuations.length).toFixed(
+      2
+    );
+
+    setOwnersStarsAvg(Number.parseFloat(ownersAvg));
+    setEmployeesStarsAvg(Number.parseFloat(employeesAvg));
   };
 
   useEffect(() => {
@@ -108,8 +152,10 @@ const CompanyDetailsPage = () => {
   }, []);
 
   useEffect(() => {
-    if (currentCompany.title)
+    if (currentCompany.title) {
       currentCompany.title != "" ? setIsLoading(false) : setIsLoading(true);
+      calculateStarsAvg();
+    }
   }, [currentCompany]);
   return (
     <ScrollView>
@@ -122,7 +168,7 @@ const CompanyDetailsPage = () => {
         </HStack>
       ) : (
         <>
-          <Stack p="4" space={3}>
+          <Stack p="4" space={3} w={width}>
             <Stack space={2}>
               <HStack>
                 <Avatar
@@ -153,26 +199,25 @@ const CompanyDetailsPage = () => {
                 </VStack>
               </HStack>
 
-              <HStack justifyContent={"space-between"}>
-                <VStack>
-                  <Box
-                    borderBottomColor={"grey"}
-                    borderBottomWidth={"1"}
-                    style={{ width: width * 0.9 }}
+              <HStack
+                justifyContent={"space-between"}
+                backgroundColor={"white"}
+                p="2"
+                borderRadius={10}
+              >
+                <VStack w="100%">
+                  <Text
+                    fontSize="md"
+                    _light={{
+                      color: "black",
+                    }}
+                    _dark={{
+                      color: "black",
+                    }}
+                    bold={true}
                   >
-                    <Text
-                      fontSize="md"
-                      _light={{
-                        color: "black",
-                      }}
-                      _dark={{
-                        color: "black",
-                      }}
-                      bold={true}
-                    >
-                      Features
-                    </Text>
-                  </Box>
+                    Features
+                  </Text>
                   <FeaturesCard
                     features={
                       currentCompany.features ? currentCompany.features : []
@@ -182,27 +227,27 @@ const CompanyDetailsPage = () => {
                 </VStack>
               </HStack>
               <Box
-                style={{ width: width * 0.9 }}
                 rounded="lg"
                 overflow="hidden"
+                backgroundColor={"white"}
+                p="2"
+                borderRadius={10}
               >
-                <Box borderBottomColor={"grey"} borderBottomWidth={"1"}>
-                  <Text
-                    fontSize="md"
-                    _light={{
-                      color: "black",
-                    }}
-                    _dark={{
-                      color: "black",
-                    }}
-                    ml="-0.5"
-                    mt="1"
-                    bold={true}
-                    pl={1}
-                  >
-                    Description
-                  </Text>
-                </Box>
+                <Text
+                  fontSize="md"
+                  _light={{
+                    color: "black",
+                  }}
+                  _dark={{
+                    color: "black",
+                  }}
+                  ml="-0.5"
+                  mt="1"
+                  bold={true}
+                  pl={1}
+                >
+                  Description
+                </Text>
                 {!editMode ? (
                   <Text
                     fontSize="xs"
@@ -254,7 +299,7 @@ const CompanyDetailsPage = () => {
                 }}
               >
                 {!editMode ? (
-                  <HStack justifyContent={"space-between"}>
+                  <HStack justifyContent={"space-between"} m={2}>
                     <HStack flex={1}>
                       <Text bold={true}>Link: </Text>
                       <Text
@@ -289,7 +334,7 @@ const CompanyDetailsPage = () => {
                       Link:{" "}
                     </Text>
                     <Input
-                      defaultValue="http://localhost:19000/student/entrepreneurship/company/1"
+                      defaultValue={currentCompany.link}
                       w={"90%"}
                       m="1"
                       fontSize="xs"
@@ -306,31 +351,52 @@ const CompanyDetailsPage = () => {
               </Box>
             </Stack>
           </Stack>
-          <Box mb={editMode === true ? 0 : 20}>
+          <Box mb={20}>
             <Box mb={2}>
-              <AlicornCollapsible title={"Owners"}>
+              <AlicornCollapsible
+                title={"Owners"}
+                addToTitle={
+                  <HStack ml={2}>
+                    <StarsRatingView value={ownersStarsAvg} />
+                    <Text fontWeight={"bold"}>{ownersStarsAvg} Stars</Text>
+                  </HStack>
+                }
+              >
                 <Box>
                   {currentCompany.owners.length > 0 &&
                     currentCompany.owners.map((user, index) => (
                       <Box ml={2} mr={2} mb={2} key={user.name + index}>
                         <StudentCard student={user} />
-                        {editMode === true && (
-                          <Button
-                            backgroundColor={"red.500"}
-                            textAlign="center"
-                            bottom={2}
-                            borderTopRadius={0}
-                          >
-                            <AntDesign name="delete" size={24} color="white" />
-                          </Button>
-                        )}
                       </Box>
                     ))}
+
+                  {editMode === true && (
+                    <Box>
+                      <Button
+                        backgroundColor={"blue.500"}
+                        marginLeft={"5%"}
+                        marginRight={"5%"}
+                        borderRadius={"20px"}
+                      >
+                        <Text color={"white"} fontWeight={"bold"}>
+                          Manage Ownership
+                        </Text>
+                      </Button>
+                    </Box>
+                  )}
                 </Box>
               </AlicornCollapsible>
             </Box>
             <Box mb={2}>
-              <AlicornCollapsible title={"Employees"}>
+              <AlicornCollapsible
+                title={"Employees"}
+                addToTitle={
+                  <HStack ml={2}>
+                    <StarsRatingView value={employeesStarsAvg} />
+                    <Text fontWeight={"bold"}>{employeesStarsAvg} Stars</Text>
+                  </HStack>
+                }
+              >
                 <Box>
                   {currentCompany.employees.length > 0 &&
                     currentCompany.employees.map((user, index) => (
@@ -342,31 +408,31 @@ const CompanyDetailsPage = () => {
                             textAlign="center"
                             bottom={2}
                             borderTopRadius={0}
+                            onPress={() => dialogDeleteEmployee(user)}
                           >
                             <AntDesign name="delete" size={24} color="white" />
                           </Button>
                         )}
                       </Box>
                     ))}
+                  {editMode === true && (
+                    <Box>
+                      <Button
+                        backgroundColor={"blue.500"}
+                        marginLeft={"5%"}
+                        marginRight={"5%"}
+                        borderRadius={"20px"}
+                      >
+                        <Text color={"white"} fontWeight={"bold"}>
+                          Hire a new employee
+                        </Text>
+                      </Button>
+                    </Box>
+                  )}
                 </Box>
               </AlicornCollapsible>
             </Box>
           </Box>
-
-          {editMode === true && (
-            <Box mb={20}>
-              <Button
-                backgroundColor={"blue.500"}
-                marginLeft={"5%"}
-                marginRight={"5%"}
-                borderRadius={"20px"}
-              >
-                <Text color={"white"} fontWeight={"bold"}>
-                  Add new User
-                </Text>
-              </Button>
-            </Box>
-          )}
 
           {editMode === true ? (
             <React.Fragment>
@@ -400,28 +466,12 @@ const CompanyDetailsPage = () => {
                   <Fab
                     onPressOut={() => changePageMode()}
                     position="absolute"
-                    mr={16}
-                    bg="blue.500"
-                    w={9}
-                    h={9}
+                    bg="pink.500"
                     textAlign={"center"}
                     icon={
                       <Icon
                         as={Ionicons}
-                        name="ios-pencil"
-                        size="md"
-                        color="white"
-                      />
-                    }
-                  />
-                  <Fab
-                    onPressOut={() => dialogFinishProyect()}
-                    position="absolute"
-                    bg="green.600"
-                    icon={
-                      <Icon
-                        as={MaterialCommunityIcons}
-                        name="file-certificate"
+                        name="ios-settings-outline"
                         size="lg"
                         color="white"
                       />
@@ -431,15 +481,15 @@ const CompanyDetailsPage = () => {
               </Container>
             </React.Fragment>
           )}
-          <ConfirmDialog
-            isOpen={isFinishDialogOpen}
-            setIsOpen={setIsFinishDialogOpen}
-            confirmAction={finishProyect}
-            title={"Send Work Proyect Confirm"}
-            description={""}
-          />
         </>
       )}
+      <ConfirmDialog
+        isOpen={isDeleteEmployeeDialog}
+        setIsOpen={setIsDeleteEmployeeDialog}
+        confirmAction={deleteEmployee}
+        title={"Delete Employee"}
+        description={`Are you sure that you want delete the next student of this entrepreneurship?: ${employeeToDelete?.name} ${employeeToDelete?.lastName}`}
+      />
     </ScrollView>
   );
 };

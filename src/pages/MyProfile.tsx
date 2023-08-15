@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Dimensions } from "react-native";
 import {
   Button,
@@ -12,11 +12,30 @@ import {
   Heading,
   ScrollView,
   Box,
+  Link,
 } from "native-base";
 import StarsRatingView from "../components/atoms/stars/StarsRatingView";
+import CardPunctuationList from "../components/atoms/lists/CardPunctuationList";
+import CardPunctuationListView from "../components/atoms/lists/CardPunctuationListView";
+import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
+import ProyectCards from "../../data/proyectsExample.json";
+import ResumeProyectCard from "../components/molecules/cards/ResumeProyectCard";
 
 const MyProfile = () => {
   const { width } = Dimensions.get("window");
+  const [companyData, setCompanyData] = useState(
+    ProyectCards.filter((proyect) => proyect.proyectType === "Entrepreneurship")
+  );
+  const [workProyectsData, setWorkProyectsData] = useState(
+    ProyectCards.filter((proyect) => proyect.proyectType === "Work Project")
+  );
+
+  const cardsPunctuationList: PunctuationCardData[] = [
+    { id: 1, title: "Good Partner", type: "good", number: 3 },
+    { id: 2, title: "Attentive", type: "good", number: 6 },
+    { id: 3, title: "Responsible", type: "good", number: 4 },
+    { id: 4, title: "Moody", type: "bad", number: 1 },
+  ];
   return (
     <Stack width={width} p="4" space={3}>
       <HStack space={2}>
@@ -49,7 +68,13 @@ const MyProfile = () => {
           </Text>
         </VStack>
       </HStack>
-      <Box backgroundColor={"white"} p="2" borderRadius={10}>
+      <Box
+        backgroundColor={"white"}
+        borderColor="coolGray.200"
+        borderWidth="1"
+        p="2"
+        borderRadius={10}
+      >
         <Text
           fontSize="md"
           _light={{
@@ -67,15 +92,89 @@ const MyProfile = () => {
           elit id urna accumsan, vel cursus nunc suscipit.
         </Text>
       </Box>
-      <Card>
-        <Text>Location: New York, USA</Text>
-      </Card>
-      <Card>
-        <Text>Followers: 200</Text>
-      </Card>
-      <Card>
-        <Text>Following: 150</Text>
-      </Card>
+      <Box
+        backgroundColor={"white"}
+        borderColor="coolGray.200"
+        borderWidth="1"
+        p="2"
+        borderRadius={10}
+      >
+        <HStack justifyContent={"space-between"}>
+          <HStack alignSelf={"center"}>
+            <Text
+              fontSize="md"
+              mr={1}
+              _light={{
+                color: "black",
+              }}
+              _dark={{
+                color: "black",
+              }}
+              bold={true}
+            >
+              Opinions
+            </Text>
+            <HStack alignSelf={"center"}>
+              <StarsRatingView value={4.6} />
+              <Text fontWeight={"bold"} ml={0.5}>
+                {4.6} Stars
+              </Text>
+            </HStack>
+          </HStack>
+          <HStack alignSelf={"center"}>
+            <Text color="blue.500" underline>
+              view detail
+            </Text>
+          </HStack>
+        </HStack>
+        <CardPunctuationListView cards={cardsPunctuationList} />
+      </Box>
+      <AlicornCollapsible title={"Entrepreneurships"}>
+        <Box py={2} alignItems={"center"}>
+          {companyData.length > 0 ? (
+            companyData.map((proyect) => {
+              return (
+                <React.Fragment key={proyect.proyectName + Math.random()}>
+                  <Box my={"2"} width={"100%"}>
+                    <ResumeProyectCard
+                      proyectName={proyect.proyectName}
+                      proyectDescription={proyect.proyectDescription}
+                      participants={proyect.participants}
+                      proyectType={proyect.proyectType}
+                      key={proyect.proyectName + Math.random()}
+                    />
+                  </Box>
+                </React.Fragment>
+              );
+            })
+          ) : (
+            <Text>There is no project yet</Text>
+          )}
+        </Box>
+      </AlicornCollapsible>
+      <AlicornCollapsible title={"Work Proyects History"}>
+        <Box py={2} alignItems={"center"}>
+          {workProyectsData.length > 0 ? (
+            workProyectsData.map((proyect) => {
+              return (
+                <React.Fragment key={proyect.proyectName + Math.random()}>
+                  <Box my={"2"} width={"100%"}>
+                    <ResumeProyectCard
+                      proyectName={proyect.proyectName}
+                      proyectDescription={proyect.proyectDescription}
+                      participants={proyect.participants}
+                      proyectType={proyect.proyectType}
+                      key={proyect.proyectName + Math.random()}
+                    />
+                  </Box>
+                </React.Fragment>
+              );
+            })
+          ) : (
+            <Text>There is no project yet</Text>
+          )}
+        </Box>
+      </AlicornCollapsible>
     </Stack>
   );
 };

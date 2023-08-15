@@ -177,6 +177,8 @@ const WorkProyectDetailsPage = () => {
               <HStack
                 justifyContent={"space-between"}
                 backgroundColor={"white"}
+                borderColor="coolGray.200"
+                borderWidth="1"
                 p="2"
                 borderRadius={10}
               >
@@ -207,6 +209,8 @@ const WorkProyectDetailsPage = () => {
                 rounded="lg"
                 overflow="hidden"
                 backgroundColor={"white"}
+                borderColor="coolGray.200"
+                borderWidth="1"
                 p="2"
                 borderRadius={10}
               >

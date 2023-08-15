@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView, StyleSheet, Dimensions } from "react-native";
 import { Link, Tabs, useRouter } from "expo-router";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -10,6 +10,7 @@ import { Feather } from "@expo/vector-icons";
 
 export default function home() {
   const notificationsCount = 5;
+  const { width } = Dimensions.get("window");
 
   const list = proyects;
   return (
@@ -61,22 +62,14 @@ export default function home() {
             list.map((proyect) => {
               return (
                 <React.Fragment key={proyect.proyectName + Math.random()}>
-                  <Box my={"2"}>
-                    <Link
-                      href={
-                        proyect.proyectType === "Work Project"
-                          ? "student/workProyect"
-                          : "student/entrepreneurship"
-                      }
-                    >
-                      <ResumeProyectCard
-                        proyectName={proyect.proyectName}
-                        proyectDescription={proyect.proyectDescription}
-                        participants={proyect.participants}
-                        proyectType={proyect.proyectType}
-                        key={proyect.proyectName + Math.random()}
-                      />
-                    </Link>
+                  <Box my={"2"} width={width * 0.9}>
+                    <ResumeProyectCard
+                      proyectName={proyect.proyectName}
+                      proyectDescription={proyect.proyectDescription}
+                      participants={proyect.participants}
+                      proyectType={proyect.proyectType}
+                      key={proyect.proyectName + Math.random()}
+                    />
                   </Box>
                 </React.Fragment>
               );

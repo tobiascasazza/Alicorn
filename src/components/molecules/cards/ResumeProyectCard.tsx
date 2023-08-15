@@ -1,8 +1,9 @@
 import { StyleSheet, Text as TextNative, Dimensions } from "react-native";
 import React from "react";
-import { Box, Center, HStack, Heading, Stack, Text } from "native-base";
-import { User } from "../../../../models/objects/User";
+import { Box, Center, HStack, Heading, Stack, Text, VStack } from "native-base";
+import { User } from "../../../models/objects/User";
 import StarsRatingView from "../../atoms/stars/StarsRatingView";
+import { Link } from "expo-router";
 
 type ResumeProyectCardProps = {
   proyectName: string;
@@ -12,8 +13,6 @@ type ResumeProyectCardProps = {
 };
 
 const ResumeProyectCard = (props: ResumeProyectCardProps) => {
-  const { width } = Dimensions.get("window");
-
   const proyectColor = () => {
     switch (props.proyectType) {
       case "Work Project":
@@ -26,7 +25,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
   };
   return (
     <Box
-      style={{ width: width * 0.9 }}
+      width="100%"
       rounded="lg"
       overflow="hidden"
       borderColor="coolGray.200"
@@ -43,11 +42,30 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
         backgroundColor: "white",
       }}
     >
-      <Stack p="4" space={3}>
-        <Stack space={2}>
-          <Heading size="md" ml="-1">
-            {props.proyectName}
-          </Heading>
+      <VStack p="4" space={3} width={"100%"}>
+        <VStack space={2}>
+          <HStack justifyContent={"space-between"}>
+            <Heading size="md">{props.proyectName}</Heading>
+            <Link
+              href={
+                props.proyectType === "Work Project"
+                  ? "student/workProyect"
+                  : "student/entrepreneurship"
+              }
+            >
+              <Text
+                color={
+                  props.proyectType === "Entrepreneurship"
+                    ? "pink.500"
+                    : "blue.500"
+                }
+                underline
+              >
+                view detail
+              </Text>
+            </Link>
+          </HStack>
+
           <Text
             fontSize="xs"
             _light={{
@@ -62,25 +80,26 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
           >
             {props.proyectDescription}
           </Text>
-        </Stack>
-        <Box fontWeight="400">
+        </VStack>
+        <VStack>
           {props.participants.map((participant) => {
             return (
-              <React.Fragment key={participant.name + Math.random()}>
-                <HStack justifyContent={"space-between"}>
-                  <TextNative>
-                    {participant.name} {participant.lastName}
-                  </TextNative>
-                  <HStack textAlign={"end"} justifyContent={"space-between"}>
-                    <StarsRatingView value={participant.punctuation} />
-                    <Text width="30px">({participant.votes})</Text>
-                  </HStack>
+              <HStack
+                justifyContent={"space-between"}
+                key={participant.name + Math.random()}
+              >
+                <Text>
+                  {participant.name} {participant.lastName}
+                </Text>
+                <HStack>
+                  <StarsRatingView value={participant.punctuation} />
+                  <Text width="30px">({participant.votes})</Text>
                 </HStack>
-              </React.Fragment>
+              </HStack>
             );
           })}
-        </Box>
-      </Stack>
+        </VStack>
+      </VStack>
       <Box alignSelf={"flex-end"}>
         <Center
           bg={`${proyectColor()}.500`}

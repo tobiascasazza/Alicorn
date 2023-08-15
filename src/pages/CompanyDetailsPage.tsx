@@ -202,6 +202,8 @@ const CompanyDetailsPage = () => {
               <HStack
                 justifyContent={"space-between"}
                 backgroundColor={"white"}
+                borderColor="coolGray.200"
+                borderWidth="1"
                 p="2"
                 borderRadius={10}
               >
@@ -230,6 +232,8 @@ const CompanyDetailsPage = () => {
                 rounded="lg"
                 overflow="hidden"
                 backgroundColor={"white"}
+                borderColor="coolGray.200"
+                borderWidth="1"
                 p="2"
                 borderRadius={10}
               >
@@ -352,7 +356,7 @@ const CompanyDetailsPage = () => {
             </Stack>
           </Stack>
           <Box mb={20}>
-            <Box mb={2}>
+            <Box mb={2} ml={4} mr={4}>
               <AlicornCollapsible
                 title={"Owners"}
                 addToTitle={
@@ -387,7 +391,7 @@ const CompanyDetailsPage = () => {
                 </Box>
               </AlicornCollapsible>
             </Box>
-            <Box mb={2}>
+            <Box mb={2} ml={4} mr={4}>
               <AlicornCollapsible
                 title={"Employees"}
                 addToTitle={
@@ -397,10 +401,10 @@ const CompanyDetailsPage = () => {
                   </HStack>
                 }
               >
-                <Box>
+                <Box mr={2} mb={2}>
                   {currentCompany.employees.length > 0 &&
                     currentCompany.employees.map((user, index) => (
-                      <Box ml={2} mr={2} mb={2} key={user.name + index}>
+                      <Box ml={2} key={user.name + index}>
                         <StudentCard student={user} />
                         {editMode === true && (
                           <Button

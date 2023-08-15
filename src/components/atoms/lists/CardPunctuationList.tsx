@@ -8,17 +8,11 @@ interface CardPunctuationListProps {
 const CardPunctuationList = (props: CardPunctuationListProps) => {
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
 
-  interface cardData {
-    id: number;
-    title: string;
-    type: string;
-  }
-
-  const cardData: cardData[] = [
+  const cardData: PunctuationCardData[] = [
     { id: 1, title: "Good Partner", type: "good" },
     { id: 2, title: "Attentive", type: "good" },
-    { id: 3, title: "Responsible", type: "good" },
     { id: 4, title: "Moody", type: "bad" },
+    { id: 3, title: "Responsible", type: "good" },
     { id: 5, title: "Irresponsible", type: "bad" },
     { id: 6, title: "Superb", type: "bad" },
   ];

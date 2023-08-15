@@ -6,13 +6,13 @@ import Collapsible from "react-native-collapsible";
 
 interface AlicornCollapsibleProps {
   title: String;
-  children: ReactNode;
+  children?: ReactNode;
   addToTitle?: ReactNode;
 }
 
 const AlicornCollapsible = (props: AlicornCollapsibleProps) => {
   const { width, height } = Dimensions.get("window");
-  const [collapsibleClosed, setCollapsibleClosed] = useState(true);
+  const [collapsibleClosed, setCollapsibleClosed] = useState(false);
   const [isInside, setIsInside] = useState(true);
 
   const handleTouchStart = (event: any) => {
@@ -46,8 +46,6 @@ const AlicornCollapsible = (props: AlicornCollapsibleProps) => {
         backgroundColor={"white"}
         borderColor={"coolGray.200"}
         borderWidth={"1"}
-        ml={4}
-        mr={4}
         borderRadius={8}
         p={2}
       >

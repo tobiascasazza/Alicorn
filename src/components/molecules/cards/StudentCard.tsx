@@ -32,7 +32,7 @@ const StudentCard = (props: { student: User }) => {
             <Text fontSize={"md"} bold>
               {props.student.name} {props.student.lastName}
             </Text>
-            <HStack textAlign={"end"} justifyContent={"space-between"}>
+            <HStack textAlign={"right"} justifyContent={"space-between"}>
               <StarsRatingView value={props.student.punctuation} />
               <Text width="30px">({props.student.votes})</Text>
             </HStack>

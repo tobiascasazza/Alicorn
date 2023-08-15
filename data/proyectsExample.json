@@ -5,25 +5,70 @@
     "proyectDescription": "Create servers and mantain it for 4 month",
     "participants": [
       {
+        "id": 1,
         "name": "Juan",
         "lastName": "González",
         "punctuation": 5,
         "votes": 10,
-        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       },
       {
+        "id": 2,
         "name": "María",
         "lastName": "Pérez",
         "punctuation": 3.5,
         "votes": 12,
-        "photo": "https://example.com/maria-perez.jpg"
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
       },
       {
+        "id": 3,
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
         "votes": 0,
-        "photo": "https://example.com/pedro-sanchez.jpg"
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
       }
     ],
     "proyectType": "Work Project"
@@ -34,25 +79,70 @@
     "proyectDescription": "Collage proyect of restaurant with React",
     "participants": [
       {
+        "id": 1,
         "name": "Juan",
         "lastName": "González",
         "punctuation": 5,
         "votes": 10,
-        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       },
       {
+        "id": 2,
         "name": "María",
         "lastName": "Pérez",
-        "punctuation": 3.2,
+        "punctuation": 3.5,
         "votes": 12,
-        "photo": "https://example.com/maria-perez.jpg"
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
       },
       {
+        "id": 3,
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
         "votes": 0,
-        "photo": "https://example.com/pedro-sanchez.jpg"
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
       }
     ],
     "proyectType": "Work Project"
@@ -63,18 +153,58 @@
     "proyectDescription": "It's quick and easy",
     "participants": [
       {
+        "id": 132,
         "name": "Mark",
         "lastName": "Zuckerberg",
         "punctuation": 4.2,
         "votes": 10,
-        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "70%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       },
       {
+        "id": 112,
         "name": "Edwardo",
         "lastName": "Savering",
         "punctuation": 5,
         "votes": 12,
-        "photo": "https://example.com/maria-perez.jpg"
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "30%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Finance"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       }
     ],
     "proyectType": "Entrepreneurship"
@@ -85,18 +215,58 @@
     "proyectDescription": "Think Diferent",
     "participants": [
       {
+        "id": 32,
         "name": "Steve",
         "lastName": "Jobs",
         "punctuation": 3.5,
         "votes": 32,
-        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "1"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       },
       {
+        "id": 23,
         "name": "Steve",
         "lastName": "Wozniak",
         "punctuation": 5,
         "votes": 12,
-        "photo": "https://example.com/maria-perez.jpg"
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       }
     ],
     "proyectType": "Entrepreneurship"
@@ -107,25 +277,70 @@
     "proyectDescription": "Collage investigation proyect of IoT",
     "participants": [
       {
+        "id": 1,
         "name": "Juan",
         "lastName": "González",
         "punctuation": 5,
         "votes": 10,
-        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       },
       {
+        "id": 2,
         "name": "María",
         "lastName": "Pérez",
-        "punctuation": 3.2,
+        "punctuation": 3.5,
         "votes": 12,
-        "photo": "https://example.com/maria-perez.jpg"
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
       },
       {
+        "id": 3,
         "name": "Pedro",
         "lastName": "Sánchez",
         "punctuation": 0,
         "votes": 0,
-        "photo": "https://example.com/pedro-sanchez.jpg"
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
       }
     ],
     "proyectType": "Work Project"
@@ -136,18 +351,58 @@
     "proyectDescription": "Just Do It",
     "participants": [
       {
+        "id": 56,
         "name": "Phil",
         "lastName": "Knight",
         "punctuation": 5,
         "votes": 43,
-        "photo": "https://randomuser.me/api/portraits/men/2.jpg"
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Administration"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       },
       {
+        "id": 3,
         "name": "Bill",
         "lastName": "Bowerman",
         "punctuation": 4.5,
         "votes": 93,
-        "photo": "https://example.com/maria-perez.jpg"
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Physical Trainer"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
       }
     ],
     "proyectType": "Entrepreneurship"

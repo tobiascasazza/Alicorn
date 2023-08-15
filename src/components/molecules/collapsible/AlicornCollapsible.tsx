@@ -12,7 +12,7 @@ interface AlicornCollapsibleProps {
 
 const AlicornCollapsible = (props: AlicornCollapsibleProps) => {
   const { width, height } = Dimensions.get("window");
-  const [collapsibleClosed, setCollapsibleClosed] = useState(false);
+  const [collapsibleClosed, setCollapsibleClosed] = useState(true);
   const [isInside, setIsInside] = useState(true);
 
   const handleTouchStart = (event: any) => {

@@ -20,6 +20,8 @@ import CardPunctuationListView from "../components/atoms/lists/CardPunctuationLi
 import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
 import ProyectCards from "../../data/proyectsExample.json";
 import ResumeProyectCard from "../components/molecules/cards/ResumeProyectCard";
+import { Feature } from "../models/objects/FeatureModel";
+import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
 
 const MyProfile = () => {
   const { width } = Dimensions.get("window");
@@ -35,6 +37,21 @@ const MyProfile = () => {
     { id: 2, title: "Attentive", type: "good", number: 6 },
     { id: 3, title: "Responsible", type: "good", number: 4 },
     { id: 4, title: "Moody", type: "bad", number: 1 },
+  ];
+
+  const myFeatures: Feature[] = [
+    {
+      title: "Carrer",
+      description: "Mechanical Engineering",
+    },
+    {
+      title: "Year",
+      description: "2",
+    },
+    {
+      title: "Link",
+      description: "https://example.com/pedro-sanchez",
+    },
   ];
   return (
     <Stack width={width} p="4" space={3}>
@@ -91,6 +108,27 @@ const MyProfile = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum
           elit id urna accumsan, vel cursus nunc suscipit.
         </Text>
+      </Box>
+      <Box
+        backgroundColor={"white"}
+        borderColor="coolGray.200"
+        borderWidth="1"
+        p="2"
+        borderRadius={10}
+      >
+        <Text
+          fontSize="md"
+          _light={{
+            color: "black",
+          }}
+          _dark={{
+            color: "black",
+          }}
+          bold={true}
+        >
+          Features
+        </Text>
+        <FeaturesCard features={myFeatures} />
       </Box>
       <Box
         backgroundColor={"white"}

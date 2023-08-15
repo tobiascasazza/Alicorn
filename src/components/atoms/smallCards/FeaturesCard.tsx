@@ -71,7 +71,7 @@ const FeaturesCard = (props: FeaturesCardProps) => {
                   }
                   fontSize={"xs"}
                   pl={1}
-                  textAlign={"end"}
+                  textAlign={"right"}
                 >
                   {feature.description}
                 </Text>

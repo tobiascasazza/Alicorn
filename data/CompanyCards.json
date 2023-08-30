@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 3,
     "title": "Facebook",
     "slogan": "It's quick and easy",
     "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUL13Lip3_Vs7L-Ktd0jFfMY1Qac67zIDLRw&usqp=CAU",
@@ -174,7 +174,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 4,
     "title": "Apple",
     "slogan": "Think different",
     "logo": "https://img.freepik.com/free-icon/mac-os_318-10374.jpg",
@@ -348,7 +348,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 6,
     "title": "Nike",
     "slogan": "Just Do It",
     "logo": "https://static.vecteezy.com/ti/vettori-gratis/t2/10994412-nike-logo-nero-con-nome-abiti-design-icona-astratto-calcio-vettore-illustrazione-con-bianca-sfondo-gratuito-vettoriale.jpg",

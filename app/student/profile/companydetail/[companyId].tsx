@@ -11,7 +11,7 @@ const proyect = () => {
     <NativeBaseProvider>
       <ScrollView>
         <Stack.Screen options={{ headerTitle: "Company" }} />
-        <CompanyDetailsPage />
+        <CompanyDetailsPage currentTab="profile" />
       </ScrollView>
     </NativeBaseProvider>
   );

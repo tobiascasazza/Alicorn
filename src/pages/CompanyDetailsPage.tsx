@@ -46,7 +46,7 @@ type CompanyPageRouteParamList = {
   };
 };
 
-const CompanyDetailsPage = () => {
+const CompanyDetailsPage = (props: { currentTab?: string }) => {
   const empltyEmployee: User = {
     id: 0,
     features: [],
@@ -369,7 +369,10 @@ const CompanyDetailsPage = () => {
                   {currentCompany.owners.length > 0 &&
                     currentCompany.owners.map((user, index) => (
                       <Box ml={2} mr={2} mb={2} key={user.name + index}>
-                        <StudentCard student={user} />
+                        <StudentCard
+                          student={user}
+                          profileLink={`student/${props.currentTab}/studentprofile/${user.id}`}
+                        />
                       </Box>
                     ))}
 
@@ -404,7 +407,10 @@ const CompanyDetailsPage = () => {
                   {currentCompany.employees.length > 0 &&
                     currentCompany.employees.map((user, index) => (
                       <Box ml={2} mb={2} key={user.name + index}>
-                        <StudentCard student={user} />
+                        <StudentCard
+                          student={user}
+                          profileLink={`student/${props.currentTab}/studentprofile/${user.id}`}
+                        />
                         {editMode === true && (
                           <Button
                             backgroundColor={"red.500"}

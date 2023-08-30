@@ -24,13 +24,7 @@ const studentProfile = () => {
   return (
     <NativeBaseProvider>
       <ScrollView>
-        <Stack.Screen
-          options={{
-            headerTitle: userProfile
-              ? `${userProfile.name} ${userProfile.lastName}`
-              : "Profile",
-          }}
-        />
+        <Stack.Screen options={{ headerTitle: "Profile" }} />
         {userProfile ? (
           <Profile student={userProfile} />
         ) : (

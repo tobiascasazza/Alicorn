@@ -43,7 +43,7 @@ type WorkProyectPageRouteParamList = {
   };
 };
 
-const WorkProyectDetailsPage = () => {
+const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
   const empltyStudent: User = {
     id: 0,
     features: [],
@@ -127,23 +127,20 @@ const WorkProyectDetailsPage = () => {
     setPunctuationCard(true);
   };
   useEffect(() => {
-    currentWorkProyect.title !== undefined &&
-      currentWorkProyect.title != "" &&
+    currentWorkProyect.title != "" &&
       setProyectState(
         currentWorkProyect.features.filter(
           (feature) => feature.title === "State"
         )[0].description
       );
-    currentWorkProyect.title !== undefined &&
-      currentWorkProyect.title != "" &&
+    currentWorkProyect.title != "" &&
       setUsersProtyect(currentWorkProyect.students);
 
-    currentWorkProyect.title !== undefined && currentWorkProyect.title != ""
-      ? setIsLoading(false)
-      : setIsLoading(true);
+    currentWorkProyect.title != "" ? setIsLoading(false) : setIsLoading(true);
   }, [currentWorkProyect]);
 
   useEffect(() => {
+    console.log(route);
     const newCurrentWorkProyect = WorkProyectData.filter(
       (proyect) => proyect.id == route.params?.proyectId
     )[0];
@@ -344,7 +341,10 @@ const WorkProyectDetailsPage = () => {
                 {usersProtyect.length > 0 &&
                   usersProtyect.map((user, index) => (
                     <Box mb={2} key={user.name + index}>
-                      <StudentCard student={user} />
+                      <StudentCard
+                        student={user}
+                        profileLink={`student/${props.currentTab}/studentprofile/${user.id}`}
+                      />
                       {editMode === true && (
                         <Button
                           backgroundColor={"red.500"}

@@ -21,6 +21,7 @@ const studentProfile = () => {
       )[0]
     );
   }, []);
+
   return (
     <NativeBaseProvider>
       <ScrollView>

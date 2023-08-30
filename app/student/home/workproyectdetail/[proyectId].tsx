@@ -10,7 +10,7 @@ const proyect = () => {
     <NativeBaseProvider>
       <ScrollView>
         <Stack.Screen options={{ headerTitle: "Work Proyect" }} />
-        <WorkProyectDetailsPage />
+        <WorkProyectDetailsPage currentTab="home" />
       </ScrollView>
     </NativeBaseProvider>
   );

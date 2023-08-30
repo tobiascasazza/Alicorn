@@ -4,6 +4,7 @@ import { Box, HStack, Text, VStack } from "native-base";
 import StarsRatingView from "../../atoms/stars/StarsRatingView";
 import FeaturesCard from "../../atoms/smallCards/FeaturesCard";
 import { User } from "../../../models/objects/User";
+import { Link } from "expo-router";
 
 const StudentCard = (props: { student: User; profileLink?: string }) => {
   return (
@@ -29,9 +30,12 @@ const StudentCard = (props: { student: User; profileLink?: string }) => {
       >
         <VStack pt="2" pb="2">
           <HStack justifyContent={"space-between"} pb="2">
-            <Text fontSize={"md"} bold>
-              {props.student.name} {props.student.lastName}
-            </Text>
+            <Link href={props.profileLink ? props.profileLink : ""}>
+              <Text fontSize={"md"} underline bold>
+                {props.student.name} {props.student.lastName}
+              </Text>
+            </Link>
+
             <HStack textAlign={"right"} justifyContent={"space-between"}>
               <StarsRatingView value={props.student.punctuation} />
               <Text width="30px">({props.student.votes})</Text>

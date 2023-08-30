@@ -6,6 +6,9 @@ export interface User {
   lastName: string;
   features: Feature[];
   punctuation?: number;
+  title?: string;
+  resume?: string;
+  contactData?: Feature[];
   votes?: number;
   photo?: string;
 }

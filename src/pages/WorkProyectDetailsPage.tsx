@@ -56,7 +56,7 @@ const WorkProyectDetailsPage = () => {
   const route =
     useRoute<RouteProp<WorkProyectPageRouteParamList, "WorkProyectPage">>();
   const [editMode, setEditMode] = useState(false);
-  const [usersProtyect, setUsersProtyect] = useState<User[]>(users);
+  const [usersProtyect, setUsersProtyect] = useState<User[]>([]);
   const [punctuationCard, setPunctuationCard] = useState<boolean>(false);
   const [proyectState, setProyectState] = useState<string>("Finished");
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -127,13 +127,20 @@ const WorkProyectDetailsPage = () => {
     setPunctuationCard(true);
   };
   useEffect(() => {
-    currentWorkProyect.title != "" ? setIsLoading(false) : setIsLoading(true);
-    currentWorkProyect.title != "" &&
+    currentWorkProyect.title !== undefined &&
+      currentWorkProyect.title != "" &&
       setProyectState(
         currentWorkProyect.features.filter(
           (feature) => feature.title === "State"
         )[0].description
       );
+    currentWorkProyect.title !== undefined &&
+      currentWorkProyect.title != "" &&
+      setUsersProtyect(currentWorkProyect.students);
+
+    currentWorkProyect.title !== undefined && currentWorkProyect.title != ""
+      ? setIsLoading(false)
+      : setIsLoading(true);
   }, [currentWorkProyect]);
 
   useEffect(() => {
@@ -462,7 +469,7 @@ const WorkProyectDetailsPage = () => {
                 isOpen={punctuationCard}
                 setIsOpen={setPunctuationCard}
                 student={user}
-                key={index}
+                key={user.id + index}
               />
             ))}
         </>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, ScrollView, StyleSheet, Dimensions } from "react-native";
 import { Link, Tabs, useRouter } from "expo-router";
 
@@ -7,12 +7,21 @@ import ResumeProyectCard from "../../../src/components/molecules/cards/ResumePro
 import { Box, NativeBaseProvider, Icon, Badge, Text } from "native-base";
 import proyects from "../../../data/proyectsExample.json";
 import { Feather } from "@expo/vector-icons";
+import { useRoute } from "@react-navigation/native";
 
 export default function home() {
   const notificationsCount = 5;
   const { width } = Dimensions.get("window");
 
   const list = proyects;
+
+  const detailLink = (proyect: any) => {
+    if (proyect.proyectType === "Work Project") {
+      return `student/home/workproyectdetail/${proyect.id}`;
+    } else {
+      return `student/home/companydetail/${proyect.id}`;
+    }
+  };
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -64,6 +73,7 @@ export default function home() {
                 <React.Fragment key={proyect.proyectName + Math.random()}>
                   <Box my={"2"} width={width * 0.9}>
                     <ResumeProyectCard
+                      proyectDetailLink={detailLink(proyect)}
                       proyectName={proyect.proyectName}
                       proyectDescription={proyect.proyectDescription}
                       participants={proyect.participants}

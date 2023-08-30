@@ -1,10 +1,19 @@
 import { Dimensions, StyleSheet, View } from "react-native";
 import React from "react";
-import { Avatar, Box, HStack, VStack, Text, Pressable } from "native-base";
+import {
+  Avatar,
+  Box,
+  HStack,
+  VStack,
+  Text,
+  Pressable,
+  Stack,
+} from "native-base";
 import { notificationType } from "../../../models/helpers/enums";
 import NotificationItem from "../../atoms/items/NotificationItem";
 import { Notification } from "../../../models/objects/Notification";
 import InvitationButtons from "../../atoms/buttons/InvitationButtons";
+import { Link } from "expo-router";
 
 const NotificationComponent = (props: Notification) => {
   const { width } = Dimensions.get("window");
@@ -75,13 +84,21 @@ const NotificationComponent = (props: Notification) => {
         <Pressable onPress={() => notificationPress()}>
           <Box pl="2" pr="2" py="2">
             <HStack display={"flex"}>
-              <Avatar
-                size={width * 0.12}
-                alignSelf={"center"}
-                source={{
-                  uri: props.user.photo,
-                }}
-              />
+              <Stack alignSelf={"center"}>
+                <Link href={`student/home/studentprofile/${props.user.id}`}>
+                  <Avatar
+                    size={width * 0.12}
+                    source={{
+                      uri:
+                        props.user.photo !== undefined &&
+                        props.user.photo.length > 0
+                          ? props.user.photo
+                          : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+                    }}
+                  />
+                </Link>
+              </Stack>
+
               <VStack>
                 <HStack>
                   <Text

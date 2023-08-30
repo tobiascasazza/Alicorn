@@ -1,15 +1,17 @@
 import { StyleSheet, Text as TextNative, Dimensions } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Center, HStack, Heading, Stack, Text, VStack } from "native-base";
 import { User } from "../../../models/objects/User";
 import StarsRatingView from "../../atoms/stars/StarsRatingView";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
+import { useRoute } from "@react-navigation/native";
 
 type ResumeProyectCardProps = {
   proyectName: string;
   proyectDescription: string;
   participants: Array<User>;
   proyectType: string;
+  proyectDetailLink: string;
 };
 
 const ResumeProyectCard = (props: ResumeProyectCardProps) => {
@@ -23,6 +25,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
         break;
     }
   };
+
   return (
     <Box
       width="100%"
@@ -46,13 +49,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
         <VStack space={2}>
           <HStack justifyContent={"space-between"}>
             <Heading size="md">{props.proyectName}</Heading>
-            <Link
-              href={
-                props.proyectType === "Work Project"
-                  ? "student/workProyect"
-                  : "student/entrepreneurship"
-              }
-            >
+            <Link href={props.proyectDetailLink}>
               <Text
                 color={
                   props.proyectType === "Entrepreneurship"

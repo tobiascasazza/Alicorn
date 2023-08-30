@@ -33,7 +33,6 @@ import { Feature } from "../models/objects/FeatureModel";
 import { User } from "../models/objects/User";
 import ConfirmCompanyDialogProps from "../components/molecules/dialogs/ConfirmDialog";
 import ConfirmDialog from "../components/molecules/dialogs/ConfirmDialog";
-import AddPunctuationDialog from "../components/molecules/dialogs/AddPunctuationDialog";
 import CompanyData from "../../data/CompanyCards.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { Company } from "../models/objects/Company";
@@ -404,7 +403,7 @@ const CompanyDetailsPage = () => {
                 <Box mr={2} mb={2}>
                   {currentCompany.employees.length > 0 &&
                     currentCompany.employees.map((user, index) => (
-                      <Box ml={2} key={user.name + index}>
+                      <Box ml={2} mb={2} key={user.name + index}>
                         <StudentCard student={user} />
                         {editMode === true && (
                           <Button

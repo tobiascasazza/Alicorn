@@ -5,7 +5,7 @@ import StarsRatingView from "../../atoms/stars/StarsRatingView";
 import FeaturesCard from "../../atoms/smallCards/FeaturesCard";
 import { User } from "../../../models/objects/User";
 
-const StudentCard = (props: { student: User }) => {
+const StudentCard = (props: { student: User; profileLink?: string }) => {
   return (
     <View>
       <Box

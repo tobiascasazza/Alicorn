@@ -1,0 +1,632 @@
+[
+  {
+    "id": 1,
+    "stars": 5,
+    "punctuationCards": ["Responsible", "Good Partner"],
+    "comments": "Exemplary partner in our university project.",
+    "anonymous": true,
+    "writerUserId": 1,
+    "userId": 132
+  },
+  {
+    "id": 2,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Great to work with on our university project.",
+    "anonymous": true,
+    "writerUserId": 2,
+    "userId": 2
+  },
+  {
+    "id": 3,
+    "stars": 2,
+    "punctuationCards": ["Superb"],
+    "comments": "Had some challenges working together.",
+    "anonymous": true,
+    "writerUserId": 3,
+    "userId": 3
+  },
+  {
+    "id": 4,
+    "stars": 3,
+    "punctuationCards": ["Moody", "Irresponsible"],
+    "comments": "Some issues with consistency and responsibility.",
+    "anonymous": true,
+    "writerUserId": 35,
+    "userId": 134
+  },
+  {
+    "id": 5,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Contributed well to our university project.",
+    "anonymous": true,
+    "writerUserId": 140,
+    "userId": 112
+  },
+  {
+    "id": 6,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Responsible"],
+    "comments": "Decent contribution to our project.",
+    "anonymous": true,
+    "writerUserId": 137,
+    "userId": 136
+  },
+  {
+    "id": 7,
+    "stars": 5,
+    "punctuationCards": ["Superb", "Responsible", "Good Partner"],
+    "comments": "Outstanding teamwork and collaboration.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 23
+  },
+  {
+    "id": 8,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities in the project.",
+    "anonymous": true,
+    "writerUserId": 35,
+    "userId": 137
+  },
+  {
+    "id": 9,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Diligent and attentive in our project.",
+    "anonymous": true,
+    "writerUserId": 136,
+    "userId": 138
+  },
+  {
+    "id": 10,
+    "stars": 3,
+    "punctuationCards": ["Moody", "Attentive"],
+    "comments": "Had some mood swings, but attentive to details.",
+    "anonymous": true,
+    "writerUserId": 1,
+    "userId": 56
+  },
+  {
+    "id": 11,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid contribution and attention to detail.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 132
+  },
+  {
+    "id": 12,
+    "stars": 2,
+    "punctuationCards": ["Moody"],
+    "comments": "Faced challenges due to mood fluctuations.",
+    "anonymous": true,
+    "writerUserId": 3,
+    "userId": 132
+  },
+  {
+    "id": 13,
+    "stars": 5,
+    "punctuationCards": ["Superb", "Good Partner", "Attentive"],
+    "comments": "Exceptional work and attentive communication.",
+    "anonymous": true,
+    "writerUserId": 137,
+    "userId": 2
+  },
+  {
+    "id": 14,
+    "stars": 3,
+    "punctuationCards": ["Responsible", "Attentive"],
+    "comments": "Responsible and attentive, but room for improvement.",
+    "anonymous": true,
+    "writerUserId": 1,
+    "userId": 134
+  },
+  {
+    "id": 15,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 23,
+    "userId": 112
+  },
+  {
+    "id": 16,
+    "stars": 1,
+    "punctuationCards": ["Moody"],
+    "comments": "Struggled with mood fluctuations throughout.",
+    "anonymous": true,
+    "writerUserId": 135,
+    "userId": 136
+  },
+  {
+    "id": 17,
+    "stars": 5,
+    "punctuationCards": ["Superb", "Responsible", "Good Partner"],
+    "comments": "An invaluable asset to our project team.",
+    "anonymous": true,
+    "writerUserId": 134,
+    "userId": 23
+  },
+  {
+    "id": 18,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 3,
+    "userId": 137
+  },
+  {
+    "id": 19,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 138
+  },
+  {
+    "id": 20,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 112,
+    "userId": 56
+  },
+  {
+    "id": 21,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 112
+  },
+  {
+    "id": 22,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 3,
+    "userId": 137
+  },
+  {
+    "id": 23,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 138
+  },
+  {
+    "id": 24,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 56
+  },
+  {
+    "id": 25,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 23,
+    "userId": 112
+  },
+  {
+    "id": 26,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 137,
+    "userId": 137
+  },
+  {
+    "id": 27,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 23,
+    "userId": 138
+  },
+  {
+    "id": 28,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 112,
+    "userId": 56
+  },
+  {
+    "id": 29,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 112
+  },
+  {
+    "id": 30,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 3,
+    "userId": 137
+  },
+  {
+    "id": 31,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 134,
+    "userId": 23
+  },
+  {
+    "id": 32,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 135,
+    "userId": 132
+  },
+  {
+    "id": 33,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 112
+  },
+  {
+    "id": 34,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 112,
+    "userId": 112
+  },
+  {
+    "id": 35,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 23,
+    "userId": 138
+  },
+  {
+    "id": 36,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 3
+  },
+  {
+    "id": 37,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 112,
+    "userId": 112
+  },
+  {
+    "id": 38,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 134,
+    "userId": 23
+  },
+  {
+    "id": 39,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 134
+  },
+  {
+    "id": 40,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 112,
+    "userId": 56
+  },
+  {
+    "id": 41,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 3,
+    "userId": 137
+  },
+  {
+    "id": 42,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 138
+  },
+  {
+    "id": 43,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 32,
+    "userId": 56
+  },
+  {
+    "id": 44,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 133,
+    "userId": 137
+  },
+  {
+    "id": 45,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 23,
+    "userId": 112
+  },
+  {
+    "id": 46,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 32,
+    "userId": 56
+  },
+  {
+    "id": 47,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 32,
+    "userId": 112
+  },
+  {
+    "id": 48,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 134,
+    "userId": 32
+  },
+  {
+    "id": 49,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 133,
+    "userId": 32
+  },
+  {
+    "id": 50,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 134
+  },
+  {
+    "id": 51,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 141,
+    "userId": 134
+  },
+  {
+    "id": 52,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 32,
+    "userId": 133
+  },
+  {
+    "id": 53,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 137,
+    "userId": 23
+  },
+  {
+    "id": 54,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 112,
+    "userId": 138
+  },
+  {
+    "id": 55,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 134,
+    "userId": 137
+  },
+  {
+    "id": 56,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 135,
+    "userId": 112
+  },
+  {
+    "id": 57,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 138,
+    "userId": 112
+  },
+  {
+    "id": 58,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 112
+  },
+  {
+    "id": 59,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 141,
+    "userId": 23
+  },
+  {
+    "id": 60,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 3,
+    "userId": 137
+  },
+  {
+    "id": 61,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 134,
+    "userId": 112
+  },
+  {
+    "id": 62,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 135,
+    "userId": 138
+  },
+  {
+    "id": 63,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 32,
+    "userId": 56
+  },
+  {
+    "id": 64,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 56,
+    "userId": 134
+  },
+  {
+    "id": 65,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 32,
+    "userId": 112
+  },
+  {
+    "id": 66,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 134,
+    "userId": 134
+  },
+  {
+    "id": 67,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Attentive", "Responsible"],
+    "comments": "Consistently attentive and responsible in the project.",
+    "anonymous": true,
+    "writerUserId": 3,
+    "userId": 1
+  },
+  {
+    "id": 68,
+    "stars": 2,
+    "punctuationCards": ["Irresponsible"],
+    "comments": "Struggled with responsibilities and reliability.",
+    "anonymous": true,
+    "writerUserId": 112,
+    "userId": 137
+  },
+  {
+    "id": 69,
+    "stars": 4,
+    "punctuationCards": ["Good Partner", "Responsible", "Attentive"],
+    "comments": "Solid teamwork and attention to responsibilities.",
+    "anonymous": true,
+    "writerUserId": 135,
+    "userId": 32
+  },
+  {
+    "id": 70,
+    "stars": 3,
+    "punctuationCards": ["Good Partner", "Attentive"],
+    "comments": "Decent partner, attentive to project needs.",
+    "anonymous": true,
+    "writerUserId": 112,
+    "userId": 1
+  }
+]

@@ -8,13 +8,17 @@ interface CardPunctuationListViewProps {
 const CardPunctuationListView = (props: CardPunctuationListViewProps) => {
   return (
     <HStack style={styles.cardsContainer}>
-      {props.cards.map((item) => (
-        <Button key={item.id} style={styles.unselectedCard}>
-          <Text color="black" fontSize={10} fontWeight={"bold"}>
-            {item.title} {item.number ? `x${item.number}` : ""}
-          </Text>
-        </Button>
-      ))}
+      {props.cards.map((item, index) => {
+        if (item.number !== undefined && item.number > 0) {
+          return (
+            <Button key={item.id + index} style={styles.unselectedCard}>
+              <Text color="black" fontSize={10} fontWeight={"bold"}>
+                {item.title} {item.number > 1 ? `x${item.number}` : ""}
+              </Text>
+            </Button>
+          );
+        }
+      })}
     </HStack>
   );
 };

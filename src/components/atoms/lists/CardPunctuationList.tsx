@@ -35,9 +35,9 @@ const CardPunctuationList = (props: CardPunctuationListProps) => {
             ? card.type === "good"
             : card.type === "good" || card.type === "bad"
         )
-        .map((item) => (
+        .map((item, index) => (
           <Button
-            key={item.id}
+            key={item.id + index}
             onPress={() => toggleItemSelection(item.id)}
             style={
               selectedItems.includes(item.id)

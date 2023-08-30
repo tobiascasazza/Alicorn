@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "name": "Juan",
-    "lastName": "González",
+    "name": "Tobias",
+    "lastName": "Casazza",
     "title": "React Web Developer",
     "resume": "5-year veteran in Computer Science, specializing in React Web Development. High rating of 5 based on 10 votes.",
     "punctuation": 5,
     "votes": 10,
-    "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+    "photo": "https://media.licdn.com/dms/image/C4E03AQEq5-mGNAIzSA/profile-displayphoto-shrink_400_400/0/1588952156485?e=1698883200&v=beta&t=lHSNnNAP9sJnNpTZltqBA816We--hb_Zr_OIaq04c3Y",
     "features": [
       {
         "title": "Carrer",
@@ -19,7 +19,7 @@
       },
       {
         "title": "Link",
-        "description": "https://example.com/juan-gonzalez"
+        "description": "https://github.com/tobiascasazza"
       }
     ],
     "contactData": [
@@ -29,11 +29,11 @@
       },
       {
         "title": "Email",
-        "description": "juan_gonzalez@gmail.com"
+        "description": "tobiascasazza@gmail.com"
       },
       {
         "title": "Social Network",
-        "description": "https://example.com/juan-gonzalez"
+        "description": "https://www.linkedin.com/in/tobiascasazza/"
       }
     ]
   },

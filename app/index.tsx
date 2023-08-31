@@ -1,12 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, useColorScheme } from "react-native";
 import { Link, Redirect, Stack } from "expo-router";
-import { NativeBaseProvider } from "native-base";
 
 export default function Page() {
   return (
-    <NativeBaseProvider>
+    <>
       <Redirect href={"/student"} />
-    </NativeBaseProvider>
+    </>
   );
 }
 

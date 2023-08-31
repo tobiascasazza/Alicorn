@@ -1,0 +1,524 @@
+[
+  {
+    "id": 3,
+    "title": "Facebook",
+    "slogan": "It's quick and easy",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUL13Lip3_Vs7L-Ktd0jFfMY1Qac67zIDLRw&usqp=CAU",
+    "features": [
+      {
+        "title": "Industry",
+        "description": "Social Media",
+        "editable": true
+      },
+      {
+        "title": "Main Product",
+        "description": "Social Media App",
+        "editable": true
+      },
+      {
+        "title": "Business model",
+        "description": "B2C",
+        "editable": true
+      },
+      {
+        "title": "Owners",
+        "description": "2"
+      },
+      {
+        "title": "Employees",
+        "description": "3"
+      },
+      {
+        "title": "Entrepreneurship status",
+        "description": "Looking for Investment",
+        "editable": true
+      }
+    ],
+    "description": "It is a social network designed to connect people, that is, share information, news and audiovisual content with friends and family. It is the most popular social platform of all those currently in existence with close to 2,200 million active users each month.",
+    "link": "https://www.facebook.com/",
+    "owners": [
+      {
+        "id": 132,
+        "name": "Mark",
+        "lastName": "Zuckerberg",
+        "punctuation": 4.2,
+        "votes": 10,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "70%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      },
+      {
+        "id": 112,
+        "name": "Edwardo",
+        "lastName": "Savering",
+        "punctuation": 5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "30%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Finance"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      }
+    ],
+    "employees": [
+      {
+        "id": 133,
+        "name": "Dustin",
+        "lastName": "Moskovitz",
+        "punctuation": 3.6,
+        "votes": 23,
+        "photo": "https://randomuser.me/api/portraits/men/3.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "CTO"
+          },
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/dustin-moskovitz"
+          }
+        ]
+      },
+      {
+        "id": 134,
+        "name": "Chris",
+        "lastName": "Hughes",
+        "punctuation": 4.8,
+        "votes": 34,
+        "photo": "https://randomuser.me/api/portraits/men/4.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "Co-founder & Spokesperson"
+          },
+          {
+            "title": "Carrer",
+            "description": "Literature & History"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/chris-hughes"
+          }
+        ]
+      },
+      {
+        "id": 135,
+        "name": "Andrew",
+        "lastName": "McCollum",
+        "punctuation": 4,
+        "votes": 54,
+        "photo": "https://randomuser.me/api/portraits/men/5.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "Graphic Designer"
+          },
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/andrew-mccollum"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Apple",
+    "slogan": "Think different",
+    "logo": "https://img.freepik.com/free-icon/mac-os_318-10374.jpg",
+    "features": [
+      {
+        "title": "Industry",
+        "description": "Hardware",
+        "editable": true
+      },
+      {
+        "title": "Main Product",
+        "description": "Iphone",
+        "editable": true
+      },
+      {
+        "title": "Business model",
+        "description": "B2C",
+        "editable": true
+      },
+      {
+        "title": "Owners",
+        "description": "2"
+      },
+      {
+        "title": "Employees",
+        "description": "3"
+      },
+      {
+        "title": "Entrepreneurship status",
+        "description": "developing",
+        "editable": true
+      }
+    ],
+    "description": "It is an American technology company that designs and produces electronic equipment, software, and online services.",
+    "link": "https://www.apple.com/",
+    "owners": [
+      {
+        "id": 32,
+        "name": "Steve",
+        "lastName": "Jobs",
+        "punctuation": 3.5,
+        "votes": 32,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "1"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "name": "Steve",
+        "lastName": "Wozniak",
+        "punctuation": 5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      }
+    ],
+    "employees": [
+      {
+        "id": 136,
+        "name": "Ronald",
+        "lastName": "Wayne",
+        "punctuation": 3.8,
+        "votes": 4,
+        "photo": "https://randomuser.me/api/portraits/men/6.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "Administrative Oversight"
+          },
+          {
+            "title": "Carrer",
+            "description": "Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "1"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/ronald-wayne"
+          }
+        ]
+      },
+      {
+        "id": 137,
+        "name": "Mike",
+        "lastName": "Markkula",
+        "punctuation": 4.2,
+        "votes": 8,
+        "photo": "https://randomuser.me/api/portraits/men/7.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "Investor & Chairman"
+          },
+          {
+            "title": "Carrer",
+            "description": "Business & Marketing"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/mike-markkula"
+          }
+        ]
+      },
+      {
+        "id": 138,
+        "name": "Bill",
+        "lastName": "Fernandez",
+        "punctuation": 4.6,
+        "votes": 15,
+        "photo": "https://randomuser.me/api/portraits/men/8.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "Engineer"
+          },
+          {
+            "title": "Carrer",
+            "description": "Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "3"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/bill-fernandez"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Nike",
+    "slogan": "Just Do It",
+    "logo": "https://static.vecteezy.com/ti/vettori-gratis/t2/10994412-nike-logo-nero-con-nome-abiti-design-icona-astratto-calcio-vettore-illustrazione-con-bianca-sfondo-gratuito-vettoriale.jpg",
+    "features": [
+      {
+        "title": "Industry",
+        "description": "Sport Indumentary",
+        "editable": true
+      },
+      {
+        "title": "Main Product",
+        "description": "Air Jordan",
+        "editable": true
+      },
+      {
+        "title": "Business model",
+        "description": "B2C",
+        "editable": true
+      },
+      {
+        "title": "Owners",
+        "description": "2"
+      },
+      {
+        "title": "Employees",
+        "description": "3"
+      },
+      {
+        "title": "Entrepreneurship status",
+        "description": "developing",
+        "editable": true
+      }
+    ],
+    "description": "It is an American multinational company dedicated to the design, development, manufacture and marketing of sports equipment: balls, footwear, clothing, equipment, accessories and other sporting goods.",
+    "link": "https://www.nike.com",
+    "owners": [
+      {
+        "id": 56,
+        "name": "Phil",
+        "lastName": "Knight",
+        "punctuation": 5,
+        "votes": 43,
+        "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Administration"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Bill",
+        "lastName": "Bowerman",
+        "punctuation": 4.5,
+        "votes": 93,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Equity",
+            "description": "50%",
+            "editable": true
+          },
+          {
+            "title": "Carrer",
+            "description": "Physical Trainer"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/juan-gonzalez"
+          }
+        ]
+      }
+    ],
+    "employees": [
+      {
+        "id": 139,
+        "name": "Jeff",
+        "lastName": "Johnson",
+        "punctuation": 5,
+        "votes": 2,
+        "photo": "https://randomuser.me/api/portraits/men/9.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "Store Manager"
+          },
+          {
+            "title": "Carrer",
+            "description": "Sales & Marketing"
+          },
+          {
+            "title": "Year",
+            "description": "1"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/jeff-johnson"
+          }
+        ]
+      },
+      {
+        "id": 140,
+        "name": "Jane",
+        "lastName": "Doe",
+        "punctuation": 4.2,
+        "votes": 7,
+        "photo": "https://randomuser.me/api/portraits/women/10.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "Hypothetical Position 1"
+          },
+          {
+            "title": "Carrer",
+            "description": "Design"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/jane-doe"
+          }
+        ]
+      },
+      {
+        "id": 141,
+        "name": "John",
+        "lastName": "Smith",
+        "punctuation": 4.9,
+        "votes": 18,
+        "photo": "https://randomuser.me/api/portraits/men/11.jpg",
+        "features": [
+          {
+            "title": "Position",
+            "description": "Hypothetical Position 2"
+          },
+          {
+            "title": "Carrer",
+            "description": "Product Management"
+          },
+          {
+            "title": "Year",
+            "description": "3"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/john-smith"
+          }
+        ]
+      }
+    ]
+  }
+]

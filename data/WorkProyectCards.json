@@ -1,0 +1,298 @@
+[
+  {
+    "id": 1,
+    "title": "Server Administration",
+    "subtitle": "Create servers and mantain it for 4 month",
+    "features": [
+      { "title": "Subject", "description": "Infraestructure II" },
+      { "title": "Theme", "description": "Server Mantain", "editable": true },
+      { "title": "Participants", "description": "3" },
+      { "title": "State", "description": "In progress", "editable": true },
+      { "title": "Start date", "description": "2022-01-01", "editable": true },
+      { "title": "Deadline", "description": "2022-06-30", "editable": true },
+      { "title": "Professor mail", "description": "professor@gmail.com" }
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "link": "https://example.com/project-x",
+    "students": [
+      {
+        "id": 1,
+        "name": "Tobias",
+        "lastName": "Casazza",
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://media.licdn.com/dms/image/C4E03AQEq5-mGNAIzSA/profile-displayphoto-shrink_400_400/0/1588952156485?e=1698883200&v=beta&t=lHSNnNAP9sJnNpTZltqBA816We--hb_Zr_OIaq04c3Y",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://www.linkedin.com/in/tobiascasazza/"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "votes": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Restaurant App",
+    "subtitle": "Collage proyect of restaurant with React",
+    "features": [
+      {
+        "title": "Subject",
+        "description": "Mobile Development"
+      },
+      {
+        "title": "Theme",
+        "description": "Administration",
+        "editable": true
+      },
+      {
+        "title": "Participants",
+        "description": "3"
+      },
+      {
+        "title": "State",
+        "description": "In progress",
+        "editable": true
+      },
+      {
+        "title": "Start date",
+        "description": "2021-10-01",
+        "editable": true
+      },
+      {
+        "title": "Deadline",
+        "description": "2022-03-31",
+        "editable": true
+      },
+      { "title": "Professor mail", "description": "professor@gmail.com" }
+    ],
+    "description": "Nullam malesuada aliquam erat eu rhoncus.",
+    "link": "https://example.com/project-y",
+    "students": [
+      {
+        "id": 1,
+        "name": "Tobias",
+        "lastName": "Casazza",
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://media.licdn.com/dms/image/C4E03AQEq5-mGNAIzSA/profile-displayphoto-shrink_400_400/0/1588952156485?e=1698883200&v=beta&t=lHSNnNAP9sJnNpTZltqBA816We--hb_Zr_OIaq04c3Y",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://www.linkedin.com/in/tobiascasazza/"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "votes": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "IoT proyect",
+    "subtitle": "Collage investigation proyect of IoT",
+    "features": [
+      {
+        "title": "Subject",
+        "description": "Hardware/Software"
+      },
+      {
+        "title": "Theme",
+        "description": "IoT",
+        "editable": true
+      },
+      {
+        "title": "Participants",
+        "description": "3"
+      },
+      {
+        "title": "State",
+        "description": "Finished",
+        "editable": true
+      },
+      {
+        "title": "Start date",
+        "description": "2023-06-01",
+        "editable": true
+      },
+      {
+        "title": "Deadline",
+        "description": "2023-06-30",
+        "editable": true
+      },
+      { "title": "Professor mail", "description": "professor@gmail.com" }
+    ],
+    "description": "Vestibulum tincidunt velit sed mi dignissim consectetur.",
+    "link": "https://example.com/project-z",
+    "students": [
+      {
+        "id": 1,
+        "name": "Tobias",
+        "lastName": "Casazza",
+        "punctuation": 5,
+        "votes": 10,
+        "photo": "https://media.licdn.com/dms/image/C4E03AQEq5-mGNAIzSA/profile-displayphoto-shrink_400_400/0/1588952156485?e=1698883200&v=beta&t=lHSNnNAP9sJnNpTZltqBA816We--hb_Zr_OIaq04c3Y",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Computer Science"
+          },
+          {
+            "title": "Year",
+            "description": "5"
+          },
+          {
+            "title": "Link",
+            "description": "https://www.linkedin.com/in/tobiascasazza/"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "María",
+        "lastName": "Pérez",
+        "punctuation": 3.5,
+        "votes": 12,
+        "photo": "https://example.com/maria-perez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Electrical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "4"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/maria-perez"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Pedro",
+        "lastName": "Sánchez",
+        "punctuation": 0,
+        "votes": 0,
+        "photo": "https://example.com/pedro-sanchez.jpg",
+        "features": [
+          {
+            "title": "Carrer",
+            "description": "Mechanical Engineering"
+          },
+          {
+            "title": "Year",
+            "description": "2"
+          },
+          {
+            "title": "Link",
+            "description": "https://example.com/pedro-sanchez"
+          }
+        ]
+      }
+    ]
+  }
+]

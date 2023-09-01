@@ -7,8 +7,7 @@
     "icon": "./assets/alicorn_logo.png",
     "splash": {
       "image": "./assets/alicorn_download.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "contain"
     },
     "scheme": "acme",
     "web": { "bundler": "metro", "userInterfaceStyle": "automatic" },

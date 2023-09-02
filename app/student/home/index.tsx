@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { View, ScrollView, StyleSheet, Dimensions } from "react-native";
 import { Link, Tabs } from "expo-router";
 import ResumeProyectCard from "../../../src/components/molecules/cards/ResumeProyectCard";
-import { Box, Icon, Badge, Text } from "native-base";
+import { Box, Icon, Badge, Text, NativeBaseProvider } from "native-base";
 import proyects from "../../../data/proyectsExample.json";
 import { Feather } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "../../../redux/reduxHooks";
@@ -29,69 +29,71 @@ export default function home() {
     console.log("HOME");
   }, []);
   return (
-    <ScrollView>
-      <Tabs.Screen
-        options={{
-          headerRight: () => {
-            return (
-              <View
-                style={{
-                  justifyContent: "flex-end",
-                  width: 50,
-                }}
-              >
-                <Link href="student/home/notifications">
-                  <Box position="relative">
-                    <Icon
-                      as={
-                        <Feather
-                          name="heart"
-                          color="black"
-                          style={style.heartIcon}
-                        />
-                      }
+    <NativeBaseProvider>
+      <ScrollView>
+        <Tabs.Screen
+          options={{
+            headerRight: () => {
+              return (
+                <View
+                  style={{
+                    justifyContent: "flex-end",
+                    width: 50,
+                  }}
+                >
+                  <Link href="student/home/notifications">
+                    <Box position="relative">
+                      <Icon
+                        as={
+                          <Feather
+                            name="heart"
+                            color="black"
+                            style={style.heartIcon}
+                          />
+                        }
+                      />
+                      {notificationsCount > 0 && (
+                        <Badge
+                          position="absolute"
+                          top={3}
+                          right={3}
+                          bg="pink.500"
+                          borderRadius={15}
+                        >
+                          <Text color="white">{notificationsCount}</Text>
+                        </Badge>
+                      )}
+                    </Box>
+                  </Link>
+                </View>
+              );
+            },
+          }}
+        />
+        <Box py={2} alignItems={"center"}>
+          {list.length > 0 ? (
+            list.map((proyect) => {
+              return (
+                <React.Fragment key={proyect.proyectName + Math.random()}>
+                  <Box my={"2"} width={width * 0.9}>
+                    <ResumeProyectCard
+                      proyectDetailLink={detailLink(proyect)}
+                      proyectName={proyect.proyectName}
+                      proyectDescription={proyect.proyectDescription}
+                      participants={proyect.participants}
+                      proyectType={proyect.proyectType}
+                      key={proyect.proyectName + Math.random()}
                     />
-                    {notificationsCount > 0 && (
-                      <Badge
-                        position="absolute"
-                        top={3}
-                        right={3}
-                        bg="pink.500"
-                        borderRadius={15}
-                      >
-                        <Text color="white">{notificationsCount}</Text>
-                      </Badge>
-                    )}
                   </Box>
-                </Link>
-              </View>
-            );
-          },
-        }}
-      />
-      <Box py={2} alignItems={"center"}>
-        {list.length > 0 ? (
-          list.map((proyect) => {
-            return (
-              <React.Fragment key={proyect.proyectName + Math.random()}>
-                <Box my={"2"} width={width * 0.9}>
-                  <ResumeProyectCard
-                    proyectDetailLink={detailLink(proyect)}
-                    proyectName={proyect.proyectName}
-                    proyectDescription={proyect.proyectDescription}
-                    participants={proyect.participants}
-                    proyectType={proyect.proyectType}
-                    key={proyect.proyectName + Math.random()}
-                  />
-                </Box>
-              </React.Fragment>
-            );
-          })
-        ) : (
-          <Text>You don't have any proyect yet</Text>
-        )}
-      </Box>
-    </ScrollView>
+                </React.Fragment>
+              );
+            })
+          ) : (
+            <Text>You don't have any proyect yet</Text>
+          )}
+        </Box>
+      </ScrollView>
+    </NativeBaseProvider>
   );
 }
 

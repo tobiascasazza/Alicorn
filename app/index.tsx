@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, useColorScheme } from "react-native";
 import { Link, Redirect, Stack } from "expo-router";
+import { useEffect } from "react";
 
 export default function Page() {
   return (

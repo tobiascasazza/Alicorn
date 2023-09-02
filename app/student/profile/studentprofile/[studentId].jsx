@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Stack } from "expo-router";
-import { HStack, Heading, NativeBaseProvider, Spinner } from "native-base";
+import { HStack, Heading, Spinner } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import WorkProyectDetailsPage from "../../../../src/pages/WorkProyectDetailsPage";
 import users from "../../../../data/users.json";
@@ -23,27 +23,25 @@ const studentProfile = () => {
   }, []);
 
   return (
-    <NativeBaseProvider>
-      <ScrollView>
-        <Stack.Screen
-          options={{
-            headerTitle: userProfile
-              ? `${userProfile.name} ${userProfile.lastName}`
-              : "Profile",
-          }}
-        />
-        {userProfile ? (
-          <Profile student={userProfile} />
-        ) : (
-          <HStack space={2} justifyContent="center">
-            <Spinner accessibilityLabel="Loading posts" color="blue.500" />
-            <Heading color="blue.500" fontSize="md">
-              Loading
-            </Heading>
-          </HStack>
-        )}
-      </ScrollView>
-    </NativeBaseProvider>
+    <ScrollView>
+      <Stack.Screen
+        options={{
+          headerTitle: userProfile
+            ? `${userProfile.name} ${userProfile.lastName}`
+            : "Profile",
+        }}
+      />
+      {userProfile ? (
+        <Profile student={userProfile} />
+      ) : (
+        <HStack space={2} justifyContent="center">
+          <Spinner accessibilityLabel="Loading posts" color="blue.500" />
+          <Heading color="blue.500" fontSize="md">
+            Loading
+          </Heading>
+        </HStack>
+      )}
+    </ScrollView>
   );
 };
 

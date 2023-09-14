@@ -5,6 +5,7 @@ import { User } from "../../../models/objects/User";
 import StarsRatingView from "../../atoms/stars/StarsRatingView";
 import { Link, useRouter } from "expo-router";
 import { useRoute } from "@react-navigation/native";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 type ResumeProyectCardProps = {
   proyectName: string;
@@ -111,8 +112,17 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
           bottom="0"
           px="3"
           py="1.5"
+          borderTopLeftRadius={5}
         >
-          {props.proyectType}
+          {props.proyectType === "Entrepreneurship" ? (
+            <MaterialCommunityIcons
+              name="unicorn-variant"
+              size={24}
+              color="white"
+            />
+          ) : (
+            <AntDesign name="profile" size={24} color="white" />
+          )}
         </Center>
       </Box>
     </Box>

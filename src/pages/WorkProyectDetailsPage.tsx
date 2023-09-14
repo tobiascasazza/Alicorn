@@ -36,6 +36,7 @@ import AddPunctuationDialog from "../components/molecules/dialogs/AddPunctuation
 import WorkProyectData from "../../data/WorkProyectCards.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { Feature } from "../models/objects/FeatureModel";
+import { useAppSelector } from "../../redux/reduxHooks";
 
 type WorkProyectPageRouteParamList = {
   WorkProyectPage: {
@@ -53,6 +54,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
 
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
   const route =
     useRoute<RouteProp<WorkProyectPageRouteParamList, "WorkProyectPage">>();
   const [editMode, setEditMode] = useState(false);
@@ -343,7 +345,11 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
                     <Box mb={2} key={user.name + index}>
                       <StudentCard
                         student={user}
-                        profileLink={`student/${props.currentTab}/studentprofile/${user.id}`}
+                        profileLink={
+                          activeUser.id !== user.id
+                            ? `student/${props.currentTab}/studentprofile/${user.id}`
+                            : "student/profile"
+                        }
                       />
                       {editMode === true && (
                         <Button

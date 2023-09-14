@@ -40,6 +40,7 @@ import Accordion from "react-native-collapsible/Accordion";
 import Collapsible from "react-native-collapsible";
 import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
 import StarsRatingView from "../components/atoms/stars/StarsRatingView";
+import { useAppSelector } from "../../redux/reduxHooks";
 type CompanyPageRouteParamList = {
   CompanyPage: {
     companyId: number;
@@ -56,6 +57,7 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
 
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
   const route = useRoute<RouteProp<CompanyPageRouteParamList, "CompanyPage">>();
   const [fadeAnim] = React.useState(new Animated.Value(0));
   const [editMode, setEditMode] = useState(false);
@@ -371,7 +373,11 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
                       <Box ml={2} mr={2} mb={2} key={user.name + index}>
                         <StudentCard
                           student={user}
-                          profileLink={`student/${props.currentTab}/studentprofile/${user.id}`}
+                          profileLink={
+                            activeUser.id !== user.id
+                              ? `student/${props.currentTab}/studentprofile/${user.id}`
+                              : "student/profile"
+                          }
                         />
                       </Box>
                     ))}
@@ -409,7 +415,11 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
                       <Box ml={2} mb={2} key={user.name + index}>
                         <StudentCard
                           student={user}
-                          profileLink={`student/${props.currentTab}/studentprofile/${user.id}`}
+                          profileLink={
+                            activeUser.id !== user.id
+                              ? `student/${props.currentTab}/studentprofile/${user.id}`
+                              : "student/profile"
+                          }
                         />
                         {editMode === true && (
                           <Button

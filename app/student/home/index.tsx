@@ -26,7 +26,6 @@ export default function home() {
 
   useEffect(() => {
     dispatch(setCurrentUser(users[0]));
-    console.log("HOME");
   }, []);
   return (
     <NativeBaseProvider>

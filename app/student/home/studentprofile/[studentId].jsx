@@ -32,7 +32,7 @@ const studentProfile = () => {
           }}
         />
         {userProfile ? (
-          <Profile student={userProfile} />
+          <Profile student={userProfile} currentTab="home" />
         ) : (
           <HStack space={2} justifyContent="center">
             <Spinner accessibilityLabel="Loading posts" color="blue.500" />

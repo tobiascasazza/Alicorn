@@ -30,6 +30,7 @@ import { Opinion } from "../models/objects/Opinion";
 
 interface myProfileProps {
   student: User;
+  currentTab?: string;
 }
 
 const Profile = (props: myProfileProps) => {
@@ -211,7 +212,9 @@ const Profile = (props: myProfileProps) => {
                 <React.Fragment key={proyect.proyectName + Math.random()}>
                   <Box my={"2"} width={"100%"}>
                     <ResumeProyectCard
-                      proyectDetailLink={`student/profile/companydetail/${proyect.id}`}
+                      proyectDetailLink={`student/${
+                        props.currentTab ? props.currentTab : "profile"
+                      }/companydetail/${proyect.id}`}
                       proyectName={proyect.proyectName}
                       proyectDescription={proyect.proyectDescription}
                       participants={proyect.participants}
@@ -235,7 +238,9 @@ const Profile = (props: myProfileProps) => {
                 <React.Fragment key={proyect.proyectName + Math.random()}>
                   <Box my={"2"} width={"100%"}>
                     <ResumeProyectCard
-                      proyectDetailLink={`student/profile/workproyectdetail/${proyect.id}`}
+                      proyectDetailLink={`student/${
+                        props.currentTab ? props.currentTab : "profile"
+                      }/workproyectdetail/${proyect.id}`}
                       proyectName={proyect.proyectName}
                       proyectDescription={proyect.proyectDescription}
                       participants={proyect.participants}

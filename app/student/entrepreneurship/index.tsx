@@ -1,4 +1,4 @@
-import { Text, ScrollView } from "react-native";
+import { Text, ScrollView, Dimensions } from "react-native";
 import React from "react";
 import { Box, Container, Fab, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
@@ -8,6 +8,7 @@ import { Link } from "expo-router";
 import CompanyCard from "../../../src/components/molecules/cards/CompanyCard";
 
 export default function entrepreneurship() {
+  const { width } = Dimensions.get("window");
   const [companyData, setCompanyData] = React.useState(CompanyCards);
   return (
     <NativeBaseProvider>
@@ -17,6 +18,8 @@ export default function entrepreneurship() {
             return (
               <React.Fragment key={companyCard.id + Math.random()}>
                 <Box
+                  style={{ width: width * 0.95 }}
+                  alignSelf={"center"}
                   py={2}
                   alignItems={"center"}
                   key={companyCard.id + Math.random()}

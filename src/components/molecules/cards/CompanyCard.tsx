@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions, Animated } from "react-native";
+import { StyleSheet, Dimensions, Animated, ViewStyle } from "react-native";
 import React from "react";
 import {
   Box,
@@ -24,10 +24,10 @@ interface CompanyCardProps {
   features: Feature[];
   description: String;
   link: String;
+  searchCard?: boolean;
 }
 
 const CompanyCard = (props: CompanyCardProps) => {
-  const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
   const [showAlert, setShowAlert] = React.useState<boolean>(false);
   const [fadeAnim] = React.useState(new Animated.Value(0));
@@ -36,10 +36,10 @@ const CompanyCard = (props: CompanyCardProps) => {
 
   return (
     <React.Fragment>
-      <Box
-        style={{ width: width * 0.95 }}
-        rounded="lg"
+      <Stack
+        width={"100%"}
         overflow="hidden"
+        rounded={props.searchCard ? "0" : "lg"}
         borderColor="coolGray.200"
         borderWidth="1"
         _dark={{
@@ -106,7 +106,7 @@ const CompanyCard = (props: CompanyCardProps) => {
             ></Box>
           </Stack>
         </Stack>
-      </Box>
+      </Stack>
     </React.Fragment>
   );
 };

@@ -9,7 +9,7 @@ export default () => {
         <Stack.Screen
           name="index"
           options={{
-            headerTitle: "My Companys",
+            headerTitle: "My Companies",
             headerTitleAlign: "left",
           }}
         />

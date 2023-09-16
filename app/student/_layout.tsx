@@ -52,6 +52,7 @@ export default () => {
               <Tabs.Screen
                 name="search"
                 options={{
+                  headerTitle: "",
                   tabBarIcon: () => {
                     return <Feather name="search" size={24} color="black" />;
                   },

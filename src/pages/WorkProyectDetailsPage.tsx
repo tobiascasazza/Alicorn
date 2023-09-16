@@ -29,7 +29,6 @@ import { Link } from "expo-router";
 import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
 import StudentCard from "../components/molecules/cards/StudentCard";
 import { WorkProyect } from "../models/objects/WorkProyect";
-import users from "../../data/users.json";
 import { User } from "../models/objects/User";
 import ConfirmDialog from "../components/molecules/dialogs/ConfirmDialog";
 import AddPunctuationDialog from "../components/molecules/dialogs/AddPunctuationDialog";

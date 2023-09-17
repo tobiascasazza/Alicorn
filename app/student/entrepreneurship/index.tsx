@@ -6,10 +6,15 @@ import { Feature } from "../../../src/models/objects/FeatureModel";
 import CompanyCards from "../../../data/CompanyCards.json";
 import { Link } from "expo-router";
 import CompanyCard from "../../../src/components/molecules/cards/CompanyCard";
+import { useAppSelector } from "../../../redux/reduxHooks";
+import { filterCompaniesByUserId } from "../../../utils/globalFunctions";
 
 export default function entrepreneurship() {
   const { width } = Dimensions.get("window");
-  const [companyData, setCompanyData] = React.useState(CompanyCards);
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
+  const [companyData, setCompanyData] = React.useState(
+    filterCompaniesByUserId(activeUser.id, CompanyCards)
+  );
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -38,7 +43,7 @@ export default function entrepreneurship() {
             );
           })
         ) : (
-          <Text>You don't have any Work Project yet</Text>
+          <Text>You don't have any Company yet</Text>
         )}
         <Container style={{ flex: 1 }}>
           <Fab

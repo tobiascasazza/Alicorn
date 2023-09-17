@@ -13,7 +13,7 @@ interface WorkProjectCardProps {
   subtitle: String;
   features: Feature[];
   description: String;
-  link: String;
+  link?: String;
 }
 
 const WorkProjectCard = (props: WorkProjectCardProps) => {

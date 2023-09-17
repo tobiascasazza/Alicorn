@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { View, ScrollView, StyleSheet, Dimensions } from "react-native";
 import { Link, Tabs } from "expo-router";
 import ResumeProjectCard from "../../../src/components/molecules/cards/ResumeProjectCard";
@@ -8,13 +8,17 @@ import { Feather } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "../../../redux/reduxHooks";
 import users from "../../../data/users.json";
 import { setCurrentUser } from "../../../redux/activeUser";
+import { ResumeProject } from "../../../src/models/objects/ResumeProject";
+import { filterResumeProjectsByUserId } from "../../../utils/globalFunctions";
 
 export default function home() {
   const notificationsCount = 5;
   const { width } = Dimensions.get("window");
   const dispatch = useAppDispatch();
-
-  const list = projects;
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
+  const [list, setList] = useState<ResumeProject[]>(
+    filterResumeProjectsByUserId(activeUser.id, projects)
+  );
 
   const detailLink = (project: any) => {
     if (project.projectType === "Work Project") {
@@ -23,10 +27,19 @@ export default function home() {
       return `student/home/companydetail/${project.id}`;
     }
   };
-
+  useEffect(() => {
+    if (activeUser) {
+      const filteredProjects = filterResumeProjectsByUserId(
+        activeUser.id,
+        projects
+      );
+      setList(filteredProjects);
+    }
+  }, [activeUser]);
   useEffect(() => {
     dispatch(setCurrentUser(users[0]));
   }, []);
+
   return (
     <NativeBaseProvider>
       <ScrollView>

@@ -1,4 +1,5 @@
 import { Company } from "../src/models/objects/Company";
+import { ResumeProjectCard } from "../src/models/objects/ResumeProject";
 import { WorkProject } from "../src/models/objects/WorkProject";
 
 export function filterCompaniesByUserId(
@@ -16,6 +17,15 @@ export function filterWorkProjectsByUserId(
   workProjects: WorkProject[]
 ) {
   return workProjects.filter((workProject) =>
-    workProject.students.some((owner) => owner.id === studentId)
+    workProject.students.some((student) => student.id === studentId)
+  );
+}
+
+export function filterResumeProjectsByUserId(
+  studentId: number,
+  projects: ResumeProjectCard[]
+) {
+  return projects.filter((project) =>
+    project.participants.some((participant) => participant.id === studentId)
   );
 }

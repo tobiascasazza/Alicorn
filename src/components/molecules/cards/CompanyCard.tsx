@@ -23,7 +23,7 @@ interface CompanyCardProps {
   slogan: String;
   features: Feature[];
   description: String;
-  link: String;
+  link?: String;
   searchCard?: boolean;
 }
 

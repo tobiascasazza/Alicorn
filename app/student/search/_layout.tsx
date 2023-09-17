@@ -26,7 +26,6 @@ export default () => {
                     borderRadius="10"
                     py="1"
                     px="2"
-                    outlineColor={"transparent"}
                     bgColor={"white"}
                     focusOutlineColor={"black"}
                     InputLeftElement={

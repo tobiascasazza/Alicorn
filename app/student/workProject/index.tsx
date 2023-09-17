@@ -1,15 +1,20 @@
 import { Text, ScrollView } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import WorkProjectCard from "../../../src/components/molecules/cards/WorkProjectCard";
 import { Box, Container, Fab, Icon, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { Feature } from "../../../src/models/objects/FeatureModel";
 import WorkProjectCards from "../../../data/WorkProjectCards.json";
 import { Link } from "expo-router";
+import { filterWorkProjectsByUserId } from "../../../utils/globalFunctions";
+import { useAppSelector } from "../../../redux/reduxHooks";
+import { WorkProject } from "../../../src/models/objects/WorkProject";
 
 export default function workProject() {
-  const [workProjectData, setWorkProjectData] =
-    React.useState(WorkProjectCards);
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
+  const [workProjectData, setWorkProjectData] = useState<WorkProject[]>(
+    filterWorkProjectsByUserId(activeUser.id, WorkProjectCards)
+  );
   return (
     <NativeBaseProvider>
       <ScrollView>

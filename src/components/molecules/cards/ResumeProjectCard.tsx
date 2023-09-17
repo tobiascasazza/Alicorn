@@ -5,17 +5,10 @@ import { User } from "../../../models/objects/User";
 import StarsRatingView from "../../atoms/stars/StarsRatingView";
 import { Link, useRouter } from "expo-router";
 import { useRoute } from "@react-navigation/native";
+import { ResumeProject } from "../../../models/objects/ResumeProject";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
-type ResumeProjectCardProps = {
-  projectName: string;
-  projectDescription: string;
-  participants: Array<User>;
-  projectType: string;
-  projectDetailLink: string;
-};
-
-const ResumeProjectCard = (props: ResumeProjectCardProps) => {
+const ResumeProjectCard = (props: ResumeProject) => {
   const projectColor = () => {
     switch (props.projectType) {
       case "Work Project":

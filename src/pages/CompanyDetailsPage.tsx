@@ -48,7 +48,7 @@ type CompanyPageRouteParamList = {
 };
 
 const CompanyDetailsPage = (props: { currentTab?: string }) => {
-  const empltyEmployee: User = {
+  const emptyEmployee: User = {
     id: 0,
     features: [],
     name: "",
@@ -65,8 +65,7 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
   const [employeesStarsAvg, setEmployeesStarsAvg] = useState(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isDeleteEmployeeDialog, setIsDeleteEmployeeDialog] = useState(false);
-  const [employeeToDelete, setEmployeeToDelete] =
-    useState<User>(empltyEmployee);
+  const [employeeToDelete, setEmployeeToDelete] = useState<User>(emptyEmployee);
   const [currentCompany, setCurrentCompany] = useState<Company>({
     id: 1,
     title: "",
@@ -110,7 +109,7 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
       (user) => user.id !== employeeToDelete.id
     );
     setCurrentCompany({ ...currentCompany, employees: newEmployees });
-    setEmployeeToDelete(empltyEmployee);
+    setEmployeeToDelete(emptyEmployee);
   };
 
   const calculateStarsAvg = () => {

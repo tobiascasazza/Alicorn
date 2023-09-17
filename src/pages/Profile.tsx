@@ -27,6 +27,10 @@ import opinions from "../../data/opinions.json";
 import SeePunctuationDialog from "../components/molecules/dialogs/SeePunctuationsDialog";
 import { User } from "../models/objects/User";
 import { Opinion } from "../models/objects/Opinion";
+import {
+  filterCompaniesByUserId,
+  filterResumeProjectsByUserId,
+} from "../../utils/globalFunctions";
 
 interface myProfileProps {
   student: User;
@@ -36,10 +40,18 @@ interface myProfileProps {
 const Profile = (props: myProfileProps) => {
   const { width } = Dimensions.get("window");
   const [companyData, setCompanyData] = useState(
-    ProjectCards.filter((project) => project.projectType === "Entrepreneurship")
+    filterResumeProjectsByUserId(
+      props.student.id,
+      ProjectCards.filter(
+        (project) => project.projectType === "Entrepreneurship"
+      )
+    )
   );
   const [workProjectsData, setWorkProjectsData] = useState(
-    ProjectCards.filter((project) => project.projectType === "Work Project")
+    filterResumeProjectsByUserId(
+      props.student.id,
+      ProjectCards.filter((project) => project.projectType === "Work Project")
+    )
   );
   const [seePunctuationOpen, setSeePunctuationOpen] = useState(false);
   const [studentOpinions, setStudentOpinions] = useState<Opinion[]>([]);

@@ -1,5 +1,5 @@
 import { Company } from "../src/models/objects/Company";
-import { ResumeProjectCard } from "../src/models/objects/ResumeProject";
+import { ResumeProject } from "../src/models/objects/ResumeProject";
 import { WorkProject } from "../src/models/objects/WorkProject";
 
 export function filterCompaniesByUserId(
@@ -23,7 +23,7 @@ export function filterWorkProjectsByUserId(
 
 export function filterResumeProjectsByUserId(
   studentId: number,
-  projects: ResumeProjectCard[]
+  projects: ResumeProject[]
 ) {
   return projects.filter((project) =>
     project.participants.some((participant) => participant.id === studentId)

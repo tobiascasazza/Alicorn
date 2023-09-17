@@ -224,6 +224,7 @@ const Profile = (props: myProfileProps) => {
                 <React.Fragment key={project.projectName + Math.random()}>
                   <Box my={"2"} width={"100%"}>
                     <ResumeProjectCard
+                      id={project.id}
                       projectDetailLink={`student/${
                         props.currentTab ? props.currentTab : "profile"
                       }/companydetail/${project.id}`}
@@ -250,6 +251,7 @@ const Profile = (props: myProfileProps) => {
                 <React.Fragment key={project.projectName + Math.random()}>
                   <Box my={"2"} width={"100%"}>
                     <ResumeProjectCard
+                      id={project.id}
                       projectDetailLink={`student/${
                         props.currentTab ? props.currentTab : "profile"
                       }/workprojectdetail/${project.id}`}

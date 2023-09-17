@@ -8,7 +8,6 @@ export interface UserSearch {
 
 export interface CompanySearch {
   title: string;
-  slogan: string;
   punctuation: number[];
   features: Feature[];
 }

@@ -16,7 +16,6 @@ const initialState: reducerSearch = {
   },
   companySearch: {
     title: "",
-    slogan: "",
     punctuation: [0, 0],
     features: [],
   },

@@ -18,8 +18,8 @@ import StarsRatingView from "../components/atoms/stars/StarsRatingView";
 import CardPunctuationList from "../components/atoms/lists/CardPunctuationList";
 import CardPunctuationListView from "../components/atoms/lists/CardPunctuationListView";
 import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
-import ProyectCards from "../../data/proyectsExample.json";
-import ResumeProyectCard from "../components/molecules/cards/ResumeProyectCard";
+import ProjectCards from "../../data/projectsExample.json";
+import ResumeProjectCard from "../components/molecules/cards/ResumeProjectCard";
 import { Feature } from "../models/objects/FeatureModel";
 import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
 import ContactCard from "../components/atoms/smallCards/ContactCard";
@@ -36,10 +36,10 @@ interface myProfileProps {
 const Profile = (props: myProfileProps) => {
   const { width } = Dimensions.get("window");
   const [companyData, setCompanyData] = useState(
-    ProyectCards.filter((proyect) => proyect.proyectType === "Entrepreneurship")
+    ProjectCards.filter((project) => project.projectType === "Entrepreneurship")
   );
-  const [workProyectsData, setWorkProyectsData] = useState(
-    ProyectCards.filter((proyect) => proyect.proyectType === "Work Project")
+  const [workProjectsData, setWorkProjectsData] = useState(
+    ProjectCards.filter((project) => project.projectType === "Work Project")
   );
   const [seePunctuationOpen, setSeePunctuationOpen] = useState(false);
   const [studentOpinions, setStudentOpinions] = useState<Opinion[]>([]);
@@ -207,19 +207,19 @@ const Profile = (props: myProfileProps) => {
       <AlicornCollapsible title={"Entrepreneurships"}>
         <Box py={2} alignItems={"center"}>
           {companyData.length > 0 ? (
-            companyData.map((proyect) => {
+            companyData.map((project) => {
               return (
-                <React.Fragment key={proyect.proyectName + Math.random()}>
+                <React.Fragment key={project.projectName + Math.random()}>
                   <Box my={"2"} width={"100%"}>
-                    <ResumeProyectCard
-                      proyectDetailLink={`student/${
+                    <ResumeProjectCard
+                      projectDetailLink={`student/${
                         props.currentTab ? props.currentTab : "profile"
-                      }/companydetail/${proyect.id}`}
-                      proyectName={proyect.proyectName}
-                      proyectDescription={proyect.proyectDescription}
-                      participants={proyect.participants}
-                      proyectType={proyect.proyectType}
-                      key={proyect.proyectName + Math.random()}
+                      }/companydetail/${project.id}`}
+                      projectName={project.projectName}
+                      projectDescription={project.projectDescription}
+                      participants={project.participants}
+                      projectType={project.projectType}
+                      key={project.projectName + Math.random()}
                     />
                   </Box>
                 </React.Fragment>
@@ -230,22 +230,22 @@ const Profile = (props: myProfileProps) => {
           )}
         </Box>
       </AlicornCollapsible>
-      <AlicornCollapsible title={"Work Proyects History"}>
+      <AlicornCollapsible title={"Work Projects History"}>
         <Box py={2} alignItems={"center"}>
-          {workProyectsData.length > 0 ? (
-            workProyectsData.map((proyect) => {
+          {workProjectsData.length > 0 ? (
+            workProjectsData.map((project) => {
               return (
-                <React.Fragment key={proyect.proyectName + Math.random()}>
+                <React.Fragment key={project.projectName + Math.random()}>
                   <Box my={"2"} width={"100%"}>
-                    <ResumeProyectCard
-                      proyectDetailLink={`student/${
+                    <ResumeProjectCard
+                      projectDetailLink={`student/${
                         props.currentTab ? props.currentTab : "profile"
-                      }/workproyectdetail/${proyect.id}`}
-                      proyectName={proyect.proyectName}
-                      proyectDescription={proyect.proyectDescription}
-                      participants={proyect.participants}
-                      proyectType={proyect.proyectType}
-                      key={proyect.proyectName + Math.random()}
+                      }/workprojectdetail/${project.id}`}
+                      projectName={project.projectName}
+                      projectDescription={project.projectDescription}
+                      participants={project.participants}
+                      projectType={project.projectType}
+                      key={project.projectName + Math.random()}
                     />
                   </Box>
                 </React.Fragment>

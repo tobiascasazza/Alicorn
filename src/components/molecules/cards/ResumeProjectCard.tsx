@@ -7,17 +7,17 @@ import { Link, useRouter } from "expo-router";
 import { useRoute } from "@react-navigation/native";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
-type ResumeProyectCardProps = {
-  proyectName: string;
-  proyectDescription: string;
+type ResumeProjectCardProps = {
+  projectName: string;
+  projectDescription: string;
   participants: Array<User>;
-  proyectType: string;
-  proyectDetailLink: string;
+  projectType: string;
+  projectDetailLink: string;
 };
 
-const ResumeProyectCard = (props: ResumeProyectCardProps) => {
-  const proyectColor = () => {
-    switch (props.proyectType) {
+const ResumeProjectCard = (props: ResumeProjectCardProps) => {
+  const projectColor = () => {
+    switch (props.projectType) {
       case "Work Project":
         return "blue";
       case "Entrepreneurship":
@@ -49,11 +49,11 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
       <VStack p="4" space={3} width={"100%"}>
         <VStack space={2}>
           <HStack justifyContent={"space-between"}>
-            <Heading size="md">{props.proyectName}</Heading>
-            <Link href={props.proyectDetailLink}>
+            <Heading size="md">{props.projectName}</Heading>
+            <Link href={props.projectDetailLink}>
               <Text
                 color={
-                  props.proyectType === "Entrepreneurship"
+                  props.projectType === "Entrepreneurship"
                     ? "pink.500"
                     : "blue.500"
                 }
@@ -67,16 +67,16 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
           <Text
             fontSize="xs"
             _light={{
-              color: `${proyectColor()}.500`,
+              color: `${projectColor()}.500`,
             }}
             _dark={{
-              color: `${proyectColor()}.400`,
+              color: `${projectColor()}.400`,
             }}
             fontWeight="500"
             ml="-0.5"
             mt="-1"
           >
-            {props.proyectDescription}
+            {props.projectDescription}
           </Text>
         </VStack>
         <VStack>
@@ -100,9 +100,9 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
       </VStack>
       <Box alignSelf={"flex-end"}>
         <Center
-          bg={`${proyectColor()}.500`}
+          bg={`${projectColor()}.500`}
           _dark={{
-            bg: `${proyectColor()}.400`,
+            bg: `${projectColor()}.400`,
           }}
           _text={{
             color: "warmGray.50",
@@ -114,7 +114,7 @@ const ResumeProyectCard = (props: ResumeProyectCardProps) => {
           py="1.5"
           borderTopLeftRadius={5}
         >
-          {props.proyectType === "Entrepreneurship" ? (
+          {props.projectType === "Entrepreneurship" ? (
             <MaterialCommunityIcons
               name="unicorn-variant"
               size={24}
@@ -139,4 +139,4 @@ const styles = StyleSheet.create({
     borderColor: "transparent",
   },
 });
-export default ResumeProyectCard;
+export default ResumeProjectCard;

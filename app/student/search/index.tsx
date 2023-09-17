@@ -7,22 +7,22 @@ import companies from "../../../data/CompanyCards.json";
 import users from "../../../data/users.json";
 import { AntDesign, EvilIcons } from "@expo/vector-icons";
 import { Input, Icon, Box, Button, HStack } from "native-base";
-import ResumeProyectCard from "../../../src/components/molecules/cards/ResumeProyectCard";
+import ResumeProjectCard from "../../../src/components/molecules/cards/ResumeProjectCard";
 import CompanyCard from "../../../src/components/molecules/cards/CompanyCard";
 import StudentCard from "../../../src/components/molecules/cards/StudentCard";
 import { useAppSelector } from "../../../redux/reduxHooks";
 
 export default function search() {
-  const [searchProfilesProyects, setSearchProfilesProyects] = useState(false);
+  const [searchProfilesProjects, setSearchProfilesProjects] = useState(false);
   const activeUser = useAppSelector((state) => state.activeUser.currentUser);
   const { width } = Dimensions.get("window");
   const list = companies;
   const searchProfiles = () => {
-    setSearchProfilesProyects(false);
+    setSearchProfilesProjects(false);
   };
 
-  const searchProyects = () => {
-    setSearchProfilesProyects(true);
+  const searchProjects = () => {
+    setSearchProfilesProjects(true);
   };
 
   return (
@@ -32,7 +32,7 @@ export default function search() {
           <Button
             w={"50%"}
             borderRadius={"0"}
-            backgroundColor={searchProfilesProyects ? "blue.300" : "blue.500"}
+            backgroundColor={searchProfilesProjects ? "blue.300" : "blue.500"}
             borderStyle={"solid"}
             onTouchEnd={() => searchProfiles()}
           >
@@ -41,10 +41,10 @@ export default function search() {
           <Button
             w={"50%"}
             borderRadius={"0"}
-            backgroundColor={searchProfilesProyects ? "blue.500" : "blue.300"}
-            onTouchEnd={() => searchProyects()}
+            backgroundColor={searchProfilesProjects ? "blue.500" : "blue.300"}
+            onTouchEnd={() => searchProjects()}
           >
-            Proyects
+            Projects
           </Button>
         </HStack>
         <Box backgroundColor={"white"} w={"10%"}>
@@ -57,7 +57,7 @@ export default function search() {
         </Box>
       </HStack>
       <ScrollView>
-        {searchProfilesProyects ? (
+        {searchProfilesProjects ? (
           <Box py={2} alignItems={"center"}>
             {list.length > 0 ? (
               list.map((company) => {
@@ -80,7 +80,7 @@ export default function search() {
                 );
               })
             ) : (
-              <Text>It doesn't have any proyect with these parameters</Text>
+              <Text>It doesn't have any project with these parameters</Text>
             )}
           </Box>
         ) : (
@@ -104,7 +104,7 @@ export default function search() {
                 );
               })
             ) : (
-              <Text>It doesn't have any proyect with these parameters</Text>
+              <Text>It doesn't have any project with these parameters</Text>
             )}
           </Box>
         )}

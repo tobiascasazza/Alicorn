@@ -3,17 +3,17 @@ import React from "react";
 import { Stack } from "expo-router";
 import { Container, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
-import WorkProyectDetailsPage from "../../../../src/pages/WorkProyectDetailsPage";
+import WorkProjectDetailsPage from "../../../../src/pages/WorkProjectDetailsPage";
 
-const proyect = () => {
+const project = () => {
   return (
     <NativeBaseProvider>
       <ScrollView>
-        <Stack.Screen options={{ headerTitle: "Work Proyect" }} />
-        <WorkProyectDetailsPage currentTab="home" />
+        <Stack.Screen options={{ headerTitle: "Work Project" }} />
+        <WorkProjectDetailsPage currentTab="home" />
       </ScrollView>
     </NativeBaseProvider>
   );
 };
 
-export default proyect;
+export default project;

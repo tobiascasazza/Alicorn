@@ -3,15 +3,15 @@ import React from "react";
 import { Stack } from "expo-router";
 import { Container, Fab } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
-import WorkProyectDetailsPage from "../../../../src/pages/WorkProyectDetailsPage";
+import WorkProjectDetailsPage from "../../../../src/pages/WorkProjectDetailsPage";
 
-const proyect = () => {
+const project = () => {
   return (
     <ScrollView>
-      <Stack.Screen options={{ headerTitle: "Work Proyect" }} />
-      <WorkProyectDetailsPage currentTab="profile" />
+      <Stack.Screen options={{ headerTitle: "Work Project" }} />
+      <WorkProjectDetailsPage currentTab="profile" />
     </ScrollView>
   );
 };
 
-export default proyect;
+export default project;

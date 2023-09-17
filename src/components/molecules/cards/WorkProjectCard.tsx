@@ -7,7 +7,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useClipboard } from "native-base";
 import { Link } from "expo-router";
 
-interface WorkProyectCardProps {
+interface WorkProjectCardProps {
   id: number;
   title: String;
   subtitle: String;
@@ -16,7 +16,7 @@ interface WorkProyectCardProps {
   link: String;
 }
 
-const WorkProyectCard = (props: WorkProyectCardProps) => {
+const WorkProjectCard = (props: WorkProjectCardProps) => {
   const { width } = Dimensions.get("window");
   const [showAlert, setShowAlert] = React.useState<boolean>(false);
   const [fadeAnim] = React.useState(new Animated.Value(0));
@@ -49,7 +49,7 @@ const WorkProyectCard = (props: WorkProyectCardProps) => {
               <Heading size="md" ml="-1">
                 {props.title}
               </Heading>
-              <Link href={`student/workProyect/proyect/${props.id}`}>
+              <Link href={`student/workProyect/project/${props.id}`}>
                 <Text color="blue.500" underline>
                   view detail
                 </Text>
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
     bottom: 50,
   },
 });
-export default WorkProyectCard;
+export default WorkProjectCard;

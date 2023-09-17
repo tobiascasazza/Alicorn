@@ -1,41 +1,41 @@
 import { Text, ScrollView } from "react-native";
 import React from "react";
-import WorkProyectCard from "../../../src/components/molecules/cards/WorkProyectCard";
+import WorkProjectCard from "../../../src/components/molecules/cards/WorkProjectCard";
 import { Box, Container, Fab, Icon, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { Feature } from "../../../src/models/objects/FeatureModel";
-import WorkProyectCards from "../../../data/WorkProyectCards.json";
+import WorkProjectCards from "../../../data/WorkProjectCards.json";
 import { Link } from "expo-router";
 
-export default function workProyect() {
-  const [workProyectData, setWorkProyectData] =
-    React.useState(WorkProyectCards);
+export default function workProject() {
+  const [workProjectData, setWorkProjectData] =
+    React.useState(WorkProjectCards);
   return (
     <NativeBaseProvider>
       <ScrollView>
-        {workProyectData.length > 0 ? (
-          workProyectData.map((workProyect) => {
+        {workProjectData.length > 0 ? (
+          workProjectData.map((workProject) => {
             return (
-              <React.Fragment key={workProyect.id + Math.random()}>
+              <React.Fragment key={workProject.id + Math.random()}>
                 <Box
                   py={2}
                   alignItems={"center"}
-                  key={workProyect.id + Math.random()}
+                  key={workProject.id + Math.random()}
                 >
-                  <WorkProyectCard
-                    id={workProyect.id}
-                    features={workProyect.features}
-                    title={workProyect.title}
-                    subtitle={workProyect.subtitle}
-                    description={workProyect.description}
-                    link={workProyect.link}
+                  <WorkProjectCard
+                    id={workProject.id}
+                    features={workProject.features}
+                    title={workProject.title}
+                    subtitle={workProject.subtitle}
+                    description={workProject.description}
+                    link={workProject.link}
                   />
                 </Box>
               </React.Fragment>
             );
           })
         ) : (
-          <Text>You don't have any Work Proyect yet</Text>
+          <Text>You don't have any Work Project yet</Text>
         )}
         <Container style={{ flex: 1 }}>
           <Fab

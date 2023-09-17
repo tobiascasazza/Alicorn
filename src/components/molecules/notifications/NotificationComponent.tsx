@@ -51,7 +51,7 @@ const NotificationComponent = (props: Notification) => {
   const notificationPress = () => {
     switch (props.notificationType) {
       case notificationType.proReq:
-        console.log("Proyect Request function");
+        console.log("Project Request function");
         break;
       case notificationType.jobReq:
         console.log("Job Request function");

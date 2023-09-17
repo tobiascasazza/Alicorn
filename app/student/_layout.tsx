@@ -59,12 +59,12 @@ export default () => {
                 }}
               />
               <Tabs.Screen
-                name="workProyect"
+                name="workProject"
                 options={{
                   tabBarIcon: () => {
                     return <AntDesign name="profile" size={24} color="black" />;
                   },
-                  headerTitle: "Work Proyects",
+                  headerTitle: "Work Projects",
                   headerShown: false,
                 }}
               />

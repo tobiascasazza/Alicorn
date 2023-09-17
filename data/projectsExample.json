@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "proyectName": "Server Administration",
-    "proyectDescription": "Create servers and mantain it for 4 month",
+    "projectName": "Server Administration",
+    "projectDescription": "Create servers and mantain it for 4 month",
     "participants": [
       {
         "id": 1,
@@ -71,12 +71,12 @@
         ]
       }
     ],
-    "proyectType": "Work Project"
+    "projectType": "Work Project"
   },
   {
     "id": 2,
-    "proyectName": "Restaurant App",
-    "proyectDescription": "Collage proyect of restaurant with React",
+    "projectName": "Restaurant App",
+    "projectDescription": "Collage project of restaurant with React",
     "participants": [
       {
         "id": 1,
@@ -145,12 +145,12 @@
         ]
       }
     ],
-    "proyectType": "Work Project"
+    "projectType": "Work Project"
   },
   {
     "id": 3,
-    "proyectName": "Facebook",
-    "proyectDescription": "It's quick and easy",
+    "projectName": "Facebook",
+    "projectDescription": "It's quick and easy",
     "participants": [
       {
         "id": 132,
@@ -207,12 +207,12 @@
         ]
       }
     ],
-    "proyectType": "Entrepreneurship"
+    "projectType": "Entrepreneurship"
   },
   {
     "id": 4,
-    "proyectName": "Apple",
-    "proyectDescription": "Think Diferent",
+    "projectName": "Apple",
+    "projectDescription": "Think Diferent",
     "participants": [
       {
         "id": 32,
@@ -269,12 +269,12 @@
         ]
       }
     ],
-    "proyectType": "Entrepreneurship"
+    "projectType": "Entrepreneurship"
   },
   {
     "id": 5,
-    "proyectName": "IoT proyect",
-    "proyectDescription": "Collage investigation proyect of IoT",
+    "projectName": "IoT project",
+    "projectDescription": "Collage investigation project of IoT",
     "participants": [
       {
         "id": 1,
@@ -343,12 +343,12 @@
         ]
       }
     ],
-    "proyectType": "Work Project"
+    "projectType": "Work Project"
   },
   {
     "id": 6,
-    "proyectName": "Nike",
-    "proyectDescription": "Just Do It",
+    "projectName": "Nike",
+    "projectDescription": "Just Do It",
     "participants": [
       {
         "id": 56,
@@ -405,6 +405,6 @@
         ]
       }
     ],
-    "proyectType": "Entrepreneurship"
+    "projectType": "Entrepreneurship"
   }
 ]

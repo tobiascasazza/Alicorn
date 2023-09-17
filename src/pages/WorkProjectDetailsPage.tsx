@@ -28,22 +28,22 @@ import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import FeaturesCard from "../components/atoms/smallCards/FeaturesCard";
 import StudentCard from "../components/molecules/cards/StudentCard";
-import { WorkProyect } from "../models/objects/WorkProyect";
+import { WorkProject } from "../models/objects/WorkProject";
 import { User } from "../models/objects/User";
 import ConfirmDialog from "../components/molecules/dialogs/ConfirmDialog";
 import AddPunctuationDialog from "../components/molecules/dialogs/AddPunctuationDialog";
-import WorkProyectData from "../../data/WorkProyectCards.json";
+import WorkProjectData from "../../data/WorkProjectCards.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { Feature } from "../models/objects/FeatureModel";
 import { useAppSelector } from "../../redux/reduxHooks";
 
-type WorkProyectPageRouteParamList = {
-  WorkProyectPage: {
-    proyectId: number;
+type WorkProjectPageRouteParamList = {
+  WorkProjectPage: {
+    projectId: number;
   };
 };
 
-const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
+const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
   const empltyStudent: User = {
     id: 0,
     features: [],
@@ -55,16 +55,16 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
   const { onCopy } = useClipboard();
   const activeUser = useAppSelector((state) => state.activeUser.currentUser);
   const route =
-    useRoute<RouteProp<WorkProyectPageRouteParamList, "WorkProyectPage">>();
+    useRoute<RouteProp<WorkProjectPageRouteParamList, "WorkProjectPage">>();
   const [editMode, setEditMode] = useState(false);
   const [usersProtyect, setUsersProtyect] = useState<User[]>([]);
   const [punctuationCard, setPunctuationCard] = useState<boolean>(false);
-  const [proyectState, setProyectState] = useState<string>("Finished");
+  const [projectState, setProjectState] = useState<string>("Finished");
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isFinishDialogOpen, setIsFinishDialogOpen] = useState(false);
   const [isDeleteStudentDialog, setIsDeleteStudentDialog] = useState(false);
   const [studentToDelete, setStudentToDelete] = useState<User>(empltyStudent);
-  const [currentWorkProyect, setCurrentWorkProyect] = useState<WorkProyect>({
+  const [currentWorkProject, setCurrentWorkProject] = useState<WorkProject>({
     id: 1,
     title: "",
     subtitle: "",
@@ -75,7 +75,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
   });
 
   const handleCopyLink = () => {
-    onCopy(currentWorkProyect.link ? currentWorkProyect.link : "");
+    onCopy(currentWorkProject.link ? currentWorkProject.link : "");
     Toast.show({
       type: ALERT_TYPE.SUCCESS,
       title: "Success",
@@ -88,7 +88,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
     setEditMode(!editMode);
   };
 
-  const dialogFinishProyect = () => {
+  const dialogFinishProject = () => {
     setIsFinishDialogOpen(true);
   };
 
@@ -102,7 +102,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
     Dialog.show({
       type: ALERT_TYPE.DANGER,
       title: `${studentToDelete?.name} ${studentToDelete?.lastName} was deleted`,
-      textBody: `You are deleted ${studentToDelete?.name} ${studentToDelete?.lastName} of the proyect ${currentWorkProyect.title} `,
+      textBody: `You are deleted ${studentToDelete?.name} ${studentToDelete?.lastName} of the project ${currentWorkProject.title} `,
       button: "close",
     });
     let newStudents: User[] = usersProtyect.filter(
@@ -112,7 +112,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
     setStudentToDelete(empltyStudent);
   };
 
-  const finishProyect = () => {
+  const finishProject = () => {
     setIsFinishDialogOpen(false);
     Dialog.show({
       type: ALERT_TYPE.SUCCESS,
@@ -120,32 +120,32 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
       textBody: "Congrats! Your proyecs was sended",
       button: "close",
     });
-    let newFeature: Feature[] = currentWorkProyect.features;
+    let newFeature: Feature[] = currentWorkProject.features;
     newFeature.filter((feature) => feature.title === "State")[0].description =
       "Finished";
-    setCurrentWorkProyect({ ...currentWorkProyect, features: newFeature });
+    setCurrentWorkProject({ ...currentWorkProject, features: newFeature });
 
     setPunctuationCard(true);
   };
   useEffect(() => {
-    currentWorkProyect.title != "" &&
-      setProyectState(
-        currentWorkProyect.features.filter(
+    currentWorkProject.title != "" &&
+      setProjectState(
+        currentWorkProject.features.filter(
           (feature) => feature.title === "State"
         )[0].description
       );
-    currentWorkProyect.title != "" &&
-      setUsersProtyect(currentWorkProyect.students);
+    currentWorkProject.title != "" &&
+      setUsersProtyect(currentWorkProject.students);
 
-    currentWorkProyect.title != "" ? setIsLoading(false) : setIsLoading(true);
-  }, [currentWorkProyect]);
+    currentWorkProject.title != "" ? setIsLoading(false) : setIsLoading(true);
+  }, [currentWorkProject]);
 
   useEffect(() => {
     console.log(route);
-    const newCurrentWorkProyect = WorkProyectData.filter(
-      (proyect) => proyect.id == route.params?.proyectId
+    const newCurrentWorkProject = WorkProjectData.filter(
+      (project) => project.id == route.params?.projectId
     )[0];
-    setCurrentWorkProyect(newCurrentWorkProyect);
+    setCurrentWorkProject(newCurrentWorkProject);
   }, []);
 
   return (
@@ -163,7 +163,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
             <Stack space={2}>
               <HStack justifyContent={"space-between"}>
                 <Heading size="md" ml="-1">
-                  <Text>{currentWorkProyect.title}</Text>
+                  <Text>{currentWorkProject.title}</Text>
                 </Heading>
               </HStack>
               <Text
@@ -177,7 +177,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
                 mt="-1"
                 bold={true}
               >
-                {currentWorkProyect.subtitle}
+                {currentWorkProject.subtitle}
               </Text>
               <HStack
                 justifyContent={"space-between"}
@@ -202,8 +202,8 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
                   </Text>
                   <FeaturesCard
                     features={
-                      currentWorkProyect.features
-                        ? currentWorkProyect.features
+                      currentWorkProject.features
+                        ? currentWorkProject.features
                         : []
                     }
                     edit={editMode}
@@ -246,7 +246,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
                     ml="-0.5"
                     padding={2}
                   >
-                    {currentWorkProyect.description}
+                    {currentWorkProject.description}
                   </Text>
                 ) : (
                   <Input
@@ -261,7 +261,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
                     }}
                     backgroundColor={"blue"}
                   >
-                    {currentWorkProyect.description}
+                    {currentWorkProject.description}
                   </Input>
                 )}
               </Box>
@@ -296,13 +296,13 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
                       >
                         <Link
                           href={
-                            currentWorkProyect.link?.toString() !== undefined
-                              ? currentWorkProyect.link?.toString()
+                            currentWorkProject.link?.toString() !== undefined
+                              ? currentWorkProject.link?.toString()
                               : ""
                           }
                           style={{ color: "black" }}
                         >
-                          <Text>{currentWorkProyect.link}</Text>
+                          <Text>{currentWorkProject.link}</Text>
                         </Link>
                       </Text>
                     </HStack>
@@ -320,7 +320,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
                       Link:{" "}
                     </Text>
                     <Input
-                      defaultValue="http://localhost:19000/student/workProyect/proyect/1"
+                      defaultValue="http://localhost:19000/student/workProyect/project/1"
                       w={"90%"}
                       m="1"
                       fontSize="xs"
@@ -337,7 +337,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
               </Box>
 
               <Box
-                mb={editMode === true || proyectState === "Finished" ? 0 : 20}
+                mb={editMode === true || projectState === "Finished" ? 0 : 20}
               >
                 {usersProtyect.length > 0 &&
                   usersProtyect.map((user, index) => (
@@ -407,7 +407,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
               </Container>
             </React.Fragment>
           ) : (
-            proyectState !== "Finished" && (
+            projectState !== "Finished" && (
               <React.Fragment>
                 <Container style={{ flex: 2 }}>
                   <HStack justifyContent="space-between">
@@ -429,7 +429,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
                       }
                     />
                     <Fab
-                      onPressOut={() => dialogFinishProyect()}
+                      onPressOut={() => dialogFinishProject()}
                       position="absolute"
                       bg="green.600"
                       icon={
@@ -449,13 +449,13 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
           <ConfirmDialog
             isOpen={isFinishDialogOpen}
             setIsOpen={setIsFinishDialogOpen}
-            confirmAction={finishProyect}
-            title={"Send Work Proyect Confirm"}
+            confirmAction={finishProject}
+            title={"Send Work Project Confirm"}
             description={`This will confirm and send all data relating to ${
-              currentWorkProyect.title
+              currentWorkProject.title
             } and will send it to the professor mail ${
-              currentWorkProyect.features
-                ? currentWorkProyect.features.filter(
+              currentWorkProject.features
+                ? currentWorkProject.features.filter(
                     (feature) => feature.title === "Professor mail"
                   )[0].description
                 : ""
@@ -466,7 +466,7 @@ const WorkProyectDetailsPage = (props: { currentTab?: string }) => {
             setIsOpen={setIsDeleteStudentDialog}
             confirmAction={deleteStudent}
             title={"Delete Student"}
-            description={`Are you sure that you want delete the next student of this proyect?: ${studentToDelete?.name} ${studentToDelete?.lastName}`}
+            description={`Are you sure that you want delete the next student of this project?: ${studentToDelete?.name} ${studentToDelete?.lastName}`}
           />
           {usersProtyect.length > 0 &&
             usersProtyect.map((user, index) => (
@@ -496,4 +496,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WorkProyectDetailsPage;
+export default WorkProjectDetailsPage;

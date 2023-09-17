@@ -38,7 +38,7 @@ export default function entrepreneurship() {
             );
           })
         ) : (
-          <Text>You don't have any Work Proyect yet</Text>
+          <Text>You don't have any Work Project yet</Text>
         )}
         <Container style={{ flex: 1 }}>
           <Fab

@@ -103,7 +103,7 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
     Dialog.show({
       type: ALERT_TYPE.DANGER,
       title: `${employeeToDelete?.name} ${employeeToDelete?.lastName} was deleted`,
-      textBody: `You are deleted ${employeeToDelete?.name} ${employeeToDelete?.lastName} of the proyect ${currentCompany.title} `,
+      textBody: `You are deleted ${employeeToDelete?.name} ${employeeToDelete?.lastName} of the project ${currentCompany.title} `,
       button: "close",
     });
     let newEmployees: User[] = currentCompany.employees.filter(

@@ -5,7 +5,7 @@ export enum notificationStatus {
 }
 
 export enum notificationType {
-  proReq = "proyectRequest",
+  proReq = "projectRequest",
   jobReq = "jobRequest",
   parRequ = "partnerRequest",
   punctuation = "punctuation",

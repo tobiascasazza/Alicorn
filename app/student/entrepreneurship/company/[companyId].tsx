@@ -4,7 +4,7 @@ import { Stack } from "expo-router";
 import CompanyDetailsPage from "../../../../src/pages/CompanyDetailsPage";
 import { NativeBaseProvider } from "native-base";
 
-const proyect = () => {
+const project = () => {
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -15,4 +15,4 @@ const proyect = () => {
   );
 };
 
-export default proyect;
+export default project;

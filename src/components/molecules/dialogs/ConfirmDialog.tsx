@@ -1,7 +1,7 @@
 import { AlertDialog, Button, Center } from "native-base";
 import React, { useRef } from "react";
 
-interface confirmWorkProyectDialogProps {
+interface confirmWorkProjectDialogProps {
   isOpen: boolean;
   setIsOpen: Function;
   confirmAction: Function;
@@ -9,8 +9,8 @@ interface confirmWorkProyectDialogProps {
   description: string;
 }
 
-const ConfirmWorkProyectDialogProps = (
-  props: confirmWorkProyectDialogProps
+const ConfirmWorkProjectDialogProps = (
+  props: confirmWorkProjectDialogProps
 ) => {
   const onClose = () => props.setIsOpen(false);
 
@@ -47,4 +47,4 @@ const ConfirmWorkProyectDialogProps = (
   );
 };
 
-export default ConfirmWorkProyectDialogProps;
+export default ConfirmWorkProjectDialogProps;

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { View, ScrollView, StyleSheet, Dimensions } from "react-native";
 import { Link, Tabs } from "expo-router";
-import ResumeProyectCard from "../../../src/components/molecules/cards/ResumeProyectCard";
+import ResumeProjectCard from "../../../src/components/molecules/cards/ResumeProjectCard";
 import { Box, Icon, Badge, Text, NativeBaseProvider } from "native-base";
-import proyects from "../../../data/proyectsExample.json";
+import projects from "../../../data/projectsExample.json";
 import { Feather } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "../../../redux/reduxHooks";
 import users from "../../../data/users.json";
@@ -14,13 +14,13 @@ export default function home() {
   const { width } = Dimensions.get("window");
   const dispatch = useAppDispatch();
 
-  const list = proyects;
+  const list = projects;
 
-  const detailLink = (proyect: any) => {
-    if (proyect.proyectType === "Work Project") {
-      return `student/home/workproyectdetail/${proyect.id}`;
+  const detailLink = (project: any) => {
+    if (project.projectType === "Work Project") {
+      return `student/home/workprojectdetail/${project.id}`;
     } else {
-      return `student/home/companydetail/${proyect.id}`;
+      return `student/home/companydetail/${project.id}`;
     }
   };
 
@@ -71,24 +71,24 @@ export default function home() {
         />
         <Box py={2} alignItems={"center"}>
           {list.length > 0 ? (
-            list.map((proyect) => {
+            list.map((project) => {
               return (
-                <React.Fragment key={proyect.proyectName + Math.random()}>
+                <React.Fragment key={project.projectName + Math.random()}>
                   <Box my={"2"} width={width * 0.9}>
-                    <ResumeProyectCard
-                      proyectDetailLink={detailLink(proyect)}
-                      proyectName={proyect.proyectName}
-                      proyectDescription={proyect.proyectDescription}
-                      participants={proyect.participants}
-                      proyectType={proyect.proyectType}
-                      key={proyect.proyectName + Math.random()}
+                    <ResumeProjectCard
+                      projectDetailLink={detailLink(project)}
+                      projectName={project.projectName}
+                      projectDescription={project.projectDescription}
+                      participants={project.participants}
+                      projectType={project.projectType}
+                      key={project.projectName + Math.random()}
                     />
                   </Box>
                 </React.Fragment>
               );
             })
           ) : (
-            <Text>You don't have any proyect yet</Text>
+            <Text>You don't have any project yet</Text>
           )}
         </Box>
       </ScrollView>

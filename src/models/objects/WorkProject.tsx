@@ -1,7 +1,7 @@
 import { Feature } from "./FeatureModel";
 import { User } from "./User";
 
-export interface WorkProyect {
+export interface WorkProject {
   id: number;
   title: string;
   subtitle: string;

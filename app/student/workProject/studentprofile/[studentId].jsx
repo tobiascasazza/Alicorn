@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Stack } from "expo-router";
 import { HStack, Heading, NativeBaseProvider, Spinner } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
-import WorkProyectDetailsPage from "../../../../src/pages/WorkProyectDetailsPage";
+import WorkProjectDetailsPage from "../../../../src/pages/WorkProjectDetailsPage";
 import users from "../../../../data/users.json";
 import { useRoute } from "@react-navigation/native";
 import MyProfile from "../../../../src/pages/Profile";
@@ -26,7 +26,7 @@ const studentProfile = () => {
       <ScrollView>
         <Stack.Screen options={{ headerTitle: "Profile" }} />
         {userProfile ? (
-          <Profile student={userProfile} currentTab="workProyect" />
+          <Profile student={userProfile} currentTab="workProject" />
         ) : (
           <HStack space={2} justifyContent="center">
             <Spinner accessibilityLabel="Loading posts" color="blue.500" />

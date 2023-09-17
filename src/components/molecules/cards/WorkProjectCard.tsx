@@ -1,34 +1,23 @@
-import { StyleSheet, Dimensions, Animated, ViewStyle } from "react-native";
+import { StyleSheet, Dimensions, Animated } from "react-native";
 import React from "react";
-import {
-  Box,
-  HStack,
-  Heading,
-  Stack,
-  Text,
-  Alert,
-  Avatar,
-  VStack,
-} from "native-base";
+import { Box, HStack, Heading, Stack, Text, Alert } from "native-base";
 import FeaturesCard from "../../atoms/smallCards/FeaturesCard";
 import { Feature } from "../../../models/objects/FeatureModel";
 import { AntDesign } from "@expo/vector-icons";
 import { useClipboard } from "native-base";
 import { Link } from "expo-router";
 
-interface CompanyCardProps {
+interface WorkProjectCardProps {
   id: number;
-  logo: String;
   title: String;
-  slogan: String;
+  subtitle: String;
   features: Feature[];
   description: String;
   link?: String;
-  searchCard?: boolean;
 }
 
-const CompanyCard = (props: CompanyCardProps) => {
-  const { onCopy } = useClipboard();
+const WorkProjectCard = (props: WorkProjectCardProps) => {
+  const { width } = Dimensions.get("window");
   const [showAlert, setShowAlert] = React.useState<boolean>(false);
   const [fadeAnim] = React.useState(new Animated.Value(0));
 
@@ -36,10 +25,10 @@ const CompanyCard = (props: CompanyCardProps) => {
 
   return (
     <React.Fragment>
-      <Stack
-        width={"100%"}
+      <Box
+        style={{ width: width * 0.95 }}
+        rounded="lg"
         overflow="hidden"
-        rounded={props.searchCard ? "0" : "lg"}
         borderColor="coolGray.200"
         borderWidth="1"
         _dark={{
@@ -57,35 +46,28 @@ const CompanyCard = (props: CompanyCardProps) => {
         <Stack p="4" space={3}>
           <Stack space={2}>
             <HStack justifyContent={"space-between"}>
-              <HStack>
-                <Avatar
-                  marginRight={0}
-                  source={{
-                    uri: props.logo?.toString(),
-                  }}
-                />
-                <VStack ml={2}>
-                  <Heading size="md">{props.title}</Heading>
-                  <Text
-                    _light={{
-                      color: "grey",
-                    }}
-                    _dark={{
-                      color: "black",
-                    }}
-                    mt="-1"
-                    bold={true}
-                  >
-                    {props.slogan}
-                  </Text>
-                </VStack>
-              </HStack>
-              <Link href={`student/entrepreneurship/company/${props.id}`}>
-                <Text color="pink.500" underline>
+              <Heading size="md" ml="-1">
+                {props.title}
+              </Heading>
+              <Link href={`student/workProyect/project/${props.id}`}>
+                <Text color="blue.500" underline>
                   view detail
                 </Text>
               </Link>
             </HStack>
+            <Text
+              _light={{
+                color: "grey",
+              }}
+              _dark={{
+                color: "black",
+              }}
+              ml="-0.5"
+              mt="-1"
+              bold={true}
+            >
+              {props.subtitle}
+            </Text>
             <FeaturesCard features={props.features} />
             <Box
               pl={2}
@@ -106,7 +88,7 @@ const CompanyCard = (props: CompanyCardProps) => {
             ></Box>
           </Stack>
         </Stack>
-      </Stack>
+      </Box>
     </React.Fragment>
   );
 };
@@ -124,4 +106,4 @@ const styles = StyleSheet.create({
     bottom: 50,
   },
 });
-export default CompanyCard;
+export default WorkProjectCard;

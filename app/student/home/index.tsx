@@ -1,27 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { View, ScrollView, StyleSheet, Dimensions } from "react-native";
-import { Link, Tabs, useRouter } from "expo-router";
-
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ResumeProyectCard from "../../../src/components/molecules/cards/ResumeProyectCard";
-import { Box, NativeBaseProvider, Icon, Badge, Text } from "native-base";
-import proyects from "../../../data/proyectsExample.json";
+import { Link, Tabs } from "expo-router";
+import ResumeProjectCard from "../../../src/components/molecules/cards/ResumeProjectCard";
+import { Box, Icon, Badge, Text, NativeBaseProvider } from "native-base";
+import projects from "../../../data/projectsExample.json";
 import { Feather } from "@expo/vector-icons";
-import { useRoute } from "@react-navigation/native";
+import { useAppDispatch, useAppSelector } from "../../../redux/reduxHooks";
+import users from "../../../data/users.json";
+import { setCurrentUser } from "../../../redux/activeUser";
+import { ResumeProject } from "../../../src/models/objects/ResumeProject";
+import { filterResumeProjectsByUserId } from "../../../utils/globalFunctions";
 
 export default function home() {
   const notificationsCount = 5;
   const { width } = Dimensions.get("window");
+  const dispatch = useAppDispatch();
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
+  const [list, setList] = useState<ResumeProject[]>(
+    filterResumeProjectsByUserId(activeUser.id, projects)
+  );
 
-  const list = proyects;
-
-  const detailLink = (proyect: any) => {
-    if (proyect.proyectType === "Work Project") {
-      return `student/home/workproyectdetail/${proyect.id}`;
+  const detailLink = (project: any) => {
+    if (project.projectType === "Work Project") {
+      return `student/home/workprojectdetail/${project.id}`;
     } else {
-      return `student/home/companydetail/${proyect.id}`;
+      return `student/home/companydetail/${project.id}`;
     }
   };
+  useEffect(() => {
+    if (activeUser) {
+      const filteredProjects = filterResumeProjectsByUserId(
+        activeUser.id,
+        projects
+      );
+      setList(filteredProjects);
+    }
+  }, [activeUser]);
+  useEffect(() => {
+    dispatch(setCurrentUser(users[0]));
+  }, []);
+
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -35,32 +53,30 @@ export default function home() {
                     width: 50,
                   }}
                 >
-                  <NativeBaseProvider>
-                    <Link href="student/home/notifications">
-                      <Box position="relative">
-                        <Icon
-                          as={
-                            <Feather
-                              name="heart"
-                              color="black"
-                              style={style.heartIcon}
-                            />
-                          }
-                        />
-                        {notificationsCount > 0 && (
-                          <Badge
-                            position="absolute"
-                            top={3}
-                            right={3}
-                            bg="pink.500"
-                            borderRadius={15}
-                          >
-                            <Text color="white">{notificationsCount}</Text>
-                          </Badge>
-                        )}
-                      </Box>
-                    </Link>
-                  </NativeBaseProvider>
+                  <Link href="student/home/notifications">
+                    <Box position="relative">
+                      <Icon
+                        as={
+                          <Feather
+                            name="heart"
+                            color="black"
+                            style={style.heartIcon}
+                          />
+                        }
+                      />
+                      {notificationsCount > 0 && (
+                        <Badge
+                          position="absolute"
+                          top={3}
+                          right={3}
+                          bg="pink.500"
+                          borderRadius={15}
+                        >
+                          <Text color="white">{notificationsCount}</Text>
+                        </Badge>
+                      )}
+                    </Box>
+                  </Link>
                 </View>
               );
             },
@@ -68,24 +84,24 @@ export default function home() {
         />
         <Box py={2} alignItems={"center"}>
           {list.length > 0 ? (
-            list.map((proyect) => {
+            list.map((project) => {
               return (
-                <React.Fragment key={proyect.proyectName + Math.random()}>
+                <React.Fragment key={project.projectName + Math.random()}>
                   <Box my={"2"} width={width * 0.9}>
-                    <ResumeProyectCard
-                      proyectDetailLink={detailLink(proyect)}
-                      proyectName={proyect.proyectName}
-                      proyectDescription={proyect.proyectDescription}
-                      participants={proyect.participants}
-                      proyectType={proyect.proyectType}
-                      key={proyect.proyectName + Math.random()}
+                    <ResumeProjectCard
+                      projectDetailLink={detailLink(project)}
+                      projectName={project.projectName}
+                      projectDescription={project.projectDescription}
+                      participants={project.participants}
+                      projectType={project.projectType}
+                      key={project.projectName + Math.random()}
                     />
                   </Box>
                 </React.Fragment>
               );
             })
           ) : (
-            <Text>You don't have any proyect yet</Text>
+            <Text>You don't have any project yet</Text>
           )}
         </Box>
       </ScrollView>

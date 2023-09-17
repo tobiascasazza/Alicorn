@@ -1,14 +1,20 @@
-import { Text, ScrollView } from "react-native";
+import { Text, ScrollView, Dimensions } from "react-native";
 import React from "react";
-import { Box, Container, Fab, Icon, NativeBaseProvider } from "native-base";
+import { Box, Container, Fab, NativeBaseProvider } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { Feature } from "../../../src/models/objects/FeatureModel";
 import CompanyCards from "../../../data/CompanyCards.json";
 import { Link } from "expo-router";
 import CompanyCard from "../../../src/components/molecules/cards/CompanyCard";
+import { useAppSelector } from "../../../redux/reduxHooks";
+import { filterCompaniesByUserId } from "../../../utils/globalFunctions";
 
 export default function entrepreneurship() {
-  const [companyData, setCompanyData] = React.useState(CompanyCards);
+  const { width } = Dimensions.get("window");
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
+  const [companyData, setCompanyData] = React.useState(
+    filterCompaniesByUserId(activeUser.id, CompanyCards)
+  );
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -17,6 +23,8 @@ export default function entrepreneurship() {
             return (
               <React.Fragment key={companyCard.id + Math.random()}>
                 <Box
+                  style={{ width: width * 0.95 }}
+                  alignSelf={"center"}
                   py={2}
                   alignItems={"center"}
                   key={companyCard.id + Math.random()}
@@ -35,7 +43,7 @@ export default function entrepreneurship() {
             );
           })
         ) : (
-          <Text>You don't have any Work Proyect yet</Text>
+          <Text>You don't have any Company yet</Text>
         )}
         <Container style={{ flex: 1 }}>
           <Fab

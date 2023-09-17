@@ -40,6 +40,7 @@ import Accordion from "react-native-collapsible/Accordion";
 import Collapsible from "react-native-collapsible";
 import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
 import StarsRatingView from "../components/atoms/stars/StarsRatingView";
+import { useAppSelector } from "../../redux/reduxHooks";
 type CompanyPageRouteParamList = {
   CompanyPage: {
     companyId: number;
@@ -47,7 +48,7 @@ type CompanyPageRouteParamList = {
 };
 
 const CompanyDetailsPage = (props: { currentTab?: string }) => {
-  const empltyEmployee: User = {
+  const emptyEmployee: User = {
     id: 0,
     features: [],
     name: "",
@@ -56,6 +57,7 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
 
   const { width } = Dimensions.get("window");
   const { onCopy } = useClipboard();
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
   const route = useRoute<RouteProp<CompanyPageRouteParamList, "CompanyPage">>();
   const [fadeAnim] = React.useState(new Animated.Value(0));
   const [editMode, setEditMode] = useState(false);
@@ -63,8 +65,7 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
   const [employeesStarsAvg, setEmployeesStarsAvg] = useState(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isDeleteEmployeeDialog, setIsDeleteEmployeeDialog] = useState(false);
-  const [employeeToDelete, setEmployeeToDelete] =
-    useState<User>(empltyEmployee);
+  const [employeeToDelete, setEmployeeToDelete] = useState<User>(emptyEmployee);
   const [currentCompany, setCurrentCompany] = useState<Company>({
     id: 1,
     title: "",
@@ -101,14 +102,14 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
     Dialog.show({
       type: ALERT_TYPE.DANGER,
       title: `${employeeToDelete?.name} ${employeeToDelete?.lastName} was deleted`,
-      textBody: `You are deleted ${employeeToDelete?.name} ${employeeToDelete?.lastName} of the proyect ${currentCompany.title} `,
+      textBody: `You are deleted ${employeeToDelete?.name} ${employeeToDelete?.lastName} of the project ${currentCompany.title} `,
       button: "close",
     });
     let newEmployees: User[] = currentCompany.employees.filter(
       (user) => user.id !== employeeToDelete.id
     );
     setCurrentCompany({ ...currentCompany, employees: newEmployees });
-    setEmployeeToDelete(empltyEmployee);
+    setEmployeeToDelete(emptyEmployee);
   };
 
   const calculateStarsAvg = () => {
@@ -371,7 +372,11 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
                       <Box ml={2} mr={2} mb={2} key={user.name + index}>
                         <StudentCard
                           student={user}
-                          profileLink={`student/${props.currentTab}/studentprofile/${user.id}`}
+                          profileLink={
+                            activeUser.id !== user.id
+                              ? `student/${props.currentTab}/studentprofile/${user.id}`
+                              : "student/profile"
+                          }
                         />
                       </Box>
                     ))}
@@ -409,7 +414,11 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
                       <Box ml={2} mb={2} key={user.name + index}>
                         <StudentCard
                           student={user}
-                          profileLink={`student/${props.currentTab}/studentprofile/${user.id}`}
+                          profileLink={
+                            activeUser.id !== user.id
+                              ? `student/${props.currentTab}/studentprofile/${user.id}`
+                              : "student/profile"
+                          }
                         />
                         {editMode === true && (
                           <Button

@@ -26,7 +26,7 @@ const studentProfile = () => {
       <ScrollView>
         <Stack.Screen options={{ headerTitle: "Profile" }} />
         {userProfile ? (
-          <Profile student={userProfile} currentTab="entrepreneurship" />
+          <Profile student={userProfile} currentTab="search" />
         ) : (
           <HStack space={2} justifyContent="center">
             <Spinner accessibilityLabel="Loading posts" color="blue.500" />

@@ -2,7 +2,7 @@
   {
     "notificationStatus": "invitationPending",
     "notificationDateTime": "2023-04-30T10:30:00.000Z",
-    "notificationType": "proyectRequest",
+    "notificationType": "projectRequest",
     "user": {
       "id": 2,
       "name": "María",
@@ -156,7 +156,7 @@
   {
     "notificationStatus": "invitationPending",
     "notificationDateTime": "2023-04-25T14:00:00.000Z",
-    "notificationType": "proyectRequest",
+    "notificationType": "projectRequest",
     "user": {
       "id": 112,
       "name": "Edwardo",

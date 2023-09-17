@@ -28,6 +28,10 @@ import {
   getFeaturesValuesByUser,
 } from "../../../utils/globalFunctions";
 import { setUserSearch } from "../../../redux/searchEngine";
+import MultiSlider from "@ptomasroos/react-native-multi-slider";
+import { UserSearch } from "../../../src/models/objects/SearchEngine";
+import { Feature } from "../../../src/models/objects/FeatureModel";
+import ProfileFilterDialog from "../../../src/components/molecules/dialogs/ProfileFilterDialog";
 
 export default function search() {
   const dispatch = useAppDispatch();
@@ -35,7 +39,7 @@ export default function search() {
   const userSearch = useAppSelector((state) => state.searchEngine.userSearch);
   const [resultUsers, setResultUsers] = useState<User[]>([]);
   const [searchProfilesProjects, setSearchProfilesProjects] = useState(false);
-  const [filterSheetIsOpen, setFilterSheetIsOpen] = useState(false);
+  const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false);
   const { width } = Dimensions.get("window");
 
   const cancelRef = useRef(null);
@@ -49,27 +53,10 @@ export default function search() {
     setSearchProfilesProjects(true);
   };
 
-  const openFilters = () => {
-    setFilterSheetIsOpen(true);
-  };
-
-  const onCloseFilterSheet = () => {
-    setFilterSheetIsOpen(false);
-  };
-
-  useEffect(() => {
-    dispatch(
-      setUserSearch({
-        name: "",
-        punctuation: [0, 0],
-        features: [],
-      })
-    );
-  }, []);
-
   useEffect(() => {
     setResultUsers(filterUsersByUserSearch(users, userSearch));
   }, [userSearch]);
+
   return (
     <View>
       <HStack>
@@ -95,7 +82,7 @@ export default function search() {
         <Box
           backgroundColor={"white"}
           w={"10%"}
-          onTouchEnd={() => openFilters()}
+          onTouchEnd={() => setFilterDialogIsOpen(true)}
         >
           <Icon
             alignSelf={"center"}
@@ -158,65 +145,10 @@ export default function search() {
           </Box>
         )}
       </ScrollView>
-      <Center>
-        <AlertDialog
-          leastDestructiveRef={cancelRef}
-          isOpen={filterSheetIsOpen}
-          onClose={() => onCloseFilterSheet}
-        >
-          <AlertDialog.Content>
-            <Box w="100%" px={4} justifyContent="center">
-              <Text
-                fontSize="lg"
-                fontWeight={"bold"}
-                marginTop={"10px"}
-                marginBottom={"10px"}
-                _dark={{
-                  color: "gray.300",
-                }}
-              >
-                Profiles Filters
-              </Text>
-              <HStack justifyContent={"space-between"} marginBottom={"10px"}>
-                <Text>Carrer</Text>
-                <Box w={"70%"}>
-                  <Select w={"100%"}>
-                    {getFeaturesValuesByUser(users, "carrer").map(
-                      (carrer: string, index: number) => {
-                        return (
-                          <Select.Item
-                            label={carrer}
-                            value={carrer}
-                            key={carrer + index}
-                          />
-                        );
-                      }
-                    )}
-                  </Select>
-                </Box>
-              </HStack>
-              <HStack justifyContent={"space-between"} marginBottom={"10px"}>
-                <Text>Year</Text>
-                <Box w={"70%"}>
-                  <Select w={"100%"}>
-                    {getFeaturesValuesByUser(users, "year").map(
-                      (carrer: string, index: number) => {
-                        return (
-                          <Select.Item
-                            label={carrer}
-                            value={carrer}
-                            key={carrer + index}
-                          />
-                        );
-                      }
-                    )}
-                  </Select>
-                </Box>
-              </HStack>
-            </Box>
-          </AlertDialog.Content>
-        </AlertDialog>
-      </Center>
+      <ProfileFilterDialog
+        isOpen={filterDialogIsOpen}
+        setIsOpen={setFilterDialogIsOpen}
+      />
     </View>
   );
 }

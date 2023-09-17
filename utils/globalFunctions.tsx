@@ -64,20 +64,21 @@ export function filterUsersByUserSearch(users: User[], userSearch: UserSearch) {
     const secondFilterByFeatures =
       userSearch.features.length > 0
         ? firstFilterByName.filter((user) => {
-            return user.features.some((userFeature) => {
-              return userSearch.features.some((searchFeature) => {
-                return searchFeature.title === userFeature.title;
+            return userSearch.features.every((searchFeature) => {
+              return user.features.some((userFeature) => {
+                return searchFeature.description === userFeature.description;
               });
             });
           })
         : firstFilterByName;
+
     const thirdFilterByPunctuation =
       userSearch.punctuation[0] !== 0 || userSearch.punctuation[1] !== 0
         ? secondFilterByFeatures.filter(
             (user) =>
               user.punctuation !== undefined &&
               user.punctuation >= userSearch.punctuation[0] &&
-              user.punctuation <= userSearch.punctuation[0]
+              user.punctuation <= userSearch.punctuation[1]
           )
         : secondFilterByFeatures;
 

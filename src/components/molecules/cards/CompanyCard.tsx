@@ -51,7 +51,7 @@ const CompanyCard = (props: CompanyCardProps) => {
           borderWidth: 0,
         }}
         _light={{
-          backgroundColor: "gray.50",
+          backgroundColor: "white",
         }}
       >
         <Stack p="4" space={3}>

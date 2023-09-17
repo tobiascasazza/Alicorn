@@ -17,11 +17,14 @@ export default () => {
                   alignItems={"center"}
                   paddingBottom={"3"}
                   backgroundColor={"white"}
+                  justifyContent={"center"}
                 >
                   <Input
+                    mt={"12"}
+                    alignSelf={"center"}
                     placeholder="Search"
                     variant="outline"
-                    width="100%"
+                    width="95%"
                     height={"10"}
                     borderRadius="10"
                     py="1"

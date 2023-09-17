@@ -5,6 +5,7 @@ import { AlertNotificationRoot } from "react-native-alert-notification";
 import { NativeBaseProvider } from "native-base";
 import { store } from "../../redux/configureStore";
 import { Provider } from "react-redux";
+import { StatusBar } from "react-native";
 
 export default () => {
   return (
@@ -52,7 +53,7 @@ export default () => {
               <Tabs.Screen
                 name="search"
                 options={{
-                  headerTitle: "",
+                  headerShown: false,
                   tabBarIcon: () => {
                     return <Feather name="search" size={24} color="black" />;
                   },

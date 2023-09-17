@@ -49,7 +49,7 @@ const WorkProjectCard = (props: WorkProjectCardProps) => {
               <Heading size="md" ml="-1">
                 {props.title}
               </Heading>
-              <Link href={`student/workProyect/project/${props.id}`}>
+              <Link href={`student/workProject/project/${props.id}`}>
                 <Text color="blue.500" underline>
                   view detail
                 </Text>

@@ -141,7 +141,6 @@ const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
   }, [currentWorkProject]);
 
   useEffect(() => {
-    console.log(route);
     const newCurrentWorkProject = WorkProjectData.filter(
       (project) => project.id == route.params?.projectId
     )[0];

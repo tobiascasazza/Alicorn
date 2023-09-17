@@ -3,8 +3,19 @@ import { Stack } from "expo-router";
 import React from "react";
 import { Box, HStack, Icon, Input } from "native-base";
 import { AntDesign, EvilIcons } from "@expo/vector-icons";
+import { useAppDispatch, useAppSelector } from "../../../redux/reduxHooks";
+import { setUserSearch } from "../../../redux/searchEngine";
 
 export default () => {
+  const currentUserSearch = useAppSelector(
+    (state) => state.searchEngine.userSearch
+  );
+  const dispatch = useAppDispatch();
+
+  const changeName = (e: any) => {
+    dispatch(setUserSearch({ ...currentUserSearch, name: e.nativeEvent.text }));
+  };
+
   return (
     <>
       <Stack>
@@ -22,7 +33,7 @@ export default () => {
                   <Input
                     mt={"12"}
                     alignSelf={"center"}
-                    placeholder="Search"
+                    placeholder="Search for name"
                     variant="outline"
                     width="95%"
                     height={"10"}
@@ -31,6 +42,7 @@ export default () => {
                     px="2"
                     bgColor={"white"}
                     focusOutlineColor={"black"}
+                    onChange={(e) => changeName(e)}
                     InputLeftElement={
                       <Icon
                         ml="2"

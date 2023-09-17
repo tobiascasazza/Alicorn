@@ -12,7 +12,7 @@ export default function profile() {
   return (
     <NativeBaseProvider>
       <ScrollView>
-        <MyProfile student={activeUser} />
+        <MyProfile student={activeUser} currentTab="profile" />
       </ScrollView>
     </NativeBaseProvider>
   );

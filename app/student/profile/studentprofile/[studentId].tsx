@@ -5,22 +5,29 @@ import { HStack, Heading, Spinner } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import WorkProjectDetailsPage from "../../../../src/pages/WorkProjectDetailsPage";
 import users from "../../../../data/users.json";
-import { useRoute } from "@react-navigation/native";
+import { RouteProp, useRoute } from "@react-navigation/native";
 import MyProfile from "../../../../src/pages/Profile";
 import Profile from "../../../../src/pages/Profile";
+import { User } from "../../../../src/models/objects/User";
+
+type StudentRouteProp = RouteProp<
+  { Student: { studentId: string } },
+  "Student"
+>;
 
 const studentProfile = () => {
-  const route = useRoute();
+  const route = useRoute<StudentRouteProp>();
   const [allUsers, setAllUsers] = useState(users);
-  const [userProfile, setUserProfile] = useState();
+  const [userProfile, setUserProfile] = useState<User>();
 
   useEffect(() => {
-    setUserProfile(
-      allUsers.filter(
-        (user) => user.id === Number.parseInt(route.params.studentId)
-      )[0]
-    );
-  }, []);
+    const studentId = route.params?.studentId;
+    if (studentId !== undefined) {
+      setUserProfile(
+        allUsers.filter((user) => user.id === Number.parseInt(studentId))[0]
+      );
+    }
+  }, [allUsers, route.params?.studentId]);
 
   return (
     <ScrollView>

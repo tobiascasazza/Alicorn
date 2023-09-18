@@ -9,32 +9,43 @@ import CompanyCard from "../../src/components/molecules/cards/CompanyCard";
 import StudentCard from "../../src/components/molecules/cards/StudentCard";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxHooks";
 import { User } from "../../src/models/objects/User";
-import { filterUsersByUserSearch } from "../../utils/globalFunctions";
+import {
+  filterCompaniesByCompanySearch,
+  filterUsersByUserSearch,
+} from "../../utils/globalFunctions";
 import ProfileFilterDialog from "../../src/components/molecules/dialogs/ProfileFilterDialog";
+import { Company } from "../models/objects/Company";
+import CompanyFilterDialog from "../components/molecules/dialogs/CompanyFilterDialog";
 
 const SearchPage = () => {
-  const dispatch = useAppDispatch();
   const activeUser = useAppSelector((state) => state.activeUser.currentUser);
   const userSearch = useAppSelector((state) => state.searchEngine.userSearch);
+  const companySearch = useAppSelector(
+    (state) => state.searchEngine.companySearch
+  );
   const [resultUsers, setResultUsers] = useState<User[]>([]);
+  const [resultCompanies, setResultCompanies] = useState<Company[]>([]);
   const [searchProfilesProjects, setSearchProfilesProjects] = useState(false);
   const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false);
   const { width } = Dimensions.get("window");
 
-  const cancelRef = useRef(null);
-
-  const list = companies;
   const searchProfiles = () => {
-    setSearchProfilesProjects(false);
+    setSearchProfilesProjects(true);
   };
 
   const searchProjects = () => {
-    setSearchProfilesProjects(true);
+    setSearchProfilesProjects(false);
   };
 
   useEffect(() => {
     setResultUsers(filterUsersByUserSearch(users, userSearch));
   }, [userSearch]);
+
+  useEffect(() => {
+    setResultCompanies(
+      filterCompaniesByCompanySearch(companies, companySearch)
+    );
+  }, [companySearch]);
   return (
     <View>
       <HStack>
@@ -42,7 +53,7 @@ const SearchPage = () => {
           <Button
             w={"50%"}
             borderRadius={"0"}
-            backgroundColor={searchProfilesProjects ? "blue.300" : "blue.500"}
+            backgroundColor={!searchProfilesProjects ? "blue.300" : "blue.500"}
             borderStyle={"solid"}
             onTouchEnd={() => searchProfiles()}
           >
@@ -51,7 +62,7 @@ const SearchPage = () => {
           <Button
             w={"50%"}
             borderRadius={"0"}
-            backgroundColor={searchProfilesProjects ? "blue.500" : "blue.300"}
+            backgroundColor={!searchProfilesProjects ? "blue.500" : "blue.300"}
             onTouchEnd={() => searchProjects()}
           >
             Projects
@@ -71,10 +82,10 @@ const SearchPage = () => {
         </Box>
       </HStack>
       <ScrollView>
-        {searchProfilesProjects ? (
+        {!searchProfilesProjects ? (
           <Box py={2} alignItems={"center"}>
-            {list.length > 0 ? (
-              list.map((company) => {
+            {resultCompanies.length > 0 ? (
+              resultCompanies.map((company) => {
                 return (
                   <React.Fragment key={company.id + Math.random()}>
                     <Box width={width}>
@@ -125,10 +136,17 @@ const SearchPage = () => {
           </Box>
         )}
       </ScrollView>
-      <ProfileFilterDialog
-        isOpen={filterDialogIsOpen}
-        setIsOpen={setFilterDialogIsOpen}
-      />
+      {searchProfilesProjects ? (
+        <ProfileFilterDialog
+          isOpen={filterDialogIsOpen}
+          setIsOpen={setFilterDialogIsOpen}
+        />
+      ) : (
+        <CompanyFilterDialog
+          isOpen={filterDialogIsOpen}
+          setIsOpen={setFilterDialogIsOpen}
+        />
+      )}
     </View>
   );
 };

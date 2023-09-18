@@ -192,6 +192,10 @@ const Profile = (props: myProfileProps) => {
                 color: "black",
               }}
               bold={true}
+              underline
+              onPress={() => {
+                setSeePunctuationOpen(true);
+              }}
             >
               Opinions
             </Text>
@@ -201,17 +205,6 @@ const Profile = (props: myProfileProps) => {
                 {props.student.punctuation} Stars
               </Text>
             </HStack>
-          </HStack>
-          <HStack alignSelf={"center"}>
-            <Text
-              color="blue.500"
-              underline
-              onPress={() => {
-                setSeePunctuationOpen(true);
-              }}
-            >
-              view detail
-            </Text>
           </HStack>
         </HStack>
         <CardPunctuationListView cards={cardsPunctuationList} />

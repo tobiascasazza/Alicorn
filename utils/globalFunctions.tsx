@@ -19,6 +19,24 @@ export function getFeaturesValuesByUser(users: User[], currentFeature: string) {
   return featureDescriptions.sort((a, b) => a.localeCompare(b));
 }
 
+export function getFeaturesValuesByCompany(
+  companies: Company[],
+  currentFeature: string
+) {
+  const featureSet = new Set<string>();
+
+  companies.forEach((company) => {
+    company.features.forEach((feature) => {
+      if (feature.title.toLowerCase() === currentFeature) {
+        featureSet.add(feature.description);
+      }
+    });
+  });
+
+  const featureDescriptions = Array.from(featureSet);
+  return featureDescriptions.sort((a, b) => a.localeCompare(b));
+}
+
 export function filterCompaniesByUserId(
   studentId: number,
   companies: Company[]

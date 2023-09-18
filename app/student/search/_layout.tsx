@@ -4,16 +4,22 @@ import React from "react";
 import { Box, HStack, Icon, Input } from "native-base";
 import { AntDesign, EvilIcons } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "../../../redux/reduxHooks";
-import { setUserSearch } from "../../../redux/searchEngine";
+import { setCompanySearch, setUserSearch } from "../../../redux/searchEngine";
 
 export default () => {
   const currentUserSearch = useAppSelector(
     (state) => state.searchEngine.userSearch
   );
+  const currentCompanySearch = useAppSelector(
+    (state) => state.searchEngine.companySearch
+  );
   const dispatch = useAppDispatch();
 
   const changeName = (e: any) => {
     dispatch(setUserSearch({ ...currentUserSearch, name: e.nativeEvent.text }));
+    dispatch(
+      setCompanySearch({ ...currentCompanySearch, title: e.nativeEvent.text })
+    );
   };
 
   return (

@@ -42,18 +42,10 @@ const ResumeProjectCard = (props: ResumeProject) => {
       <VStack p="4" space={3} width={"100%"}>
         <VStack space={2}>
           <HStack justifyContent={"space-between"}>
-            <Heading size="md">{props.projectName}</Heading>
-            <Link href={props.projectDetailLink}>
-              <Text
-                color={
-                  props.projectType === "Entrepreneurship"
-                    ? "pink.500"
-                    : "blue.500"
-                }
-                underline
-              >
-                view detail
-              </Text>
+            <Link href={props.projectDetailLink ? props.projectDetailLink : ""}>
+              <Heading underline size="md">
+                {props.projectName}
+              </Heading>
             </Link>
           </HStack>
 

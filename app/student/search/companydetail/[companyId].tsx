@@ -10,7 +10,7 @@ const project = () => {
   return (
     <ScrollView>
       <Stack.Screen options={{ headerTitle: "Company" }} />
-      <CompanyDetailsPage currentTab="profile" />
+      <CompanyDetailsPage currentTab="search" />
     </ScrollView>
   );
 };

@@ -390,6 +390,7 @@ const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
           )}
 
           {IsMyWorkProject &&
+            props.currentTab === "workProject" &&
             (editMode === true ? (
               <React.Fragment>
                 <Container style={{ flex: 2 }}>

@@ -35,6 +35,7 @@ export default function entrepreneurship() {
                     title={companyCard.title}
                     slogan={companyCard.slogan}
                     logo={companyCard.logo}
+                    punctuation={companyCard.punctuation}
                     description={companyCard.description}
                     link={companyCard.link}
                   />

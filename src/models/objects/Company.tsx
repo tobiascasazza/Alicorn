@@ -8,6 +8,7 @@ export interface Company {
   logo: string;
   features: Feature[];
   description: string;
+  punctuation: number;
   link?: string;
   owners: User[];
   employees: User[];

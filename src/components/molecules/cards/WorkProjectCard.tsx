@@ -45,14 +45,11 @@ const WorkProjectCard = (props: WorkProjectCardProps) => {
       >
         <Stack p="4" space={3}>
           <Stack space={2}>
-            <HStack justifyContent={"space-between"}>
-              <Heading size="md" ml="-1">
-                {props.title}
-              </Heading>
-              <Link href={`student/workProyect/project/${props.id}`}>
-                <Text color="blue.500" underline>
-                  view detail
-                </Text>
+            <HStack>
+              <Link href={`student/workProject/project/${props.id}`}>
+                <Heading underline size="md" ml="-1">
+                  {props.title}
+                </Heading>
               </Link>
             </HStack>
             <Text

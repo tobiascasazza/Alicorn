@@ -6,6 +6,7 @@ import {
   Animated,
 } from "react-native";
 import React, { useEffect, useState } from "react";
+import projects from "../../data/projectsExample.json";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   Box,
@@ -36,6 +37,7 @@ import WorkProjectData from "../../data/WorkProjectCards.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { Feature } from "../models/objects/FeatureModel";
 import { useAppSelector } from "../../redux/reduxHooks";
+import { filterResumeProjectsByUserId } from "../../utils/globalFunctions";
 
 type WorkProjectPageRouteParamList = {
   WorkProjectPage: {
@@ -64,6 +66,7 @@ const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
   const [isFinishDialogOpen, setIsFinishDialogOpen] = useState(false);
   const [isDeleteStudentDialog, setIsDeleteStudentDialog] = useState(false);
   const [studentToDelete, setStudentToDelete] = useState<User>(empltyStudent);
+  const [IsMyWorkProject, setIsMyWorkProject] = useState(false);
   const [currentWorkProject, setCurrentWorkProject] = useState<WorkProject>({
     id: 1,
     title: "",
@@ -137,11 +140,16 @@ const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
     currentWorkProject.title != "" &&
       setUsersProtyect(currentWorkProject.students);
 
+    setIsMyWorkProject(
+      filterResumeProjectsByUserId(activeUser.id, projects).some(
+        (project) => project.id === currentWorkProject.id
+      )
+    );
+
     currentWorkProject.title != "" ? setIsLoading(false) : setIsLoading(true);
   }, [currentWorkProject]);
 
   useEffect(() => {
-    console.log(route);
     const newCurrentWorkProject = WorkProjectData.filter(
       (project) => project.id == route.params?.projectId
     )[0];
@@ -381,33 +389,9 @@ const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
             </Box>
           )}
 
-          {editMode === true ? (
-            <React.Fragment>
-              <Container style={{ flex: 2 }}>
-                <HStack justifyContent="space-between">
-                  <Fab
-                    onPressOut={() => changePageMode()}
-                    position="absolute"
-                    mr={16}
-                    bg="red.500"
-                    w={9}
-                    h={9}
-                    textAlign={"center"}
-                    icon={
-                      <Icon as={Entypo} name="cross" size="md" color="white" />
-                    }
-                  />
-                  <Fab
-                    onPressOut={() => changePageMode()}
-                    position="absolute"
-                    bg="blue.500"
-                    icon={<AntDesign name="check" size={24} color="white" />}
-                  />
-                </HStack>
-              </Container>
-            </React.Fragment>
-          ) : (
-            projectState !== "Finished" && (
+          {IsMyWorkProject &&
+            props.currentTab === "workProject" &&
+            (editMode === true ? (
               <React.Fragment>
                 <Container style={{ flex: 2 }}>
                   <HStack justifyContent="space-between">
@@ -415,37 +399,68 @@ const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
                       onPressOut={() => changePageMode()}
                       position="absolute"
                       mr={16}
-                      bg="blue.500"
+                      bg="red.500"
                       w={9}
                       h={9}
                       textAlign={"center"}
                       icon={
                         <Icon
-                          as={Ionicons}
-                          name="ios-pencil"
+                          as={Entypo}
+                          name="cross"
                           size="md"
                           color="white"
                         />
                       }
                     />
                     <Fab
-                      onPressOut={() => dialogFinishProject()}
+                      onPressOut={() => changePageMode()}
                       position="absolute"
-                      bg="green.600"
-                      icon={
-                        <Icon
-                          as={MaterialCommunityIcons}
-                          name="file-certificate"
-                          size="lg"
-                          color="white"
-                        />
-                      }
+                      bg="blue.500"
+                      icon={<AntDesign name="check" size={24} color="white" />}
                     />
                   </HStack>
                 </Container>
               </React.Fragment>
-            )
-          )}
+            ) : (
+              projectState !== "Finished" && (
+                <React.Fragment>
+                  <Container style={{ flex: 2 }}>
+                    <HStack justifyContent="space-between">
+                      <Fab
+                        onPressOut={() => changePageMode()}
+                        position="absolute"
+                        mr={16}
+                        bg="blue.500"
+                        w={9}
+                        h={9}
+                        textAlign={"center"}
+                        icon={
+                          <Icon
+                            as={Ionicons}
+                            name="ios-pencil"
+                            size="md"
+                            color="white"
+                          />
+                        }
+                      />
+                      <Fab
+                        onPressOut={() => dialogFinishProject()}
+                        position="absolute"
+                        bg="green.600"
+                        icon={
+                          <Icon
+                            as={MaterialCommunityIcons}
+                            name="file-certificate"
+                            size="lg"
+                            color="white"
+                          />
+                        }
+                      />
+                    </HStack>
+                  </Container>
+                </React.Fragment>
+              )
+            ))}
           <ConfirmDialog
             isOpen={isFinishDialogOpen}
             setIsOpen={setIsFinishDialogOpen}

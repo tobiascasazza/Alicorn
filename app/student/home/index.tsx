@@ -89,6 +89,7 @@ export default function home() {
                 <React.Fragment key={project.projectName + Math.random()}>
                   <Box my={"2"} width={width * 0.9}>
                     <ResumeProjectCard
+                      id={project.id}
                       projectDetailLink={detailLink(project)}
                       projectName={project.projectName}
                       projectDescription={project.projectDescription}

@@ -15,6 +15,7 @@ import { Feature } from "../../../models/objects/FeatureModel";
 import { AntDesign } from "@expo/vector-icons";
 import { useClipboard } from "native-base";
 import { Link } from "expo-router";
+import StarsRatingView from "../../atoms/stars/StarsRatingView";
 
 interface CompanyCardProps {
   id: number;
@@ -23,8 +24,10 @@ interface CompanyCardProps {
   slogan: String;
   features: Feature[];
   description: String;
+  punctuation: number;
   link?: String;
   searchCard?: boolean;
+  currentTab?: String;
 }
 
 const CompanyCard = (props: CompanyCardProps) => {
@@ -65,7 +68,16 @@ const CompanyCard = (props: CompanyCardProps) => {
                   }}
                 />
                 <VStack ml={2}>
-                  <Heading size="md">{props.title}</Heading>
+                  <Link
+                    href={`student/${
+                      props.currentTab ? props.currentTab : "entrepreneurship"
+                    }/companydetail/${props.id}`}
+                  >
+                    <Heading underline size="md">
+                      {props.title}
+                    </Heading>
+                  </Link>
+
                   <Text
                     _light={{
                       color: "grey",
@@ -80,11 +92,10 @@ const CompanyCard = (props: CompanyCardProps) => {
                   </Text>
                 </VStack>
               </HStack>
-              <Link href={`student/entrepreneurship/company/${props.id}`}>
-                <Text color="pink.500" underline>
-                  view detail
-                </Text>
-              </Link>
+              <HStack textAlign={"right"}>
+                <StarsRatingView value={props.punctuation} />
+                <Text>{props.punctuation}</Text>
+              </HStack>
             </HStack>
             <FeaturesCard features={props.features} />
             <Box

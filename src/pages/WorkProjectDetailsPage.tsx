@@ -328,7 +328,7 @@ const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
                       Link:{" "}
                     </Text>
                     <Input
-                      defaultValue="http://localhost:19000/student/workProyect/project/1"
+                      defaultValue="http://localhost:19000/student/workProject/project/1"
                       w={"90%"}
                       m="1"
                       fontSize="xs"

@@ -9,7 +9,7 @@ const project = () => {
   return (
     <ScrollView>
       <Stack.Screen options={{ headerTitle: "Work Project" }} />
-      <WorkProjectDetailsPage currentTab="profile" />
+      <WorkProjectDetailsPage currentTab="search" />
     </ScrollView>
   );
 };

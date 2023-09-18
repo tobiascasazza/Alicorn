@@ -15,6 +15,7 @@ import {
   Link,
 } from "native-base";
 import StarsRatingView from "../components/atoms/stars/StarsRatingView";
+import projects from "../../data/projectsExample.json";
 import CardPunctuationList from "../components/atoms/lists/CardPunctuationList";
 import CardPunctuationListView from "../components/atoms/lists/CardPunctuationListView";
 import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
@@ -31,6 +32,7 @@ import {
   filterCompaniesByUserId,
   filterResumeProjectsByUserId,
 } from "../../utils/globalFunctions";
+import { useAppSelector } from "../../redux/reduxHooks";
 
 interface myProfileProps {
   student: User;
@@ -39,6 +41,7 @@ interface myProfileProps {
 
 const Profile = (props: myProfileProps) => {
   const { width } = Dimensions.get("window");
+  const activeUser = useAppSelector((state) => state.activeUser.currentUser);
   const [companyData, setCompanyData] = useState(
     filterResumeProjectsByUserId(
       props.student.id,
@@ -55,6 +58,8 @@ const Profile = (props: myProfileProps) => {
   );
   const [seePunctuationOpen, setSeePunctuationOpen] = useState(false);
   const [studentOpinions, setStudentOpinions] = useState<Opinion[]>([]);
+  const [isMe, setIsMe] = useState(activeUser.id === props.student.id);
+  const [isMyContact, setIsMyContact] = useState(false);
 
   const [cardsPunctuationList, setCardsPunctuationList] = useState<
     PunctuationCardData[]
@@ -66,6 +71,19 @@ const Profile = (props: myProfileProps) => {
     { id: 5, title: "Irresponsible", type: "bad", number: 0 },
     { id: 6, title: "Superb", type: "bad", number: 0 },
   ]);
+
+  const compareIsMyContact = () => {
+    const myProjects = filterResumeProjectsByUserId(activeUser.id, projects);
+    const profileProjects = filterResumeProjectsByUserId(
+      props.student.id,
+      projects
+    );
+    return myProjects.some((myProject) =>
+      profileProjects.some(
+        (profileProject) => myProject.id === profileProject.id
+      )
+    );
+  };
 
   useEffect(() => {
     setCardsPunctuationList(
@@ -83,6 +101,7 @@ const Profile = (props: myProfileProps) => {
     setStudentOpinions(
       opinions.filter((opinion) => opinion.userId === props.student.id)
     );
+    setIsMyContact(compareIsMyContact());
   }, []);
 
   return (
@@ -117,6 +136,16 @@ const Profile = (props: myProfileProps) => {
           >
             {props.student.title}
           </Text>
+          {!isMe && (
+            <HStack>
+              <Button size={"xs"} colorScheme={"blue"}>
+                Work Project request
+              </Button>
+              <Button size={"xs"} colorScheme={"blue"} ml={"2%"}>
+                Company request
+              </Button>
+            </HStack>
+          )}
         </VStack>
       </HStack>
       <Box
@@ -128,7 +157,7 @@ const Profile = (props: myProfileProps) => {
       >
         <ContactCard
           features={props.student.contactData ? props.student.contactData : []}
-          myContactData={true}
+          myContactData={isMyContact}
         />
       </Box>
       <Box

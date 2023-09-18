@@ -6,7 +6,7 @@ import {
   Animated,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
+import projects from "../../data/projectsExample.json";
 import {
   Box,
   HStack,
@@ -41,6 +41,7 @@ import Collapsible from "react-native-collapsible";
 import AlicornCollapsible from "../components/molecules/collapsible/AlicornCollapsible";
 import StarsRatingView from "../components/atoms/stars/StarsRatingView";
 import { useAppSelector } from "../../redux/reduxHooks";
+import { filterResumeProjectsByUserId } from "../../utils/globalFunctions";
 type CompanyPageRouteParamList = {
   CompanyPage: {
     companyId: number;
@@ -66,6 +67,7 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isDeleteEmployeeDialog, setIsDeleteEmployeeDialog] = useState(false);
   const [employeeToDelete, setEmployeeToDelete] = useState<User>(emptyEmployee);
+  const [isMyCompany, setIsMyCompany] = useState(false);
   const [currentCompany, setCurrentCompany] = useState<Company>({
     id: 1,
     title: "",
@@ -74,6 +76,7 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
     description: "",
     features: [],
     owners: [],
+    punctuation: 0,
     employees: [],
     link: "",
   });
@@ -145,18 +148,24 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
   };
 
   useEffect(() => {
+    if (currentCompany.title) {
+      currentCompany.title != "" ? setIsLoading(false) : setIsLoading(true);
+      calculateStarsAvg();
+      setIsMyCompany(
+        filterResumeProjectsByUserId(activeUser.id, projects).some(
+          (project) => project.id === currentCompany.id
+        )
+      );
+    }
+  }, [currentCompany]);
+
+  useEffect(() => {
     const newCurrentCompany = CompanyData.filter(
       (company) => company.id == route.params?.companyId
     )[0];
     setCurrentCompany(newCurrentCompany);
   }, []);
 
-  useEffect(() => {
-    if (currentCompany.title) {
-      currentCompany.title != "" ? setIsLoading(false) : setIsLoading(true);
-      calculateStarsAvg();
-    }
-  }, [currentCompany]);
   return (
     <ScrollView>
       {isLoading ? (
@@ -452,53 +461,59 @@ const CompanyDetailsPage = (props: { currentTab?: string }) => {
             </Box>
           </Box>
 
-          {editMode === true ? (
-            <React.Fragment>
-              <Container style={{ flex: 2 }}>
-                <HStack justifyContent="space-between">
-                  <Fab
-                    onPressOut={() => changePageMode()}
-                    position="absolute"
-                    mr={16}
-                    bg="red.500"
-                    w={9}
-                    h={9}
-                    textAlign={"center"}
-                    icon={
-                      <Icon as={Entypo} name="cross" size="md" color="white" />
-                    }
-                  />
-                  <Fab
-                    onPressOut={() => changePageMode()}
-                    position="absolute"
-                    bg="blue.500"
-                    icon={<AntDesign name="check" size={24} color="white" />}
-                  />
-                </HStack>
-              </Container>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <Container style={{ flex: 2 }}>
-                <HStack justifyContent="space-between">
-                  <Fab
-                    onPressOut={() => changePageMode()}
-                    position="absolute"
-                    bg="pink.500"
-                    textAlign={"center"}
-                    icon={
-                      <Icon
-                        as={Ionicons}
-                        name="ios-settings-outline"
-                        size="lg"
-                        color="white"
-                      />
-                    }
-                  />
-                </HStack>
-              </Container>
-            </React.Fragment>
-          )}
+          {isMyCompany &&
+            (editMode === true ? (
+              <React.Fragment>
+                <Container style={{ flex: 2 }}>
+                  <HStack justifyContent="space-between">
+                    <Fab
+                      onPressOut={() => changePageMode()}
+                      position="absolute"
+                      mr={16}
+                      bg="red.500"
+                      w={9}
+                      h={9}
+                      textAlign={"center"}
+                      icon={
+                        <Icon
+                          as={Entypo}
+                          name="cross"
+                          size="md"
+                          color="white"
+                        />
+                      }
+                    />
+                    <Fab
+                      onPressOut={() => changePageMode()}
+                      position="absolute"
+                      bg="blue.500"
+                      icon={<AntDesign name="check" size={24} color="white" />}
+                    />
+                  </HStack>
+                </Container>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <Container style={{ flex: 2 }}>
+                  <HStack justifyContent="space-between">
+                    <Fab
+                      onPressOut={() => changePageMode()}
+                      position="absolute"
+                      bg="pink.500"
+                      textAlign={"center"}
+                      icon={
+                        <Icon
+                          as={Ionicons}
+                          name="ios-settings-outline"
+                          size="lg"
+                          color="white"
+                        />
+                      }
+                    />
+                  </HStack>
+                </Container>
+              </React.Fragment>
+            ))}
         </>
       )}
       <ConfirmDialog

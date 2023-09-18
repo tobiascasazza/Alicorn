@@ -46,10 +46,11 @@ const WorkProjectCard = (props: WorkProjectCardProps) => {
         <Stack p="4" space={3}>
           <Stack space={2}>
             <HStack>
-              <Link href={`student/workProject/project/${props.id}`}></Link>
-              <Heading underline size="md" ml="-1">
-                {props.title}
-              </Heading>
+              <Link href={`student/workProject/project/${props.id}`}>
+                <Heading underline size="md" ml="-1">
+                  {props.title}
+                </Heading>
+              </Link>
             </HStack>
             <Text
               _light={{

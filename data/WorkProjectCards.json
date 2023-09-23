@@ -4,8 +4,8 @@
     "title": "Server Administration",
     "subtitle": "Create servers and mantain it for 4 month",
     "features": [
-      { "title": "Subject", "description": "Infraestructure II" },
-      { "title": "Theme", "description": "Server Mantain", "editable": true },
+      { "title": "Subject", "description": "Infrastructure II" },
+      { "title": "Theme", "description": "Server Maintain", "editable": true },
       { "title": "Participants", "description": "3" },
       { "title": "State", "description": "In progress", "editable": true },
       { "title": "Start date", "description": "2022-01-01", "editable": true },

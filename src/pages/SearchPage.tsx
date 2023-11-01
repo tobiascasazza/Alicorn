@@ -25,7 +25,7 @@ const SearchPage = () => {
   );
   const [resultUsers, setResultUsers] = useState<User[]>([]);
   const [resultCompanies, setResultCompanies] = useState<Company[]>([]);
-  const [searchProfilesProjects, setSearchProfilesProjects] = useState(false);
+  const [searchProfilesProjects, setSearchProfilesProjects] = useState(true);
   const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false);
   const { width } = Dimensions.get("window");
 

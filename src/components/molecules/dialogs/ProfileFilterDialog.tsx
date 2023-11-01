@@ -90,24 +90,24 @@ const ProfileFilterDialog = (props: ProfileFilterDialogProps) => {
               Profiles Filters
             </Text>
             <HStack justifyContent={"space-between"} marginBottom={"10px"}>
-              <Text>Carrer</Text>
+              <Text>Career</Text>
               <Box w={"70%"}>
                 <Select
                   w={"100%"}
-                  onValueChange={(e) => handleAddOrUpdateFeature("Carrer", e)}
+                  onValueChange={(e) => handleAddOrUpdateFeature("Career", e)}
                   selectedValue={
                     userSearchTemp.features.find(
-                      (feature) => feature.title === "Carrer"
+                      (feature) => feature.title === "Career"
                     )?.description
                   }
                 >
-                  {getFeaturesValuesByUser(users, "carrer").map(
-                    (carrer: string, index: number) => {
+                  {getFeaturesValuesByUser(users, "career").map(
+                    (career: string, index: number) => {
                       return (
                         <Select.Item
-                          label={carrer}
-                          value={carrer}
-                          key={carrer + index}
+                          label={career}
+                          value={career}
+                          key={career + index}
                         />
                       );
                     }
@@ -128,12 +128,12 @@ const ProfileFilterDialog = (props: ProfileFilterDialogProps) => {
                   }
                 >
                   {getFeaturesValuesByUser(users, "year").map(
-                    (carrer: string, index: number) => {
+                    (career: string, index: number) => {
                       return (
                         <Select.Item
-                          label={carrer}
-                          value={carrer}
-                          key={carrer + index}
+                          label={career}
+                          value={career}
+                          key={career + index}
                         />
                       );
                     }

@@ -10,7 +10,7 @@
     "photo": "https://media.licdn.com/dms/image/C4E03AQEq5-mGNAIzSA/profile-displayphoto-shrink_400_400/0/1588952156485?e=1698883200&v=beta&t=lHSNnNAP9sJnNpTZltqBA816We--hb_Zr_OIaq04c3Y",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Computer Science"
       },
       {
@@ -48,7 +48,7 @@
     "photo": "https://randomuser.me/api/portraits/women/2.jpg",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Electrical Engineering"
       },
       {
@@ -86,7 +86,7 @@
     "photo": "https://randomuser.me/api/portraits/men/4.jpg",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Mechanical Engineering"
       },
       {
@@ -124,7 +124,7 @@
     "photo": "data:image/jpeg;base64,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",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Computer Science"
       },
       {
@@ -162,7 +162,7 @@
     "photo": "data:image/jpeg;base64,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",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Finance"
       },
       {
@@ -200,7 +200,7 @@
     "photo": "https://randomuser.me/api/portraits/men/3.jpg",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Computer Science"
       },
       {
@@ -238,7 +238,7 @@
     "photo": "https://randomuser.me/api/portraits/men/4.jpg",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Literature & History"
       },
       {
@@ -276,7 +276,7 @@
     "photo": "https://randomuser.me/api/portraits/men/5.jpg",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Computer Science"
       },
       {
@@ -314,7 +314,7 @@
     "resume": "Visionary entrepreneur and co-founder of Apple Inc. Instrumental in the development of personal computing and consumer electronics.",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Computer Science"
       },
       {
@@ -352,7 +352,7 @@
     "resume": "Inventor, engineer, and co-founder of Apple Inc. Played a key role in the design of Apple's first line of products.",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Computer Science"
       },
       {
@@ -390,7 +390,7 @@
     "resume": "Co-founder of Apple Inc., but left the company shortly after its inception. His decision to sell his shares for a small payout is often regarded as one of the biggest missed opportunities in business history.",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Engineering"
       },
       {
@@ -428,7 +428,7 @@
     "resume": "An early investor in Apple Inc. and its second CEO. Played a crucial role in the company's early development and growth.",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Business & Marketing"
       },
       {
@@ -466,7 +466,7 @@
     "resume": "One of the first employees of Apple Inc. and an early collaborator with Steve Jobs and Steve Wozniak. Contributed to the design of the Apple I and Apple II computers.",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Engineering"
       },
       {
@@ -504,7 +504,7 @@
     "resume": "Co-founder of Nike Inc., a global sportswear and footwear company. Instrumental in establishing the brand and its iconic logo.",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Administration"
       },
       {
@@ -542,7 +542,7 @@
     "resume": "Renowned track and field coach and co-founder of Nike Inc. Known for innovative contributions to sports footwear, including the creation of the waffle sole.",
     "features": [
       {
-        "title": "Carrer",
+        "title": "Career",
         "description": "Physical Trainer"
       },
       {

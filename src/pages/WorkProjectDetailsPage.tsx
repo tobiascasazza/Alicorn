@@ -484,14 +484,19 @@ const WorkProjectDetailsPage = (props: { currentTab?: string }) => {
             description={`Are you sure that you want delete the next student of this project?: ${studentToDelete?.name} ${studentToDelete?.lastName}`}
           />
           {usersProtyect.length > 0 &&
-            usersProtyect.map((user, index) => (
-              <AddPunctuationDialog
-                isOpen={punctuationCard}
-                setIsOpen={setPunctuationCard}
-                student={user}
-                key={user.id + index}
-              />
-            ))}
+            usersProtyect.map((user, index) => {
+              if (user.id !== activeUser.id) {
+                return (
+                  <React.Fragment key={user.id + index}>
+                    <AddPunctuationDialog
+                      isOpen={punctuationCard}
+                      setIsOpen={setPunctuationCard}
+                      student={user}
+                    />
+                  </React.Fragment>
+                );
+              }
+            })}
         </>
       )}
     </ScrollView>

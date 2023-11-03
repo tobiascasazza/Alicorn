@@ -47,7 +47,7 @@ const SearchPage = () => {
     );
   }, [companySearch]);
   return (
-    <View>
+    <ScrollView>
       <HStack>
         <HStack w={"90%"}>
           <Button
@@ -83,7 +83,7 @@ const SearchPage = () => {
       </HStack>
       <ScrollView>
         {!searchProfilesProjects ? (
-          <Box py={2} alignItems={"center"}>
+          <Box pt={2} pb={4} alignItems={"center"}>
             {resultCompanies.length > 0 ? (
               resultCompanies.map((company) => {
                 return (
@@ -111,7 +111,7 @@ const SearchPage = () => {
             )}
           </Box>
         ) : (
-          <Box py={2} alignItems={"center"}>
+          <Box pt={2} pb={4} alignItems={"center"}>
             {resultUsers.length > 0 ? (
               resultUsers.map((user) => {
                 return (
@@ -147,7 +147,7 @@ const SearchPage = () => {
           setIsOpen={setFilterDialogIsOpen}
         />
       )}
-    </View>
+    </ScrollView>
   );
 };
 

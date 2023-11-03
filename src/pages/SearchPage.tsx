@@ -47,7 +47,7 @@ const SearchPage = () => {
     );
   }, [companySearch]);
   return (
-    <ScrollView>
+    <View>
       <HStack>
         <HStack w={"90%"}>
           <Button
@@ -147,7 +147,7 @@ const SearchPage = () => {
           setIsOpen={setFilterDialogIsOpen}
         />
       )}
-    </ScrollView>
+    </View>
   );
 };
 

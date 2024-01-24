@@ -10,12 +10,28 @@
       "resizeMode": "contain"
     },
     "scheme": "acme",
-    "web": { "bundler": "metro", "userInterfaceStyle": "automatic" },
-    "ios": {
+    "web": {
+      "bundler": "metro",
       "userInterfaceStyle": "automatic"
     },
+    "ios": {
+      "userInterfaceStyle": "automatic",
+      "bundleIdentifier": "com.tobiascasazza.alicorntest"
+    },
     "android": {
-      "userInterfaceStyle": "automatic"
+      "userInterfaceStyle": "automatic",
+      "package": "com.tobiascasazza.alicorntest"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ad2b7524-466e-4698-aa03-34627ff4c9b3"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/ad2b7524-466e-4698-aa03-34627ff4c9b3"
     }
   }
 }

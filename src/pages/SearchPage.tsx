@@ -1,6 +1,5 @@
-import { View, Dimensions } from "react-native";
+import { View, Dimensions, ScrollView } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
-import { ScrollView } from "react-native-gesture-handler";
 import companies from "../../data/CompanyCards.json";
 import users from "../../data/users.json";
 import { AntDesign } from "@expo/vector-icons";

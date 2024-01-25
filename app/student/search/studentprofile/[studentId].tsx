@@ -8,6 +8,7 @@ import users from "../../../../data/users.json";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import MyProfile from "../../../../src/pages/Profile";
 import Profile from "../../../../src/pages/Profile";
+import { User } from "../../../../src/models/objects/User";
 
 type StudentRouteProp = RouteProp<
   { Student: { studentId: string } },

@@ -50,7 +50,7 @@ export default function entrepreneurship() {
           <Fab
             position="absolute"
             bg="blue.500"
-            icon={<Ionicons name="ios-add" size={24} color="white" />}
+            icon={<Ionicons name="add" size={24} color="white" />}
           />
         </Container>
       </ScrollView>

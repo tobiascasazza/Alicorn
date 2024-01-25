@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Container, Card, Text, Button } from "native-base";
+import { PunctuationCardData } from "../../../models/objects/PunctuationCardData";
 
 interface CardPunctuationListProps {
   punctuationType: number;

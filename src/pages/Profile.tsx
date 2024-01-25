@@ -33,6 +33,7 @@ import {
   filterResumeProjectsByUserId,
 } from "../../utils/globalFunctions";
 import { useAppSelector } from "../../redux/reduxHooks";
+import { PunctuationCardData } from "../models/objects/PunctuationCardData";
 
 interface myProfileProps {
   student: User;

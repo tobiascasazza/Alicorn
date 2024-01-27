@@ -14,7 +14,6 @@
     "babel-preset-expo": "^10.0.0",
     "expo": "^50.0.2",
     "expo-constants": "~15.4.5",
-    "expo-dev-client": "^3.3.7",
     "expo-linking": "~6.2.2",
     "expo-router": "~3.4.5",
     "expo-splash-screen": "~0.26.4",

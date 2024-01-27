@@ -27,11 +27,12 @@
         "projectId": "ad2b7524-466e-4698-aa03-34627ff4c9b3"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://u.expo.dev/ad2b7524-466e-4698-aa03-34627ff4c9b3"
+      "url": "https://u.expo.dev/ad2b7524-466e-4698-aa03-34627ff4c9b3",
+      "requestHeaders": {
+        "expo-channel-name": "preview"
+      }
     }
   }
 }

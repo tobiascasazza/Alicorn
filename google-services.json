@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "567322774659",
+    "project_id": "alicorn-font",
+    "storage_bucket": "alicorn-font.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567322774659:android:b733c262dc2bbb58559fb6",
+        "android_client_info": {
+          "package_name": "com.tobiascasazza.alicorn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwLXuhPD0Ujv1fKRPLxSxuOcGRxagJy7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

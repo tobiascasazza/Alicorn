@@ -1,7 +1,6 @@
 {
   "expo": {
     "name": "Alicorn",
-    "title": "Alicorn",
     "slug": "alicorn-test",
     "description": "University app for work projects and entrepreneurship relationships",
     "version": "1.0.0",
@@ -17,13 +16,11 @@
     },
     "ios": {
       "userInterfaceStyle": "automatic",
-      "bundleIdentifier": "com.tobiascasazza.alicorntest",
-      "appStoreUrl": ""
+      "bundleIdentifier": "com.tobiascasazza.alicorntest"
     },
     "android": {
       "userInterfaceStyle": "automatic",
-      "package": "com.tobiascasazza.alicorntest",
-      "playStoreUrl": ""
+      "package": "com.tobiascasazza.alicorntest"
     },
     "extra": {
       "eas": {
